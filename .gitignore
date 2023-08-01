@@ -1,4 +1,10 @@
 # add whatever is missing
 node_modules/
+frontend/node_modules/
 package-lock.json
 backend/config/env.config.js
+backend/config/db.config.js
+logs/
+cache/
+build/
+.env
