@@ -1,0 +1,4 @@
+# add whatever is missing
+node_modules/
+package-lock.json
+backend/config/env.config.js
