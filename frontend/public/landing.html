@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Bucket List</title>
+    <link rel="stylesheet" href="/frontend/src/styles/main.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <button id="loginBtn">Login/Register</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to the Travel Bucket List Application</h1>
+        <p>
+            As a travel enthusiast, use this application to create and manage your dream travel destinations in a user-friendly and organized manner.
+            Add new destinations to your bucket list, mark them as visited, leave notes about your experiences, and visualize the locations on an interactive map.
+            Dont forget to share your memories !!! 
+        </p>
+        <div class="cta-container">
+            <a href="#registerModal" class="cta-btn">Get Started</a>
+        </div>
+    </main>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>Create Account</h2>
+            <form>
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <input type="file" accept="image/*">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
