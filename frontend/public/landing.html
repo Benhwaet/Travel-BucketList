@@ -11,8 +11,8 @@
 <body>
     <header>
         <nav>
-            <div>
-                <button id="loginBtn">Login/Register</button>
+            <div class="nav-items">
+                <button id="loginBtn">Login</button>
             </div>
         </nav>
     </header>
@@ -25,7 +25,7 @@
             Dont forget to share your memories !!! 
         </p>
         <div class="cta-container">
-            <a href="#registerModal" class="cta-btn">Get Started</a>
+            <button id="registerBtn">Sign Up</button>
         </div>
     </main>
 
@@ -33,17 +33,17 @@
         <div class="modal-content">
             <span class="close" id="closeBtn">&times;</span>
             <h2>Create Account</h2>
-            <form>
+            <form id="registrationForm">
                 <input type="email" placeholder="Email">
                 <input type="text" placeholder="Username">
                 <input type="password" placeholder="Password">
                 <input type="file" accept="image/*">
-                <button type="submit">Register</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <script src="/frontend/src/app.js"></script>
 </body>
 
 </html>
