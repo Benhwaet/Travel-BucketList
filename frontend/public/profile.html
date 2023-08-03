@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
+  <!-- smart-webcomponemt css to be used with carousel element, to be overwritten by main.css -->
+  <link rel="stylesheet" type="text/css" href="../../node_modules/smart-webcomponents/source/styles/smart.default.css"/>
   <link rel="stylesheet" href="/frontend/src/styles/main.css">
 </head>
+
 <body>
-  
     <header>
-        <nav>
           <div class="search-bar">
             <input type="text" placeholder="Search for destinations">
             <!-- Add search button here if needed -->
@@ -24,8 +25,11 @@
           <div class="logout-btn">
             <button id="logoutBtn">Logout</button>
           </div>
-        </nav>
       </header>
+
+      <nav class="smart-carousel-item-container" style="display: flex; justify-content:center; margin-top: 30px;">
+        <smart-carousel id="carousel"  style="width: 70%" display-mode="multiple"></smart-carousel>
+      </nav>
 
   <!-- destinations images , map , flights/hotels -->
   <main>
@@ -38,6 +42,10 @@
   </footer>
 
   <!-- Add more scripts here if needed -->
+  <!-- smart-webcomponent npm package files to implement carousel display of bucket list destinations -->
+  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
+  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
+  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="/frontend/src/profile.js"></script>
 </body>
 </html>
