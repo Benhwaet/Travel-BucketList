@@ -1,34 +1,50 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const dbConfig = require('./config/db.config');
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize(dbConfig.production);
 
-//  user data 
+// Load models
+const JournalEntry = require('./models/journalEntry');
+const TravelDestination = require('./models/travelDestination');
+const User = require('./models/User');
 
+// Sync models with the database
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('Database synced successfully.');
+  })
+  .catch((err) => {
+    console.error('Error syncing the database:', err);
+  });
+
+// Middleware
 app.use(express.json());
 
 // Include the authRoutes.js middleware
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
-// leaving this section as a place holder till its set up
+// Include the journalRoutes.js middleware
+const journalRoutes = require('./routes/journalRoutes');
+app.use('/api/journals', journalRoutes);
 
-// ... other routes and middleware ** dunno if this is right **
-// const Routes1 = require('./routes/Routes1');
-// const Routes2 = require('./routes/Routes2');
-// ... add more routes as needed
+// Include the travelDestinationRoutes.js middleware
+const travelDestinationRoutes = require('./routes/travelDestinationRoutes');
+app.use('/api/travelDestinations', travelDestinationRoutes);
 
 // Use the routes
-// app.use('/api/other1', Routes1);
+app.use('/api/other1', Routes1);
 // app.use('/api/other2', Routes2);
 // ... use other routes as needed
 
-// middleware for error , respond with a generic "Internal server error" message if found
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).json({ error: 'Internal server error' });
-// });
+// Middleware for error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
+});
 
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
