@@ -159,11 +159,6 @@ button {
   margin-right: 10px;
 }
 
-label {
-  display: flex;
-  justify-content: center;
-}
-
 /* Responsive styles */
 @media (max-width: 768px) {
   h1 {
