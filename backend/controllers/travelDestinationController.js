@@ -20,6 +20,26 @@ const DestinationController = {
                 category,
             };
             const response = await axios.post(API_URL)
+            const destination = response.data;
+            res.status(201).json ({ destination });
+        }   catch (error) {
+            res.status(500).json({ error: 'Failed to create destination' });
+        }
+    },
+
+// Get all Destinations
+
+    getAllDestinations: async (req, res) => {
+        try {
+            const destinationId = req.params.id;
+            const response = await axios.get('${API_URL/${destinationId');
+            const destination = response.data;
+            if (!destination) {
+                return res.status(404).json({ error: 'Destination not found' });
+            }
+            res.json({ destination });
+        }   catch (error) {
+            res.status(500).json({ error: 'Failed to get destination '});
         }
     }
 };

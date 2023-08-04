@@ -1,0 +1,15 @@
+// Main routing file
+// Using Express //
+
+const express = require('express');
+const router = express.Router();
+const DestinationController = require('../controllers/travelDestinationController');
+
+// Define routes for each destination
+router.get('./destinations', DestinationController.getALLDestinations);
+router.get('/destinations/:id', DestinationController.getDestinationById);
+router.post('/destinations', DestinationController.createDestination);
+router.put('/destinations/:id', DestinationController.updateDestination);
+router.delete('/destinations/:id', DestinationController.deleteDestination);
+
+module.exports = router;
