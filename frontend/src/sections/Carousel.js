@@ -1,4 +1,4 @@
-import "../../../node_modules/smart-webcomponents/source/modules/smart.carousel"
+import "smart-webcomponents/source/modules/smart.carousel"
 
 	document.readyState === 'complete' ? init() : window.onload = init;
 
