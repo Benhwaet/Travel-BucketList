@@ -6,6 +6,7 @@ nav {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  margin-left: 30%;
   object-fit: fill;
 }
 
@@ -13,53 +14,63 @@ smart-carousel {
   --smart-carousel-default-width: 100%;
   --smart-background: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  height: 225px;
 }
 
 #bucket-list {
   display: flex;
   justify-content: center;
-  object-fit: contain;
+  object-fit: fill;
   width: 95%;
   margin-top: 20px;
   list-style: none;
 }
+/* 
+.bucket-list-item {
 
-.smart-items-container {
+}
+
+.bl-card-body {
+
+} */
+
+.bl-card-header {
   display: flex;
   justify-content: center;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
-.carousel-item {
-  object-fit: contain;
+.bl-location-button {
+  width: 90%;
+  height: 30px;
+  background-color: rgb(153, 39, 39);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
-.card-main{
+.bl-location-button:click {
+  color:rgb(153, 39, 39);
+  background-color: white;
+}
+.bl-item-label {
   display: flex;
+  font-size: small;
   justify-content: center;
-  overflow:visible;
-}
-
-.smart-carousel-item-label {
-  width: 300px;
   text-align: center;
   color: white;
-  position: relative;
-  bottom: 60px;
-  object-fit: contain;
 }
 
-img {
-  object-fit: contain;
-  height: 165px;
-  width: 125px;
+.bl-card-image {
+  display: flex;
+  justify-content: center;
+}
+
+.bl-location-image {
+  height: 150px;
   border-radius: 15px;
 }
 
-
-.buttons-container {
+.bl-buttons-footer {
  display: flex;
  justify-content: center;
 }
@@ -74,9 +85,3 @@ img {
 .btn:hover {
   opacity: 50%;
 }
-
-.icon.check {
-  background-color: green;
-}
-
-/* From quackit.com instructions to make a marquee effect in CSS */
