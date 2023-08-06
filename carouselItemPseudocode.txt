@@ -1,0 +1,18 @@
+
+carouselItem = 
+<li> --> each list item is a slide containing a bucket list location
+    <section> --> container for the card that will form the majority of the element
+        <div> --> for title and image
+            <h3> --> destination -> clicking on name shows location on map
+            <img> --> Unsplash image generated upon destination search, saved to db, 
+            and generated in the bucket list elements -> hover on image shows plane and hotel icons?
+            whose results will be shown in the center part of site? (see Tripbucket)
+        </div>
+        <div> --> buttons leading to more information or a different section of the website
+            <button> --> info about place/reference
+            <button> --> add notes/comments/places to visit
+            <button> --> check off as visited (pin?)
+            <button> --> delete item from bucket-list carousel
+        </div>
+    </section>
+</li>

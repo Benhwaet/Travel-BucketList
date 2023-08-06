@@ -1,0 +1,65 @@
+#bucket-list-item {
+  font-family: cursive;
+}
+
+#carousel {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-top: 20px;
+  --smart-background: none;
+  --smart-carousel-default-width: 20%;
+}
+
+#bucket-list {
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+}
+
+#bucket-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+}
+
+.cardMain{
+  display: flex;
+  justify-content: center;
+}
+
+.destinationName{
+  font-family: cursive;
+  color: white;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  object-fit: fill;
+  height: 165px;
+  width: 125px;
+  border-radius: 15px;
+}
+
+img:hover {
+  opacity: 75%;
+}
+
+#button-holder {
+  display: flex;
+  align-items: center;
+}
+
+.buttons {
+ display: flex;
+ justify-content: center;
+ align-content: center;
+}
+
+.btn {
+  border-radius: 20px;
+  width: 45px;
+}
