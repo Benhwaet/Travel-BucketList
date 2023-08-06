@@ -1,0 +1,46 @@
+
+carouselItem = 
+<li> --> each list item is a slide containing a bucket list location
+    <section> --> container for the card that will form the majority of the element
+        <div> --> for title and image
+            <h3> --> destination -> clicking on name shows location on map
+            <img> --> Unsplash image generated upon destination search, saved to db, 
+            and generated in the bucket list elements -> hover on image shows plane and hotel icons?
+            whose results will be shown in the center part of site? (see Tripbucket)
+        </div>
+        <div> --> buttons leading to more information or a different section of the website
+            <button> --> info about place/reference
+            <button> --> add notes/comments/places to visit
+            <button> --> check off as visited (pin?)
+            <button> --> delete item from bucket-list carousel
+        </div>
+    </section>
+</li>
+---->
+    ----> template with id and class names
+
+<li id="bucket-list-item" class="smart-items-container">
+            <section class="carousel-item" style="object-fit: fill;">
+            <div class="cardMain">
+                <h3 id="destination-title">{{location}}{{country}}</h3>
+            <img
+              src="{{destinationImage}}"
+              alt="placeholder image"
+            />
+            </div>
+            <div id="card-buttons" class="buttons">
+              <smart-button id="destinationInfo" class="btn"
+                ><i class="fa-solid fa-circle-info"></i
+              ></smart-button>
+              <smart-button id="destinationNotes" class="btn"
+                ><i class="fa-solid fa-list"></i
+              ></smart-button>
+              <smart-button id="visited" class="btn">
+                <i class="fa-regular fa-circle-check"></i>
+              </smart-button>
+              <smart-button id="delete" class="btn">
+                <i class="fa fa-trash"></i>
+              </smart-button>
+            </div>
+            </section>
+          </li>

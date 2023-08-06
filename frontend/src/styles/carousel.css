@@ -1,0 +1,82 @@
+* {
+  font-family: cursive;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  object-fit: fill;
+}
+
+smart-carousel {
+  --smart-carousel-default-width: 100%;
+  --smart-background: none;
+  display: flex;
+  justify-content: center;
+}
+
+#bucket-list {
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+  width: 95%;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.smart-items-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.carousel-item {
+  object-fit: contain;
+}
+
+.card-main{
+  display: flex;
+  justify-content: center;
+  overflow:visible;
+}
+
+.smart-carousel-item-label {
+  width: 300px;
+  text-align: center;
+  color: white;
+  position: relative;
+  bottom: 60px;
+  object-fit: contain;
+}
+
+img {
+  object-fit: contain;
+  height: 165px;
+  width: 125px;
+  border-radius: 15px;
+}
+
+
+.buttons-container {
+ display: flex;
+ justify-content: center;
+}
+
+.btn {
+  border-radius: 20px;
+  width: 45px;
+  background-color: rgb(153, 39, 39);
+  color: white;
+}
+
+.btn:hover {
+  opacity: 50%;
+}
+
+.icon.check {
+  background-color: green;
+}
+
+/* From quackit.com instructions to make a marquee effect in CSS */
