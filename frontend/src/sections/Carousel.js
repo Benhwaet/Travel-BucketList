@@ -49,6 +49,8 @@ const carouselCard = `
           </li>`
 
 
+
+
 const infoBtn = document.getElementById("destination-info");
 const noteBtn = document.getElementsById("destination-notes");
 const checkBtn = document.getElementById("destination-visited");
@@ -60,7 +62,7 @@ infoBtn.addEventListener("click", () => {
 });
 
 noteBtn.addEventListener("click", () => {
-
+``
 });
 
 checkBtn.addEventListener('click', () => {
@@ -68,5 +70,5 @@ checkBtn.addEventListener('click', () => {
 });
 
 deleteBtn.addEventListener("click", () => {
-  
+
 });
