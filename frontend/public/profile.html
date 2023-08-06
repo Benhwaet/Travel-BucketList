@@ -30,25 +30,25 @@
 
     <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
     <!-- plain html now in place of js generated html or handlebars later-->
-    <nav class="smart-carousel-item-container" style="display: flex; justify-content: center;margin-top: 15px;object-fit: fill;">
+    <nav class="smart-carousel-item-container">
       <smart-carousel
-        loop
+        hide-arrows
         hide-indicators
         keyboard
         id="carousel"
         display-mode="multiple">
         <ul id="bucket-list" class="smart-container">
           
-          <li id="bucket-list-item" class="smart-items-container">
-            <section class="carousel-item" style="object-fit: contain;">
-            <div class="cardMain">
-              <h3 style="width:300px;" class="destinationName smart-carousel-item-label">Tokyo, Japan</h3>
+          <li class="smart-items-container bucket-list-item">
+            <section class="card-item">
+            <div class="card-main">
+              <h3 class="smart-carousel-item-label">Tokyo, Japan</h3>
               <img
                 src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg"
                 alt="placeholder image"
               />
             </div>
-            <div id="card-buttons" class="buttons">
+            <div class="buttons-container">
               <smart-button id="destinationInfo" class="btn">
                 <i class="fa-solid fa-circle-info"></i>
             </smart-button>
@@ -64,16 +64,16 @@
             </div>
             </section>
           </li>
-          <li id="bucket-list-item" class="smart-items-container">
-            <section class="carousel-item" style="object-fit: fill;">
-            <div class="cardMain">
-            <h3 style="width:300px;" class="destinationName smart-carousel-item-label">Petra, Jordan</h3>
+          <li class="smart-items-container bucket-list-item">
+            <section class="card-item">
+            <div class="card-main">
+            <h3 class="smart-carousel-item-label">Petra, Jordan</h3>
             <img
               src="/frontend/src/images/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
               alt="placeholder image"
             />
             </div>
-            <div id="card-buttons" class="buttons">
+            <div class="buttons-container">
               <smart-button id="destinationInfo" class="btn">
                 <i class="fa-solid fa-circle-info"></i>
               </smart-button>
@@ -88,16 +88,16 @@
               </smart-button>
             </div>
           </li>
-          <li id="bucket-list-item" class="smart-items-container">
-            <section class="carousel-item" style="object-fit: fill;">
-            <div class="cardMain">
-            <h3 style="width:300px;" class="destinationName smart-carousel-item-label">Berlin, Germany</h3>
+          <li class="bucket-list-item smart-items-container">
+            <section class="card-item">
+            <div class="card-main">
+            <h3 class="smart-carousel-item-label">Berlin, Germany</h3>
             <img
               src="/frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg"
               alt="placeholder image"
             />
             </div>
-            <div id="card-buttons" class="buttons">
+            <div class="buttons-container">
               <smart-button id="destinationInfo" class="btn"
                 ><i class="fa-solid fa-circle-info"></i
               ></smart-button>

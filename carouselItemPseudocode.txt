@@ -16,3 +16,31 @@ carouselItem =
         </div>
     </section>
 </li>
+---->
+    ----> template with id and class names
+
+<li id="bucket-list-item" class="smart-items-container">
+            <section class="carousel-item" style="object-fit: fill;">
+            <div class="cardMain">
+                <h3 id="destination-title">{{location}}{{country}}</h3>
+            <img
+              src="{{destinationImage}}"
+              alt="placeholder image"
+            />
+            </div>
+            <div id="card-buttons" class="buttons">
+              <smart-button id="destinationInfo" class="btn"
+                ><i class="fa-solid fa-circle-info"></i
+              ></smart-button>
+              <smart-button id="destinationNotes" class="btn"
+                ><i class="fa-solid fa-list"></i
+              ></smart-button>
+              <smart-button id="visited" class="btn">
+                <i class="fa-regular fa-circle-check"></i>
+              </smart-button>
+              <smart-button id="delete" class="btn">
+                <i class="fa fa-trash"></i>
+              </smart-button>
+            </div>
+            </section>
+          </li>

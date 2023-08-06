@@ -23,3 +23,52 @@ Smart(
     }
   }
 );
+
+const carouselCard = `
+<li class="smart-items-container bucket-list-item">
+            <section class="card-item">
+            <div class="card-main">
+              <h3 class="smart-carousel-item-label">${location},${country}</h3>
+              <img ${imageSource} />
+            </div>
+            <div class="buttons-container">
+              <smart-button id="destination-info" class="btn">
+                <i class="icon fa-solid fa-circle-info"></i>
+            </smart-button>
+              <smart-button id="destination-notes" class="btn">
+                <i class="icon fa-solid fa-list"></i>
+              </smart-button>
+              <smart-button id="destination-visited" class="btn">
+                <i class="icon fa-regular fa-circle-check"></i>
+              </smart-button>
+              <smart-button id="delete-destination" class="btn">
+                <i class="icon fa fa-trash"></i>
+              </smart-button>
+            </div>
+            </section>
+          </li>`
+
+
+
+
+const infoBtn = document.getElementById("destination-info");
+const noteBtn = document.getElementsById("destination-notes");
+const checkBtn = document.getElementById("destination-visited");
+const deleteBtn = document.getElementById("delete-destination");
+const icon = document.getElementsByClassName("icon");
+
+infoBtn.addEventListener("click", () => {
+  
+});
+
+noteBtn.addEventListener("click", () => {
+``
+});
+
+checkBtn.addEventListener('click', () => {
+
+});
+
+deleteBtn.addEventListener("click", () => {
+
+});
