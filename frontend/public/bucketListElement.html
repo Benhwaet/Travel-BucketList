@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <!-- smart-webcomponemt css to be used with carousel element, to be overwritten by main.css and carousel.css -->
+    <link rel="stylesheet" type="text/css"
+        href="../../node_modules/smart-webcomponents/source/styles/smart.default.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/src/styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="/frontend/src/styles/carousel.css" />
+</head>
+
+<body>
+    <header>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for destinations" />
+            <!-- Add search button here if needed -->
+        </div>
+        <div class="user-profile">
+            <!-- Profile Picture (displayed as a bubble) -->
+            <div class="profile-picture"></div>
+            <div class="user-info">
+                <p>Welcome, <span id="username"></span>!</p>
+            </div>
+        </div>
+        <div class="logout-btn">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </header>
+
+    <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
+    <!-- plain html now in place of js generated html or handlebars later-->
+    <nav>
+        <section class="marquee">
+            <ul id="bucket-list" class="smart-items-container">
+                <li class="bucket-list-item smart-items-container">
+                    <section class="card-container">
+                        <div id="card-main" class="card">
+                            <h3 id="destination-title">Tokyo, Japan</h3>
+                            <img src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg"
+                                alt="placeholder image" />   
+                        </div>
+                        <div id="card-buttons" style="display: flex; justify-content: center;">
+                            <smart-button id="destination-info" class="btn">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </smart-button>
+                            <smart-button id="destination-notes" class="btn">
+                                <i class="fa-solid fa-list"></i>
+                            </smart-button>
+                            <smart-button id="destination-visited" class="btn">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </smart-button>
+                            <smart-button id="destination-delete" class="btn">
+                                <i class="fa fa-trash"></i>
+                            </smart-button>
+                        </div>
+                    </section>
+                </li>
+                <li class="bucket-list-item smart-items-container">
+                    <section class="card-container">
+                        <div id="card-main" class="card">
+                            <h3 id="destination-title">Petra, Jordan</h3>
+                            <img src="/frontend/src/images/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
+                                alt="placeholder image" />
+                            
+                        </div>
+                        <div id="card-buttons" class="buttons">
+                            <smart-button id="destinationInfo" class="btn">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </smart-button>
+                            <smart-button id="destinationNotes" class="btn">
+                                <i class="fa-solid fa-list"></i>
+                            </smart-button>
+                            <smart-button id="visited" class="btn">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </smart-button>
+                            <smart-button id="delete" class="btn">
+                                <i class="fa fa-trash"></i>
+                            </smart-button>
+                        </div>
+                </li>
+                <li class="bucket-list-item smart-items-container">
+                    <section class="card-container">
+                        <div id="card-main" class="card">
+                            <h3 id="destination-title">Berlin, Germany</h3>
+                            <img src="/frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg"
+                                alt="placeholder image" />
+                            
+                        </div>
+                        <div id="card-buttons" class="buttons">
+                            <smart-button id="destinationInfo" class="btn"><i
+                                    class="fa-solid fa-circle-info"></i></smart-button>
+                            <smart-button id="destinationNotes" class="btn"><i
+                                    class="fa-solid fa-list"></i></smart-button>
+                            <smart-button id="visited" class="btn">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </smart-button>
+                            <smart-button id="delete" class="btn">
+                                <i class="fa fa-trash"></i>
+                            </smart-button>
+                        </div>
+                    </section>
+                </li>
+            </ul>
+        </marquee>
+    </nav>
+
+    <!-- destinations images , map , flights/hotels -->
+    <main></main>
+
+    <!-- Footer -->
+    <footer>
+        <!--  memory board of user images ? dunno if this should go in the footer or bottom of main -->
+    </footer>
+
+    <!-- Add more scripts here if needed -->
+    <!-- smart-webcomponent npm package files to implement carousel display of bucket list destinations -->
+    <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
+    <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
+    <script type="text/javascript"
+        src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
+    <script src="/frontend/src/profile.js"></script>
+</body>
+
+</html>
