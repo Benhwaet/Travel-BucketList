@@ -1,4 +1,5 @@
 import "smart-webcomponents/source/modules/smart.carousel"
+import {smartCard} from "../../source/modules/smart.card.js";
 
 	document.readyState === 'complete' ? init() : window.onload = init;
 
@@ -24,37 +25,51 @@ Smart(
   }
 );
 
+$( function() {
+  $( "#tabs" ).tabs({
+    collapsible: true
+  });
+} );
+
 const carouselCard = `
-<li class="smart-items-container bucket-list-item">
-            <section class="card-item">
-            <div class="card-main">
-              <h3 class="smart-carousel-item-label">${location},${country}</h3>
-              <img ${imageSource} />
+<li class="bucket-list-item">
+          <section class="bl-card-body">
+            <div class="bl-card-header">
+              <smart-button class="bl-location-button">
+                <h3 class="bl-item-label">${location}, ${country}</h3>
+              </smart-button>
             </div>
-            <div class="buttons-container">
-              <smart-button id="destination-info" class="btn">
+              <div class="bl-card-image">
+                <img class="bl-location-image" 
+                src="${image}" 
+                alt="location image from Unsplash"/>
+              </div>
+            <div class="bl-buttons-footer">
+              <smart-button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
-            </smart-button>
-              <smart-button id="destination-notes" class="btn">
+              </smart-button>
+              <smart-button class="destination-notes btn">
                 <i class="icon fa-solid fa-list"></i>
               </smart-button>
-              <smart-button id="destination-visited" class="btn">
+              <smart-button class="visited-destination btn">
                 <i class="icon fa-regular fa-circle-check"></i>
               </smart-button>
-              <smart-button id="delete-destination" class="btn">
+              <smart-button class="delete-destination btn">
                 <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
-            </section>
-          </li>`
+          </section>
+        </li>`
 
 
 
 
 const infoBtn = document.getElementById("destination-info");
 const noteBtn = document.getElementsById("destination-notes");
-const checkBtn = document.getElementById("destination-visited");
+const checkBtn = document.getElementById("visited-destination");
 const deleteBtn = document.getElementById("delete-destination");
+const listItem = document.getElementsByClassName("bucket-list-item");
+const el = document.getElementsByClassName("bl-card-body");
 const icon = document.getElementsByClassName("icon");
 
 infoBtn.addEventListener("click", () => {
@@ -70,5 +85,9 @@ checkBtn.addEventListener('click', () => {
 });
 
 deleteBtn.addEventListener("click", () => {
-
+  
 });
+
+removeCard = () => {
+ getElementsByClassName("bucket-list-item").remove(); 
+}

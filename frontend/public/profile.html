@@ -33,7 +33,7 @@
   <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
   <!-- plain html now in place of js generated html or handlebars later-->
   <nav class="carousel-container">
-    <smart-carousel hide-arrows hide-indicators keyboard id="carousel" display-mode="multiple">
+    <smart-carousel hide-indicators keyboard id="carousel" display-mode="multiple">
       <ul id="bucket-list">
 
         <li class="bucket-list-item">
@@ -48,18 +48,18 @@
                 src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg" 
                 alt="location image from Unsplash"/>
               </div>
-            <div class="bl-buttons-footer">
+            <div id="tabs" class="bl-buttons-footer">
               <smart-button class="destination-info btn">
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="icon fa-solid fa-circle-info"><a href="#tabs-1"></a></i>
               </smart-button>
-              <smart-button class="destination-notes btn">
-                <i class="fa-solid fa-list"></i>
+              <smart-button class="destination-notes btn dropdown-toggle">
+                <i class="icon fa-solid fa-list"><a href="#tabs-2"></a></i>
               </smart-button>
               <smart-button class="visited-destination btn">
-                <i class="fa-regular fa-circle-check"></i>
+                <i class="icon fa-regular fa-circle-check"></i>
               </smart-button>
               <smart-button class="delete-destination btn">
-                <i class="fa fa-trash"></i>
+                <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
           </section>
@@ -79,16 +79,16 @@
             </div>
             <div class="bl-buttons-footer">
               <smart-button class="destination-info btn">
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="icon fa-solid fa-circle-info"></i>
               </smart-button>
               <smart-button id="destinationNotes" class="btn">
-                <i class="fa-solid fa-list"></i>
+                <i class="icon fa-solid fa-list"></i>
               </smart-button>
               <smart-button id="visited" class="btn">
-                <i class="fa-regular fa-circle-check"></i>
+                <i class="icon fa-regular fa-circle-check"></i>
               </smart-button>
               <smart-button id="delete" class="btn">
-                <i class="fa fa-trash"></i>
+                <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
           </section>
@@ -107,13 +107,13 @@
               alt="placeholder image" />
             </div>
             <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn"><i class="fa-solid fa-circle-info"></i></smart-button>
-              <smart-button id="destinationNotes" class="btn"><i class="fa-solid fa-list"></i></smart-button>
+              <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
+              <smart-button id="destinationNotes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
               <smart-button id="visited" class="btn">
-                <i class="fa-regular fa-circle-check"></i>
+                <i class="icon fa-regular fa-circle-check"></i>
               </smart-button>
               <smart-button id="delete" class="btn">
-                <i class="fa fa-trash"></i>
+                <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
         </li>
@@ -133,9 +133,12 @@
   <!-- Add more scripts here if needed -->
   <!-- smart-webcomponent npm package files to implement carousel display of bucket list destinations -->
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
-  <!-- <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script> -->
+  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
   <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
+  <script type="text/javascript" src="../src/sections/carousel.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="/frontend/src/profile.js"></script>
 </body>
 

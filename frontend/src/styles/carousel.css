@@ -6,12 +6,12 @@ nav {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  margin-left: 30%;
+
   object-fit: fill;
 }
 
 smart-carousel {
-  --smart-carousel-default-width: 100%;
+  --smart-carousel-default-width: 50%;
   --smart-background: none;
   display: flex;
   justify-content: space-between;
@@ -44,8 +44,7 @@ smart-carousel {
   width: 90%;
   height: 30px;
   background-color: rgb(153, 39, 39);
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
+  border-radius: 5px;
 }
 
 .bl-location-button:click {

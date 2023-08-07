@@ -8,3 +8,5 @@ logs/
 cache/
 build/
 .env
+apiKeyUnsplash.js
+apiKeyAmadeus.js
