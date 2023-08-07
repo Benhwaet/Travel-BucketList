@@ -38,7 +38,7 @@
     <smart-carousel hide-indicators loop keyboard id="carousel" display-mode="multiple">
       <ul id="bucket-list">
 
-        <li class="bl-card">
+        <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
             <div>
@@ -53,22 +53,22 @@
             </div>
             <div class="bl-buttons-footer">
               <smart-button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"><a href="#tabs-1"></a></i>
+                <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
               </smart-button>
               <smart-button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"><a href="#tabs-2"></a></i>
+                <i class="icon fa-solid fa-list"></i>
               </smart-button>
               <smart-button class="visited-destination btn">
-                <i class="icon fa-regular fa-circle-check"></i>
+                <i class="icon fa-solid fa-check"></i>
               </smart-button>
-              <smart-button class="delete-destination btn">
+              <smart-button class="delete-destination btn" onclick="removeCard()">
                 <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
           </section>
         </li>
 
-        <li class="bl-card">
+        <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
             <div class="bl-card-header">
@@ -83,20 +83,20 @@
               <smart-button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
               </smart-button>
-              <smart-button id="destinationNotes" class="btn">
+              <smart-button id="destination-notes" class="btn">
                 <i class="icon fa-solid fa-list"></i>
               </smart-button>
-              <smart-button id="visited" class="btn">
-                <i class="icon fa-regular fa-circle-check"></i>
+              <smart-button id="visited-destination" class="btn">
+                <i class="icon fa-solid fa-check"></i>
               </smart-button>
-              <smart-button id="delete" class="btn">
+              <smart-button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
           </section>
         </li>
 
-        <li class="bl-card">
+        <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
             <div class="bl-card-header">
@@ -109,11 +109,11 @@
             </div>
             <div class="bl-buttons-footer">
               <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
-              <smart-button id="destinationNotes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
-              <smart-button id="visited" class="btn">
-                <i class="icon fa-regular fa-circle-check"></i>
+              <smart-button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
+              <smart-button id="visited-destination" class="btn">
+                <i class="icon fa-solid fa-check"></i>
               </smart-button>
-              <smart-button id="delete" class="btn">
+              <smart-button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
               </smart-button>
             </div>
