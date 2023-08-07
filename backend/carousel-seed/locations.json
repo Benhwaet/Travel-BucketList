@@ -28,7 +28,7 @@
         "country": "Germany",
         "image": "../../frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg",
         "description": "Berlin is the capital and largest city of Germany by both area and population.",
-        "notes": " ",
+        "notes": "Went to Berlin for three days in 2009. Loved the city and would love to go back. Spend more time at Museumsinsel",
         "visited": true
     },
     {
@@ -44,7 +44,7 @@
         "country": "United States",
         "image": "../../frontend/src/images/times-square-nyc-city-new.jpg",
         "description": "New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean.",
-        "notes": " ",
+        "notes": "Went a few times, Broadway is always a hit (Wicked is a favorite). Look up Immersive Theatre, it's a great experience.",
         "visited": true
     },
     {
@@ -52,7 +52,7 @@
         "country": "Mexico",
         "image": "../../frontend/src/images/marv-watson-UfK0P6WygEE-unsplash.jpg",
         "description": "Chichen Itza is a complex of Mayan ruins on Mexico's Yucatan Peninsula.",
-        "notes": " ",
+        "notes": "Went to Mayan Riviera in 2006 as graduation trip. Went to Chichen Itza in killer heat. Would love to go back and see more of the ruins.",
         "visited": true
     },
     {
