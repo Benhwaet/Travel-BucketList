@@ -10,6 +10,8 @@
     href="../../node_modules/smart-webcomponents/source/styles/smart.default.css" />
   <link rel="stylesheet" type="text/css" href="/frontend/src/styles/main.css" />
   <link rel="stylesheet" type="text/css" href="/frontend/src/styles/carousel.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -33,26 +35,27 @@
   <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
   <!-- plain html now in place of js generated html or handlebars later-->
   <nav class="carousel-container">
-    <smart-carousel hide-indicators keyboard id="carousel" display-mode="multiple">
+    <smart-carousel hide-indicators loop keyboard id="carousel" display-mode="multiple">
       <ul id="bucket-list">
 
-        <li class="bucket-list-item">
+        <li class="bl-card">
           <section class="bl-card-body">
-            <div class="bl-card-header">
-              <smart-button class="bl-location-button">
+            <div class = "bl-card-main">
+            <div>
+              <div class="bl-card-header">
                 <h3 class="bl-item-label">Tokyo, Japan</h3>
-              </smart-button>
-            </div>
-              <div class="bl-card-image">
-                <img class="bl-location-image" 
-                src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg" 
-                alt="location image from Unsplash"/>
               </div>
-            <div id="tabs" class="bl-buttons-footer">
+              <div class="bl-card-image">
+                <img class="bl-location-image" src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg"
+                  alt="location image from Unsplash" />
+              </div>
+            </div>
+            </div>
+            <div class="bl-buttons-footer">
               <smart-button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"><a href="#tabs-1"></a></i>
               </smart-button>
-              <smart-button class="destination-notes btn dropdown-toggle">
+              <smart-button class="destination-notes btn">
                 <i class="icon fa-solid fa-list"><a href="#tabs-2"></a></i>
               </smart-button>
               <smart-button class="visited-destination btn">
@@ -65,17 +68,16 @@
           </section>
         </li>
 
-        <li class="bucket-list-item">
+        <li class="bl-card">
           <section class="bl-card-body">
+            <div class = "bl-card-main">
             <div class="bl-card-header">
-              <smart-button class="bl-location-button">
-                <h3 class="bl-item-label">Petra, Jordan</h3>
-              </smart-button>
+              <h3 class="bl-item-label">Petra, Jordan</h3>
             </div>
-              <div class="bl-card-image">
-                <img class="bl-location-image" 
-                src="/frontend/src/images/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg" 
+            <div class="bl-card-image">
+              <img class="bl-location-image" src="/frontend/src/images/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
                 alt="placeholder image" />
+            </div>
             </div>
             <div class="bl-buttons-footer">
               <smart-button class="destination-info btn">
@@ -93,18 +95,17 @@
             </div>
           </section>
         </li>
-        
-        <li class="bucket-list-item">
+
+        <li class="bl-card">
           <section class="bl-card-body">
+            <div class = "bl-card-main">
             <div class="bl-card-header">
-              <smart-button class="bl-location-button">
-                <h3 class="bl-item-label">Berlin, Germany</h3>
-            </smart-button>
-          </div>
+              <h3 class="bl-item-label">Berlin, Germany</h3>
+            </div>
             <div class="bl-card-image">
-              <img class="bl-location-image"
-              src="/frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg" 
-              alt="placeholder image" />
+              <img class="bl-location-image" src="/frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg"
+                alt="placeholder image" />
+            </div>
             </div>
             <div class="bl-buttons-footer">
               <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
@@ -137,8 +138,6 @@
   <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script type="text/javascript" src="../src/sections/carousel.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script src="/frontend/src/profile.js"></script>
 </body>
 
