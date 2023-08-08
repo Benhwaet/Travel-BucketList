@@ -7,4 +7,4 @@ backend/config/db.config.js
 logs/
 cache/
 build/
-.env
+.env.API_KEYS

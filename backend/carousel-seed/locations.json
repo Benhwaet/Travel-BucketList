@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Tokyo",
+        "country": "Japan",
+        "image": "../../frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg",
+        "description": "Tokyo is the capital of Japan.",
+        "notes": " ",
+        "visited": false
+    },
+    {
+        "name": "Petra",
+        "country": "Jordan",
+        "image": "../../frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg",
+        "description": "Petra is a historical and archaeological city in southern Jordan.",
+        "notes": " ",
+        "visited": false
+    },
+    {
+        "name": "Mont Saint-Michel",
+        "country": "France",
+        "image": "../../frontend/src/images/dan-asaki-ZFZ5AyPg3rE-unsplash.jpg",
+        "description": "Mont Saint-Michel is an island and mainland commune in Normandy, France.",
+        "notes": " ",
+        "visited": false
+    },
+    {
+        "name": "Berlin",
+        "country": "Germany",
+        "image": "../../frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg",
+        "description": "Berlin is the capital and largest city of Germany by both area and population.",
+        "notes": "Went to Berlin for three days in 2009. Loved the city and would love to go back. Spend more time at Museumsinsel",
+        "visited": true
+    },
+    {
+        "name": "London",
+        "country": "England",
+        "image": "../../frontend/src/images/heidi-fin-QvPRGI8LfOc-unsplash.jpg",
+        "description": "London is the capital and largest city of England and the United Kingdom.",
+        "notes": " ",
+        "visited": false
+    },
+    {
+        "name": "New York City",
+        "country": "United States",
+        "image": "../../frontend/src/images/times-square-nyc-city-new.jpg",
+        "description": "New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean.",
+        "notes": "Went a few times, Broadway is always a hit (Wicked is a favorite). Look up Immersive Theatre, it's a great experience.",
+        "visited": true
+    },
+    {
+        "name": "Chichen Itza",
+        "country": "Mexico",
+        "image": "../../frontend/src/images/marv-watson-UfK0P6WygEE-unsplash.jpg",
+        "description": "Chichen Itza is a complex of Mayan ruins on Mexico's Yucatan Peninsula.",
+        "notes": "Went to Mayan Riviera in 2006 as graduation trip. Went to Chichen Itza in killer heat. Would love to go back and see more of the ruins.",
+        "visited": true
+    },
+    {
+        "name": "Angkor Wat",
+        "country": "Cambodia",
+        "image": "../../frontend/src/images/angkor-wat-temple-amazing-seven-wonders-wonder.jpg",
+        "description": "Angkor Wat is a temple complex in Cambodia and the largest religious monument in the world.",
+        "notes": " ",
+        "visited": false
+    }
+]

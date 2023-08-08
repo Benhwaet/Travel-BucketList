@@ -1,65 +1,110 @@
 * {
   font-family: cursive;
 }
-
+body {
+  background-image: url("/frontend/src/images/bckgrnd.png");
+}
 nav {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+
   object-fit: fill;
 }
 
 smart-carousel {
-  --smart-carousel-default-width: 100%;
+  --smart-carousel-default-width: 75%;
   --smart-background: none;
-  display: flex;
-  justify-content: center;
-}
+  --smart-ui-state-hover: #8b1b1b;
+  --smart-ui-state-active: #933838;
+  --smart-ui-state-focus: #bf3737;
 
-#bucket-list {
   display: flex;
-  justify-content: center;
-  object-fit: contain;
-  width: 95%;
-  margin-top: 20px;
-  list-style: none;
+  justify-content: space-between;
+  height: 235px;
 }
 
 .smart-items-container {
   display: flex;
   justify-content: center;
-  margin-left: 20px;
-  margin-right: 20px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
-.carousel-item {
-  object-fit: contain;
+.smart-arrow-left {
+  background-color: rgb(255, 240, 232);
+  border-radius: 40%;
+  width: 50px;
+  max-height: 20%;
+  margin-top: 75px;
 }
-
-.card-main{
+.smart-arrow-right {
+  background-color: rgb(255, 240, 232);
+  border-radius: 40%;
+  width: 50px;
+  max-height: 20%;
+  margin-top: 75px;
+}
+#bucket-list {
   display: flex;
   justify-content: center;
-  overflow:visible;
+  align-content: center;
+  object-fit: fill;
+  width: 95%;
+  margin-top: 20px;
+  list-style: none;
 }
 
-.smart-carousel-item-label {
-  width: 300px;
-  text-align: center;
-  color: white;
-  position: relative;
-  bottom: 60px;
-  object-fit: contain;
+.bl-card {
+  display: flex;
+  justify-content: center;
 }
 
-img {
-  object-fit: contain;
-  height: 165px;
-  width: 125px;
+.bl-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bl-card-main {
+  background-color: rgb(153, 39, 39);
+  width: 140px;
   border-radius: 15px;
 }
 
+.bl-card-header {
+  display: flex;
+  justify-content: center;
+}
 
-.buttons-container {
+.bl-location-button {
+  width: 90%;
+  height: 30px;
+  background-color: rgb(153, 39, 39);
+  border-radius: 5px;
+}
+
+.bl-item-label {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.bl-card-image {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.bl-location-image {
+  height: 150px;
+  border-radius: 15px;
+}
+
+.bl-buttons-footer {
  display: flex;
  justify-content: center;
 }
@@ -73,10 +118,5 @@ img {
 
 .btn:hover {
   opacity: 50%;
-}
 
-.icon.check {
-  background-color: green;
 }
-
-/* From quackit.com instructions to make a marquee effect in CSS */
