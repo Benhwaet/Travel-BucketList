@@ -1,5 +1,4 @@
 import "smart-webcomponents/source/modules/smart.carousel"
-import {smartCard} from "../../source/modules/smart.card.js";
 
 // 	document.readyState === 'complete' ? init() : window.onload = init;
 
@@ -31,46 +30,13 @@ import {smartCard} from "../../source/modules/smart.card.js";
 //   });
 // } );
 
-const carouselCard = `
-<li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class="bl-card-header">
-              <smart-button class="bl-location-button">
-                <h3 class="bl-item-label">${location}, ${country}</h3>
-              </smart-button>
-            </div>
-              <div class="bl-card-image">
-                <img class="bl-location-image" 
-                src="${image}" 
-                alt="location image from Unsplash"/>
-              </div>
-            <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"></i>
-              </smart-button>
-              <smart-button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </smart-button>
-              <smart-button class="visited-destination btn">
-                <i class="icon fa-regular fa-circle-check"></i>
-              </smart-button>
-              <smart-button class="delete-destination btn">
-                <i class="icon fa fa-trash"></i>
-              </smart-button>
-            </div>
-          </section>
-        </li>`
+document.addEventListener('DOMContentLoaded', () => {
+    const infoBtn = document.getElementById("destination-info");
+    const noteBtn = document.getElementsById("destination-notes");
+    const checkBtn = document.getElementById("visited-destination");
+    const deleteBtn = document.getElementById("delete-destination");
+    const icon = document.querySelector(".icon");
 
-
-
-
-const infoBtn = document.getElementById("destination-info");
-const noteBtn = document.getElementsById("destination-notes");
-const checkBtn = document.getElementById("visited-destination");
-const deleteBtn = document.getElementById("delete-destination");
-const listItem = document.getElementsByClassName("bucket-list-item");
-const el = document.getElementsByClassName("bl-card-body");
-const icon = document.querySelector(".icon");
 
 infoBtn.addEventListener("click", () => {
   //open dropdown, or dropup with info about location
@@ -96,8 +62,11 @@ checkBtn.addEventListener('click', () => {
 deleteBtn.addEventListener("click", () => {
   //connect button to entire great-grandparent element
   //to remove entire card from carousel
+  getElementByClassName("bl-card-item").remove();
 });
 
-removeCard = () => {
- getElementsByClassName("bl-card-item").remove(); 
-}
+// removeCard = () => {
+//  getElementsByClassName("bl-card-item").remove(); 
+// }
+
+});
