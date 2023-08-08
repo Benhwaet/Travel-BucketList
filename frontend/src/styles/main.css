@@ -27,6 +27,14 @@ body {
   background-color: var(--background-color);
 }
 
+body.landing-page {
+  background-image: url('/frontend/src/assets/images/aroundtheworld.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
 /* Apply root color theme to the header */
 header {
   display: flex;
@@ -155,9 +163,27 @@ button {
   background-color: var(--primary-color);
   background-size: cover;
   background-position: center;
-  background-image: url('/path/to/default-profile-picture.jpg'); 
+  background-image: url('/path/to/picture'); 
   margin-right: 10px;
 }
+
+/*  profile page background effect */
+@keyframes fadeBackground {
+  0% {
+      background-color: #0e2f52;
+  }
+  50% {
+      background-color: #3f586e;
+  }
+  100% {
+      background-color: #f6f6f6;
+  }
+}
+
+body.profile-page {
+  animation: fadeBackground 10s infinite;
+}
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
