@@ -3,11 +3,10 @@ const app = express();
 const port = 3000;
 
 //  user data 
-
 app.use(express.json());
 
 // Include the authRoutes.js middleware
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./backend/routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 // leaving this section as a place holder till its set up
@@ -32,3 +31,8 @@ app.use('/api/auth', authRoutes);
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+
+// memories route 
+const imageUpload = require('./backend/routes/imageUploads');
+app.use('/api', imageUpload);
