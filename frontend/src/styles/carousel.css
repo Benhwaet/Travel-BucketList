@@ -20,8 +20,8 @@ smart-carousel {
   --smart-ui-state-focus: #bf3737;
 
   display: flex;
-  justify-content: space-between;
-  height: 235px;
+  justify-content: space-evenly;
+  height: 240px;
 }
 
 .smart-items-container {
@@ -32,20 +32,14 @@ smart-carousel {
   height: 100%;
 }
 
-.smart-arrow-left {
+.smart-arrow {
   background-color: rgb(255, 240, 232);
   border-radius: 40%;
   width: 50px;
   max-height: 20%;
   margin-top: 75px;
 }
-.smart-arrow-right {
-  background-color: rgb(255, 240, 232);
-  border-radius: 40%;
-  width: 50px;
-  max-height: 20%;
-  margin-top: 75px;
-}
+
 #bucket-list {
   display: flex;
   justify-content: center;
@@ -56,9 +50,11 @@ smart-carousel {
   list-style: none;
 }
 
-.bl-card {
+.bl-card-item {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
+  padding-top: 20px;
 }
 
 .bl-card-body {
