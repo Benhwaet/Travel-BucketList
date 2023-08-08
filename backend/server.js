@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const dbConfig = require('./config/db.config');
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(dbConfig.production);
+
 
 // Load models
 const JournalEntry = require('./models/journalEntry');
