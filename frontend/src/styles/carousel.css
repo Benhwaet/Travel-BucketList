@@ -2,6 +2,10 @@
   font-family: cursive;
 }
 
+body {
+  background-image: url("/frontend/src/images/bckgrnd.png");
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -15,10 +19,17 @@ smart-carousel {
   --smart-ui-state-hover: #8b1b1b;
   --smart-ui-state-active: #933838;
   --smart-ui-state-focus: #bf3737;
-
+`
   display: flex;
   justify-content: space-evenly;
   height: 240px;
+}
+
+/* from node-module file smart.default.css - wanted to change background color  */
+smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
+  background-color: #b5eef7;
+  border-radius: 20px;
+  transition: background-color 1s ease-in-out;
 }
 
 .smart-items-container {
@@ -100,48 +111,15 @@ smart-carousel {
 .bl-buttons-footer {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  padding-top: 10px;
 }
 
-/* Update button styles */
-.destination-info.btn,
-.destination-notes.btn,
-.visited-destination.btn,
-.delete-destination.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.btn {
+  border-radius: 20px;
+  width: 45px;
   background-color: rgb(153, 39, 39);
   color: white;
-  cursor: pointer;
-  /* Add content inside the buttons */
-  font-size: 18px;
 }
 
-.destination-info.btn:before {
-  content: "\f05a"; /* FontAwesome icon for info-circle */
-}
-
-.destination-notes.btn:before {
-  content: "\f0cb"; /* FontAwesome icon for list */
-}
-
-.visited-destination.btn:before {
-  content: "\f058"; /* FontAwesome icon for check */
-}
-
-.delete-destination.btn:before {
-  content: "\f2ed"; /* FontAwesome icon for trash */
-}
-
-/* Hover styles for buttons */
-.destination-info.btn:hover,
-.destination-notes.btn:hover,
-.visited-destination.btn:hover,
-.delete-destination.btn:hover {
-  opacity: 0.8;
+.btn:hover {
+  opacity: 50%;
 }
