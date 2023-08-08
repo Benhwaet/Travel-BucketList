@@ -1,14 +1,11 @@
 * {
   font-family: cursive;
 }
-body {
-  background-image: url("/frontend/src/images/bckgrnd.png");
-}
+
 nav {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-
   object-fit: fill;
 }
 
@@ -101,18 +98,50 @@ smart-carousel {
 }
 
 .bl-buttons-footer {
- display: flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 10px;
 }
 
-.btn {
-  border-radius: 20px;
-  width: 45px;
+/* Update button styles */
+.destination-info.btn,
+.destination-notes.btn,
+.visited-destination.btn,
+.delete-destination.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
   background-color: rgb(153, 39, 39);
   color: white;
+  cursor: pointer;
+  /* Add content inside the buttons */
+  font-size: 18px;
 }
 
-.btn:hover {
-  opacity: 50%;
+.destination-info.btn:before {
+  content: "\f05a"; /* FontAwesome icon for info-circle */
+}
 
+.destination-notes.btn:before {
+  content: "\f0cb"; /* FontAwesome icon for list */
+}
+
+.visited-destination.btn:before {
+  content: "\f058"; /* FontAwesome icon for check */
+}
+
+.delete-destination.btn:before {
+  content: "\f2ed"; /* FontAwesome icon for trash */
+}
+
+/* Hover styles for buttons */
+.destination-info.btn:hover,
+.destination-notes.btn:hover,
+.visited-destination.btn:hover,
+.delete-destination.btn:hover {
+  opacity: 0.8;
 }
