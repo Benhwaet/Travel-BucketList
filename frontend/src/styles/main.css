@@ -163,10 +163,9 @@ button {
   background-color: var(--primary-color);
   background-size: cover;
   background-position: center;
-  background-image: url('/path/to/default-profile-picture.jpg'); 
+  background-image: url('/path/to/picture'); 
   margin-right: 10px;
 }
-
 
 /*  profile page background effect */
 @keyframes fadeBackground {
