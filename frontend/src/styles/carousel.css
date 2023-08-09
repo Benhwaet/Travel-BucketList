@@ -1,7 +1,9 @@
 * {
   font-family: cursive;
 }
-
+body {
+  background-image: url("/frontend/src/images/bckgrnd.png");
+}
 nav {
   display: flex;
   justify-content: center;
@@ -16,14 +18,8 @@ smart-carousel {
   --smart-ui-state-active: #933838;
   --smart-ui-state-focus: #bf3737;
   display: flex;
-  justify-content: space-evenly;
-  height: 240px;
-}
-
-smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
-  background-color: #82d9ec;
-  transition: background-color 1s ease-in-out;
-  border-radius: 20px;
+  justify-content: space-between;
+  height: 235px;
 }
 
 smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
@@ -49,7 +45,6 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   cursor: pointer;
 }
 
-
 #bucket-list {
   display: flex;
   justify-content: center;
@@ -63,8 +58,6 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 .bl-card-item {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  padding-top: 20px;
 }
 
 .bl-card-body {
@@ -112,23 +105,13 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 }
 
 .bl-buttons-footer {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding-top: 10px;
+ display: flex;
+ justify-content: center;
 }
 
-/* Update button styles */
-.destination-info.btn,
-.destination-notes.btn,
-.visited-destination.btn,
-.delete-destination.btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+.btn {
+  border-radius: 20px;
+  width: 45px;
   background-color: rgb(153, 39, 39);
   color: white;
   cursor: pointer;
