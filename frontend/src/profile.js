@@ -29,3 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
       // error (e.g., redirect to login page or show an error message)
     });
   });
+
+
+  // memories import 
+  import React from 'react';
+import UserPhotos from '/frontend/src/sections/Userphotos';
+
+function Profile() {
+  return (
+    <div>
+      {/* Other content */}
+      <UserPhotos /> {/* Add the UserPhotos component */}
+    </div>
+  );
+}
+export default Profile;

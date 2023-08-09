@@ -14,7 +14,7 @@
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 
-<body>
+<body class="profile-page">
   <header>
     <div class="search-bar">
       <input type="text" placeholder="Search for destinations" />
@@ -129,6 +129,16 @@
   <!-- Footer -->
   <footer>
     <!--  memory board of user images ? dunno if this should go in the footer or bottom of main -->
+    <!-- ***/upload needs to link to backend on the server side **chris** ill try todo it myself please check my work -->
+    <h1>Memory Uploads</h1>
+    <form id="image-form" enctype="multipart/form-data">
+      <input type="file" name="image" accept=".jpg, .jpeg, .png" required>
+      <button type="submit">Upload</button>
+    </form>
+
+    <!-- where the images will display after being uploaded -->
+    <div id="imageContainer"></div>
+
   </footer>
 
   <!-- Add more scripts here if needed -->
@@ -139,6 +149,9 @@
   <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script type="text/javascript" src="../src/sections/carousel.js"></script>
   <script src="/frontend/src/profile.js"></script>
+
+  <!--keep here for display entries if need.-->
+  <script src="journalentry.js"></script>
 </body>
 
 </html>

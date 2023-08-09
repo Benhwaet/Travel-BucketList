@@ -19,10 +19,9 @@ smart-carousel {
   --smart-ui-state-hover: #8b1b1b;
   --smart-ui-state-active: #933838;
   --smart-ui-state-focus: #bf3737;
-`
   display: flex;
-  justify-content: space-evenly;
-  height: 240px;
+  justify-content: space-between;
+  height: 235px;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
@@ -46,6 +45,7 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   width: 50px;
   max-height: 20%;
   margin-top: 75px;
+  cursor: pointer;
 }
 
 #bucket-list {
@@ -61,8 +61,6 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 .bl-card-item {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  padding-top: 20px;
 }
 
 .bl-card-body {
@@ -87,6 +85,7 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   height: 30px;
   background-color: rgb(153, 39, 39);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .bl-item-label {
@@ -116,8 +115,15 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 .btn {
   border-radius: 20px;
   width: 45px;
+}
+
+.btn {
+  border-radius: 20px;
+  width: 45px;
   background-color: rgb(153, 39, 39);
   color: white;
+  cursor: pointer;
+
 }
 
 .btn:hover {

@@ -1,16 +1,15 @@
 // define API routes for travel destinations
 // link to controller js file to handle destination 
 
-const router = require('express').Router();
-const travelDestination = require('../../backend/models/travelDestination.js');
+const express = require('express');
+const router = express.Router();
+const DestinationController = require('../controllers/travelDestinationController');
 
-// router.get('/:cityId', async (req, res) => {
-//     try {
-//         const travelDestination = await travelDestination.findOne({ name: req.params.name });
-//         res.json(travelDestination);
-//     } catch (err) {
-//         res.json(err);
-//     }
-// });
+// Define routes for each destination
+router.get('./destinations', DestinationController.getALLDestinations);
+router.get('/destinations/:id', DestinationController.getDestinationById);
+router.post('/destinations', DestinationController.createDestination);
+router.put('/destinations/:id', DestinationController.updateDestination);
+router.delete('/destinations/:id', DestinationController.deleteDestination);
 
 module.exports = router;

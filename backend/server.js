@@ -1,34 +1,47 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3001;
 
-//  user data 
+const dbConfig = require('./config/db.config');
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize(dbConfig.production);
+
+const JournalEntry = require('./models/journalEntry');
+const TravelDestination = require('./models/travelDestination');
+const User = require('./models/User');
+
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('Database synced successfully.');
+  })
+  .catch((err) => {
+    console.error('Error syncing the database:', err);
+  });
 
 app.use(express.json());
 
-// Include the authRoutes.js middleware
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./backend/routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
-// leaving this section as a place holder till its set up
+const journalRoutes = require('./routes/journalRoutes');
+app.use('/api/journals', journalRoutes);
 
-// ... other routes and middleware ** dunno if this is right **
-// const Routes1 = require('./routes/Routes1');
-// const Routes2 = require('./routes/Routes2');
-// ... add more routes as needed
+const travelDestinationRoutes = require('./routes/travelDestinationRoutes');
+app.use('/api/travelDestinations', travelDestinationRoutes);
 
-// Use the routes
-// app.use('/api/other1', Routes1);
+app.use('/api/other1', Routes1);
 // app.use('/api/other2', Routes2);
 // ... use other routes as needed
 
-// middleware for error , respond with a generic "Internal server error" message if found
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).json({ error: 'Internal server error' });
-// });
-
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+const imageUpload = require('./backend/routes/imageUploads');
+app.use('/api', imageUpload);
