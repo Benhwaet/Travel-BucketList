@@ -7,10 +7,10 @@ module.exports = {
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_NAME || 'travelBucket_db',
       host: process.env.DB_HOST || 'localhost',
-      dialect: 'postgres'
+      dialect: 'mysql'
     },
     production: {
       use_env_variable: 'DATABASE', // We will get this from heroku when we deploy
-      dialect: 'postgres'
+      dialect: 'mysql'
     }
   };

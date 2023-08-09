@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "smart-webcomponents": "^15.2.10"
+    "jquery": "^3.7.0",
+    "smart-webcomponents": "^15.2.10",
+    "unsplash-js": "^7.0.18"
   }
 }

@@ -7,6 +7,7 @@ backend/config/db.config.js
 logs/
 cache/
 build/
+.env.API_KEYS
 .env
 .DS_Store
 uploads/

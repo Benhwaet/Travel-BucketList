@@ -1,7 +1,6 @@
 // handles requests related to travel destinations
 //  fetch destinations, add new ones, and manage destination
 
-const axios = require('axios');
 const Destination = require('../models/travelDestination');
 
 const API_URL = '' // Will fill out the API once i find a suitable one

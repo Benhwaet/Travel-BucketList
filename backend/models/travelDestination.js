@@ -1,9 +1,8 @@
 // schema and attributes for the travel destination table
 // interact with the travel destination table in the database ???
 
-
 const { DataTypes } = require('sequelize');
-const db = require('../utils/database');
+const db = require('../utils/database'); // Importing the Sequelize instance
 
 const Destination = db.define('Destination', {
   destination_id: {
