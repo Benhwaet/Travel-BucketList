@@ -11,9 +11,9 @@ const upload = multer({ dest: 'uploads/' });
 
 // cloudinary account information **do we need secret ? **
 cloudinary.config({
-  cloud_name: process.env.dstjbcoj0,
-  api_key: process.env.795113543851251,
-  api_secret: process.env.j7KSZx4BkPhOtlWrsEjPefO8I78,
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // route to handle image upload
