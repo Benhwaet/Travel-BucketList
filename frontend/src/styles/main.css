@@ -167,22 +167,53 @@ button {
   margin-right: 10px;
 }
 
+
+/* Journal  */
+#journal {
+    background-color: #f6f6f6;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+/* Hotel/Flight API  */
+#hotel-flight-api {
+    background-color: #f6f6f6;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+/* Interactive Map  */
+#interactive-map {
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Photo Library  ( in Footer ?) */
+footer {
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+
 /*  profile page background effect */
-@keyframes fadeBackground {
+/* @keyframes fadeBackground {
   0% {
       background-color: #0e2f52;
   }
   50% {
       background-color: #3f586e;
   }
-  100% {
+  50% {
       background-color: #f6f6f6;
   }
 }
 
 body.profile-page {
   animation: fadeBackground 10s infinite;
-}
+} */
+
 
 
 /* Responsive styles */
@@ -190,7 +221,6 @@ body.profile-page {
   h1 {
     font-size: 30px;
   }
-
   p {
     font-size: 16px;
   }
