@@ -8,3 +8,7 @@ logs/
 cache/
 build/
 .env.API_KEYS
+.DS_Store
+carouselItemPseudocode.txt
+marquee-test.css
+marquee-test.html

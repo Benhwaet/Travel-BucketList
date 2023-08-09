@@ -28,7 +28,7 @@ body {
 }
 
 body.landing-page {
-  background-image: url('/frontend/src/assets/images/aroundtheworld.jpg');
+  background-image: url('/frontend/src/images/aroundtheworld.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
