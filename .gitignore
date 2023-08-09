@@ -1,4 +1,3 @@
-# add whatever is missing
 node_modules/
 frontend/node_modules/
 package-lock.json
@@ -8,6 +7,9 @@ logs/
 cache/
 build/
 .env.API_KEYS
-.env
 .DS_Store
+carouselItemPseudocode.txt
+marquee-test.css
+marquee-test.html
 uploads/
+.env
