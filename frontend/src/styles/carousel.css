@@ -1,9 +1,11 @@
 * {
   font-family: cursive;
 }
+
 body {
   background-image: url("/frontend/src/images/bckgrnd.png");
 }
+
 nav {
   display: flex;
   justify-content: center;
@@ -22,10 +24,11 @@ smart-carousel {
   height: 235px;
 }
 
+/* from node-module file smart.default.css - wanted to change background color  */
 smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
-  background-color: #82d9ec;
-  transition: background-color 1s ease-in-out;
+  background-color: #b5eef7;
   border-radius: 20px;
+  transition: background-color 1s ease-in-out;
 }
 
 .smart-items-container {
@@ -105,8 +108,13 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 }
 
 .bl-buttons-footer {
- display: flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 20px;
+  width: 45px;
 }
 
 .btn {
@@ -115,6 +123,7 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   background-color: rgb(153, 39, 39);
   color: white;
   cursor: pointer;
+
 }
 
 .btn:hover {
