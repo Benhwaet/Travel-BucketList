@@ -46,7 +46,7 @@
                 <h3 class="bl-item-label">Tokyo, Japan</h3>
               </div>
               <div class="bl-card-image">
-                <img class="bl-location-image" src="/frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg"
+                <img class="bl-location-image" src="/frontend/src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
                   alt="location image from Unsplash" />
               </div>
             </div>
@@ -75,7 +75,7 @@
               <h3 class="bl-item-label">Petra, Jordan</h3>
             </div>
             <div class="bl-card-image">
-              <img class="bl-location-image" src="/frontend/src/images/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
+              <img class="bl-location-image" src="/frontend/src/images/destinations/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
                 alt="placeholder image" />
             </div>
             </div>
@@ -103,7 +103,7 @@
               <h3 class="bl-item-label">Berlin, Germany</h3>
             </div>
             <div class="bl-card-image">
-              <img class="bl-location-image" src="/frontend/src/images/nick-name-VDSxhQ81d3M-unsplash.jpg"
+              <img class="bl-location-image" src="/frontend/src/images/destinations/nick-name-VDSxhQ81d3M-unsplash.jpg"
                 alt="placeholder image" />
             </div>
             </div>
@@ -124,7 +124,11 @@
   </nav>
 
   <!-- destinations images , map , flights/hotels -->
-  <main></main>
+  <main style="height: 250px;">
+    <section>
+      <h2>journal and map</h2>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -144,14 +148,15 @@
   <!-- Add more scripts here if needed -->
   <!-- smart-webcomponent npm package files to implement carousel display of bucket list destinations -->
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
-  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
-  <script type="text/javascript" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
-  <script type="text/javascript" src="../src/sections/carousel.js"></script>
-  <script src="/frontend/src/profile.js"></script>
+  <script type="module" src="../../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
+  <script type="module" src="../../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
+  <script type="module" src="../../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
+  <script type="module" src="../src/sections/carousel.js"></script>
+  <script type="module" src="/frontend/src/profile.js"></script>
 
   <!--keep here for display entries if need.-->
-  <script src="journalentry.js"></script>
+  <script src="/frontend/src/sections/journal.js"></script>
+  <script src="/frontend/src/sections/book.js"></script>
 </body>
 
 </html>

@@ -32,15 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // memories import 
-  import React from 'react';
-import UserPhotos from '/frontend/src/sections/Userphotos';
+import React from 'react';
+import UserPhotos from './frontend/src/sections/Userphotos.js';
 
 function Profile() {
   return (
-    <div>
+    `<div>
       {/* Other content */}
       <UserPhotos /> {/* Add the UserPhotos component */}
-    </div>
+    </div>`
   );
 }
 export default Profile;

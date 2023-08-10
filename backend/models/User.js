@@ -1,33 +1,70 @@
 // schema and attributes for the user table
 //  interact with the user data in the database
 
-// user.js
-const { DataTypes, Sequelize } = require('sequelize');
-const sequelize = new Sequelize(''); //
+// user.js --> basically a copy of the model examples in edX module 14, activity 17.
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
-const User = sequelize.define('User', {
-  user_id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+User.init(
+  {
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    profile_picture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      }
+    }, 
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   },
-  username: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
+  {
+    hooks: {
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+    },
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  profile_picture: {
-    type: DataTypes.STRING,
-  },
-});
+  {
+    sequelize,
+    timestammps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
+  }, 
+);
 
-module.exports = { User, sequelize };
+module.exports = User;
