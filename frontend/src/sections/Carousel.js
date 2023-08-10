@@ -1,4 +1,3 @@
-import "smart-webcomponents/source/modules/smart.carousel"
 
 // 	document.readyState === 'complete' ? init() : window.onload = init;
 
@@ -32,20 +31,20 @@ import "smart-webcomponents/source/modules/smart.carousel"
 
 document.addEventListener('DOMContentLoaded', () => {
     const infoBtn = document.getElementById("destination-info");
-    const noteBtn = document.getElementsById("destination-notes");
+    const noteBtn = document.getElementById("destination-notes");
     const checkBtn = document.getElementById("visited-destination");
     const deleteBtn = document.getElementById("delete-destination");
     const icon = document.querySelector(".icon");
 
 
-infoBtn.addEventListener("click", () => {
-  //open dropdown, or dropup with info about location
-  //taken from Amadeus API
-});
+// infoBtn.addEventListener("click", () => {
+//   //open dropdown, or dropup with info about location
+//   //taken from Amadeus API
+// });
 
-noteBtn.addEventListener("click", () => {
-  //linked to location entry in journal? Or display a text box?
-});
+// noteBtn.addEventListener("click", () => {
+//   //linked to location entry in journal? Or display a text box?
+// });
 
 //not functioning, but kept to keep the general idea 
 //of class changing to alter the icon upon click
