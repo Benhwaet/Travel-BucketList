@@ -1,9 +1,6 @@
 * {
   font-family: cursive;
 }
-body {
-  background-image: url("/frontend/src/images/bckgrnd.png");
-}
 nav {
   display: flex;
   justify-content: center;
