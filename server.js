@@ -8,6 +8,9 @@ const sequelize = require('./connection');
 
 app.use(express.json());
 
+const homeRoutes = require('./backend/controllers/home-routes');
+app.use('/', homeRoutes);
+
 const authRoutes = require('./backend/routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
@@ -16,6 +19,7 @@ app.use('/api/travelDestinations', travelDestinationRoutes);
 
 const imageUpload = require('./backend/routes/imageUploads');
 app.use('/api', imageUpload);
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
