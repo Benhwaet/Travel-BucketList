@@ -1,9 +1,6 @@
 
 [
     {
-        "categories": ["City", "Food", "Culture", "History", "Adventure", "Party", "Shopping", "Nature", "Beach", "Hiking", "Location", "Other"]
-    },
-    {
         "destination_id": 1,
         "name": "Tokyo",
         "country": "Japan",

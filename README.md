@@ -64,16 +64,16 @@ or linking my Instagram account.
 - The repository is clean and well-organized.
 
 APIs Used
--
 
+-
 -
 -
 -
 -
 
 What We learned during the project
--
 
+-
 -
 -
 -
@@ -128,26 +128,27 @@ Thank You , For all your hard work and dedication to our second project.
 
 - README
 - Database
-- JS / 
-- Seed Data 
+- JS /
+- Seed Data
 - Profile
 - Flight/Hotel ( api ? pending )
 
 ### Coral - xNoirNightx
 
 - README
-- Landing Page 
-- User login 
+- Landing Page
+- User login
 - JS / CSS / HTML
-- Memory Board 
-- Interactive Map 
+- Memory Board
+- Interactive Map
 
 ### Ben - Benhwaet
 
 - README
 - JS / CSS / HTML
-- Carousel 
+- Carousel
 - Seed Data
+- Models
 - Journal
 -
 
