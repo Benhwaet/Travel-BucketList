@@ -127,32 +127,33 @@ Thank You , For all your hard work and dedication to our second project.
 ### Chris - ChrisSut
 
 - README
--
--
--
--
--
+- Database
+- JS / 
+- Seed Data 
+- Profile
+- Flight/Hotel ( api ? pending )
 
 ### Coral - xNoirNightx
 
 - README
--
--
--
--
--
+- Landing Page 
+- User login 
+- JS / CSS / HTML
+- Memory Board 
+- Interactive Map 
 
 ### Ben - Benhwaet
 
 - README
--
--
--
+- JS / CSS / HTML
+- Carousel 
+- Seed Data
+- Journal
 -
 
 ### Eren - badoglu
 
-- README
+-
 -
 -
 -

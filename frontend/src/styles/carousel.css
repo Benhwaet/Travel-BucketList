@@ -2,10 +2,6 @@
   font-family: cursive;
 }
 
-body {
-  background-image: url("/frontend/src/images/background/beach.png");
-}
-
 nav {
   display: flex;
   justify-content: center;
