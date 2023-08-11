@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const router = express.Router();
+const Sequelize = require('sequelize');
 const sequelize = require('./backend/config/connection');
 
 sequelize.sync({ force: false })
