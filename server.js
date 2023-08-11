@@ -6,14 +6,6 @@ const router = express.Router();
 const Sequelize = require("sequelize");
 const sequelize = require('./backend/config/connection');
 
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log('Database synced successfully.');
-  })
-  .catch((err) => {
-    console.error('Error syncing the database:', err);
-  });
-
 app.use(express.json());
 
 const authRoutes = require('./backend/routes/authRoutes');
@@ -32,4 +24,12 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
+  
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('Database synced successfully.');
+    })
+    .catch((err) => {
+      console.error('Error syncing the database:', err);
+    });
 });
