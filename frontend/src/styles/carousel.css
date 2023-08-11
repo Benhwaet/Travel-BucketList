@@ -21,7 +21,7 @@ smart-carousel {
   --smart-ui-state-focus: #bf3737;
   display: flex;
   justify-content: space-between;
-  height: 235px;
+  height: 240px;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
