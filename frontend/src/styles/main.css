@@ -155,6 +155,14 @@ button {
   cursor: pointer;
 }
 
+body.profile-page {
+  background: linear-gradient(to bottom, #001f3f, #001f3f, #333, #f5f5f5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
 /* Style the profile picture as a circular bubble in the navigation bar */
 .profile-picture {
   width: 40px;
@@ -169,26 +177,27 @@ button {
 
 
 /* Journal  */
-#journal {
-    background-color: #f6f6f6;
-    padding: 20px;
-    margin-top: 20px;
-  }
-
-/* Hotel/Flight API  */
-#hotel-flight-api {
-    background-color: #f6f6f6;
-    padding: 20px;
-    margin-top: 20px;
-  }
-
-/* Interactive Map  */
-#interactive-map {
-  background-color: #f6f6f6;
-  padding: 20px;
-  margin-top: 20px;
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
 }
 
+/* Style the individual sections */
+.journal-section,
+.api-section,
+.map-section {
+  width: calc(33.33% - 20px); 
+  margin-bottom: 20px;
+}
+
+/* Style the map container */
+.map-container {
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+}
 /* Photo Library  ( in Footer ?) */
 footer {
   background-color: #fef7ed;
@@ -213,7 +222,6 @@ footer {
 body.profile-page {
   animation: fadeBackground 10s infinite;
 } */
-
 
 
 /* Responsive styles */
