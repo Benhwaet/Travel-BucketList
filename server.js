@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const router = express.Router();
 const Sequelize = require("sequelize");
-const sequelize = require('./backend/config/connection');
+const sequelize = require('./connection.js');
 
 app.use(express.json());
 
