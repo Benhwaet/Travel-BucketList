@@ -5,9 +5,7 @@ const Sequelize = require("sequelize");
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-  sequelize = new Sequelize(process.env.JAWSDB_URL, {
-    dialect: 'mysql'
-  });
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
   sequelize = new Sequelize(
     process.env.DB_NAME,
@@ -19,6 +17,6 @@ if (process.env.JAWSDB_URL) {
       port: 3306,
     },
   );
-}
+};
 
-module.exports = sequalize;
+module.exports = sequelize;
