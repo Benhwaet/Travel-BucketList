@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3001;
 const router = express.Router();
-const dbConfig = require('./config/db.config');
+const dbConfig = require('./backend/config/db.config');
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(dbConfig.development);
 
@@ -18,11 +18,11 @@ sequelize.sync({ force: false })
 
 app.use(express.json());
 
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./backend/routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 
-const travelDestinationRoutes = require('./routes/travelDestinationRoutes');
+const travelDestinationRoutes = require('./backend/routes/travelDestinationRoutes');
 app.use('/api/travelDestinations', travelDestinationRoutes);
 
 
@@ -35,5 +35,5 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-const imageUpload = require('./routes/imageUploads');
+const imageUpload = require('./backend/routes/imageUploads');
 app.use('/api', imageUpload);
