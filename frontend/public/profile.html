@@ -21,6 +21,7 @@
     <div class="search-bar">
       <input type="text" placeholder="Search for destinations" />
       <!-- Add search button here if needed -->
+      <button id="search-btn">Search</button>
     </div>
     <div class="user-profile">
       <!-- Profile Picture (displayed as a bubble) -->
@@ -39,88 +40,7 @@
   <nav class="carousel-container">
     <smart-carousel hide-indicators loop keyboard id="carousel" display-mode="multiple">
       <ul id="bucket-list">
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class = "bl-card-main">
-            <div>
-              <div class="bl-card-header">
-                <h3 class="bl-item-label">Tokyo, Japan</h3>
-              </div>
-              <div class="bl-card-image">
-                <img class="bl-location-image" src="/frontend/src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
-                  alt="location image from Unsplash" />
-              </div>
-            </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-              </smart-button>
-              <smart-button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </smart-button>
-              <smart-button class="visited-destination btn">
-                <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button class="delete-destination btn" onclick="removeCard()">
-                <i class="icon fa fa-trash"></i>
-              </smart-button>
-            </div>
-          </section>
-        </li>
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class = "bl-card-main">
-            <div class="bl-card-header">
-              <h3 class="bl-item-label">Petra, Jordan</h3>
-            </div>
-            <div class="bl-card-image">
-              <img class="bl-location-image" src="/frontend/src/images/destinations/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
-                alt="placeholder image" />
-            </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"></i>
-              </smart-button>
-              <smart-button id="destination-notes" class="btn">
-                <i class="icon fa-solid fa-list"></i>
-              </smart-button>
-              <smart-button id="visited-destination" class="btn">
-                <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button id="delete-destination" class="btn">
-                <i class="icon fa fa-trash"></i>
-              </smart-button>
-            </div>
-          </section>
-        </li>
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class = "bl-card-main">
-            <div class="bl-card-header">
-              <h3 class="bl-item-label">Berlin, Germany</h3>
-            </div>
-            <div class="bl-card-image">
-              <img class="bl-location-image" src="/frontend/src/images/destinations/nick-name-VDSxhQ81d3M-unsplash.jpg"
-                alt="placeholder image" />
-            </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
-              <smart-button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
-              <smart-button id="visited-destination" class="btn">
-                <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button id="delete-destination" class="btn">
-                <i class="icon fa fa-trash"></i>
-              </smart-button>
-            </div>
-        </li>
-
+<!-- carousel cards to be added through carousel.js (or carousel.handlebars if I get a 'handle' on it) -->
       </ul>
     </smart-carousel>
   </nav>
@@ -128,7 +48,7 @@
   
   <main>
 
-     <!-- Journal Section (( LeEFT )) -->
+     <!-- Journal Section (( LEFT )) -->
   <section class="journal-section">
   </section>
 

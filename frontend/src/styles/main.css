@@ -1,7 +1,7 @@
 /* Define root color variables ** we can update this colour theme once apis are working*/
 :root {
   --primary-color: #007bff; /* Blue color for buttons and links */
-  --secondary-color: #333; /* Dark gray color for header background */
+  --secondary-color: #651a1a; /* Dark gray color for header background */
   --background-color: #f5f5f5; /* Light gray background color */
   --modal-overlay-color: rgba(0, 0, 0, 0.4); /* Modal overlay background color */
   --modal-content-background: #fff; /* Modal content background color */
@@ -156,7 +156,7 @@ button {
 }
 
 body.profile-page {
-  background: linear-gradient(to bottom, #001f3f, #001f3f, #333, #f5f5f5);
+  background: linear-gradient(to bottom, #1de8fb, #51a5b0, #428baf, #b0f0eb);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
