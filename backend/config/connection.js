@@ -21,9 +21,4 @@ if (process.env.JAWSDB_URL) {
   );
 }
 
-const db = {
-  sequelize,
-  Sequelize, 
-};
-
-module.exports = db;
+module.exports = sequalize;
