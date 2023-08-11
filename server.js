@@ -5,7 +5,7 @@ const port = process.env.PORT || 3001;
 const router = express.Router();
 const dbConfig = require('./backend/config/db.config');
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize(dbConfig.development);
+const sequelize = new Sequelize(dbConfig.production);
 
 
 sequelize.sync({ force: false })
