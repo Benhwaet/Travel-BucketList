@@ -1,25 +1,23 @@
 // schema and attributes for the travel destination table
 // interact with the travel destination table in the database ???
 
-const { DataTypes } = require('sequelize');
-const db = require('../utils/database'); // Importing the Sequelize instance
+//based on class notes and models in module 14, activity 15
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-const Destination = db.define('Destination', {
+class TravelDestination extends Model {}
+
+TravelDestination.init(
+  {
   destination_id: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  description: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  photo: {
-    type: DataTypes.STRING,
   },
   country: {
     type: DataTypes.STRING,
@@ -29,10 +27,33 @@ const Destination = db.define('Destination', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  category: {
+  image: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-});
+  description: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  categories: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true,
+  },
+  notes: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+  },
+  visited: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  }
+},
+{
+  sequelize,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'travelDestination',
+}
+);
 
-module.exports = Destination;
+module.exports = TravelDestination;
