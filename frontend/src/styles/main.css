@@ -28,7 +28,7 @@ body {
 }
 
 body.landing-page {
-  background-image: url('/frontend/src/images/aroundtheworld.jpg');
+  background-image: url('/frontend/src/images/background/aroundtheworld.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -191,7 +191,7 @@ button {
 
 /* Photo Library  ( in Footer ?) */
 footer {
-  background-color: #f6f6f6;
+  background-color: #fef7ed;
   padding: 20px;
   margin-top: 20px;
 }

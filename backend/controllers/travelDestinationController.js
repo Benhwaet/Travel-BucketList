@@ -1,7 +1,7 @@
 // handles requests related to travel destinations
 //  fetch destinations, add new ones, and manage destination
 
-const Destination = require('../models/travelDestination');
+const Destination = require('../models/TravelDestination');
 
 const API_URL = '' // Will fill out the API once i find a suitable one
 
@@ -9,14 +9,17 @@ const DestinationController = {
     // Create a new destination
     createDestination: async (req, res) => {
       try {
-        const { name, description, photo, country, continent, category } = req.body;
+        const { destination_id, name, country, continent, image, description, categories, notes, visited } = req.body;
         const newDestination = {
+          destination_id,
           name,
-          description,
-          photo,
           country,
           continent,
-          category,
+          image,
+          description,
+          categories,
+          notes,
+          visited
         };
         const response = await axios.post(API_URL, newDestination);
         const destination = response.data;
@@ -53,17 +56,20 @@ const DestinationController = {
     },
   
     // Update a destination by ID
-    updateDestination: async (req, res) => {
+    updatedDestination: async (req, res) => {
       try {
         const destinationId = req.params.id;
-        const { name, description, photo, country, continent, category } = req.body;
+        const { destination_id, name, country, continent, image, description, categories, notes, visited } = req.body;
         const updatedDestination = {
+          destination_id,
           name,
-          description,
-          photo,
           country,
           continent,
-          category,
+          image,
+          description,
+          categories,
+          notes,
+          visited
         };
         const response = await axios.put(`${API_URL}/${destinationId}`, updatedDestination);
         const destination = response.data;

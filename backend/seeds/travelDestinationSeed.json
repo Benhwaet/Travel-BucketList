@@ -4,6 +4,7 @@
         "categories": ["City", "Food", "Culture", "History", "Adventure", "Party", "Shopping", "Nature", "Beach", "Hiking", "Location", "Other"]
     },
     {
+        "destination_id": 1,
         "name": "Tokyo",
         "country": "Japan",
         "continent": "Asia",
@@ -14,6 +15,7 @@
         "visited": false
     },
     {
+        "destination_id": 2,
         "name": "Petra",
         "country": "Jordan",
         "continent": "Asia",
@@ -24,6 +26,7 @@
         "visited": false
     },
     {
+        "destination_id": 3,
         "name": "Mont Saint-Michel",
         "country": "France",
         "continent": "Europe",
@@ -34,6 +37,7 @@
         "visited": false
     },
     {
+        "destination_id": 4,
         "name": "Berlin",
         "country": "Germany",
         "continent": "Europe",
@@ -44,6 +48,7 @@
         "visited": true
     },
     {
+        "destination_id": 5,
         "name": "London",
         "country": "England",
         "continent": "Europe",
@@ -54,6 +59,7 @@
         "visited": false
     },
     {
+        "destination_id": 6,
         "name": "New York City",
         "country": "United States",
         "continent": "North America",
@@ -64,6 +70,7 @@
         "visited": true
     },
     {
+        "destination_id": 7,
         "name": "Chichen Itza",
         "country": "Mexico",
         "continent": "North America",
@@ -74,6 +81,7 @@
         "visited": true
     },
     {
+        "destination_id": 8,
         "name": "Angkor Wat",
         "country": "Cambodia",
         "continent": "Asia",
@@ -84,6 +92,7 @@
         "visited": false
     },
     {
+        "destination_id": 9,
         "name": "San Fransisco",
         "country": "United States",
         "continent": "North America",
@@ -94,6 +103,7 @@
         "visited": false 
     },
     {
+        "destination_id": 10,
         "name": "São Paulo",
         "country": "Brazil",    
         "continent": "South America",
@@ -104,6 +114,7 @@
         "visited": false
     },
     {
+        "destination_id": 11,
         "name": "Rio de Janeiro",
         "country": "Brazil",
         "continent": "South America",
@@ -114,6 +125,7 @@
         "visited": false
     },
     {
+        "destination_id": 12,
         "name": "Cape Town",
         "country": "South Africa",
         "continent": "Africa",
@@ -124,6 +136,7 @@
         "visited": false
     },
     {
+        "destination_id": 13,
         "name": "Seoul",
         "country": "South Korea",
         "continent": "Asia",
@@ -134,6 +147,7 @@
         "visited": false
     },
     {
+        "destination_id": 14,
         "name": "Hong Kong",
         "country": "China",
         "continent": "Asia",
@@ -144,6 +158,7 @@
         "visited": false
     },
     {
+        "destination_id": 15,
         "name": "Bangkok",
         "country": "Thailand",
         "continent": "Asia",
@@ -154,6 +169,7 @@
         "visited": false
     },
     {
+        "destination_id": 16,
         "name": "Singapore",
         "country": "Singapore",
         "continent": "Asia",
@@ -164,6 +180,7 @@
         "visited": false
     },
     {
+        "destination_id": 17,
         "name": "Istanbul",
         "country": "Turkey",
         "continent": "Asia",
@@ -174,6 +191,7 @@
         "visited": false
     },
     {
+        "destination_id": 18,
         "name": "Lausanne",
         "country": "Switzerland",
         "continent": "Europe",
@@ -184,6 +202,7 @@
         "visited": true
     },
     {
+        "destination_id": 19,
         "name": "Geneva",
         "country": "Switzerland",
         "continent": "Europe",
@@ -194,6 +213,7 @@
         "visited": true
     },
     {
+        "destination_id": 20,
         "name": "Toronto",
         "country": "Canada",
         "continent": "North America",
@@ -204,6 +224,7 @@
         "visited": true
     },
     {
+        "destination_id": 21,
         "name": "Montreal",
         "country": "Canada",
         "continent": "North America",
@@ -214,6 +235,7 @@
         "visited": true
     },
     {
+        "destination_id": 22,
         "name": "Montreux",
         "country": "Switzerland",
         "continent": "Europe",
@@ -224,6 +246,7 @@
         "visited": true
     },
     {
+        "destination_id": 23,
         "name": "Reykjavik",
         "country": "Iceland",
         "continent": "Europe",
@@ -234,6 +257,7 @@
         "visited": false
     },
     {
+        "destination_id": 24,
         "name": "Oslo",
         "country": "Norway",
         "continent": "Europe",
@@ -244,6 +268,7 @@
         "visited": false
     },
     {
+        "destination_id": 25,
         "name": "Bodleian Library",
         "country": "England",
         "continent": "Europe",
@@ -254,6 +279,7 @@
         "visited": false
     },
     {
+        "destination_id": 26,
         "name": "Stonehenge",
         "country": "England",
         "continent": "Europe",
@@ -264,6 +290,7 @@
         "visited": false
     },
     {
+        "destination_id": 27,
         "name": "The Louvre",
         "country": "France",
         "continent": "Europe",
@@ -274,6 +301,7 @@
         "visited": false
     },
     {
+        "destination_id": 28,
         "name": "Disney World",
         "country": "USA",
         "continent": "North America",
@@ -284,6 +312,7 @@
         "visited": false
     },
     {
+        "destination_id": 29,
         "name": "Disneyland",
         "country": "USA",
         "continent": "North America",
@@ -294,6 +323,7 @@
         "visited": false
     },
     {
+        "destination_id": 30,
         "name": "Universal Studios",
         "city": "Orlando",
         "country": "USA",
@@ -305,6 +335,7 @@
         "visited": false
     },
     {
+        "destination_id": 31,
         "name": "Library of Alexandria",
         "country": "Egypt",
         "continent": "Africa",
@@ -315,6 +346,7 @@
         "visited": false
     },
     {
+        "destination_id": 32,
         "name": "The Great Wall of China",
         "country": "China",
         "continent": "Asia",
@@ -325,6 +357,7 @@
         "visited": false
     },
     {
+        "destination_id": 33,
         "name": "The Colosseum",
         "country": "Italy",
         "continent": "Europe",
@@ -335,6 +368,7 @@
         "visited": false
     },
     {
+        "destination_id": 34,
         "name": "The Parthenon",
         "country": "Greece",
         "continent": "Europe",
@@ -345,6 +379,7 @@
         "visited": false
     },
     {
+        "destination_id": 35,
         "name": "The Pyramids of Giza",
         "country": "Egypt",
         "continent": "Africa",
@@ -355,6 +390,7 @@
         "visited": false
     },
     {
+        "destination_id": 36,
         "name": "The Taj Mahal",
         "country": "India",
         "continent": "Asia",
@@ -365,6 +401,7 @@
         "visited": false
     },
     {
+        "destination_id": 37,
         "name": "Kerala Backwaters",
         "country": "India",
         "continent": "Asia",
@@ -375,6 +412,7 @@
         "visited": false
     },
     {
+        "destination_id": 38,
         "name": "The Great Barrier Reef",
         "country": "Australia",
         "continent": "Australia",
@@ -385,6 +423,7 @@
         "visited": false
     },
     {
+        "destination_id": 39,
         "name": "The Grand Canyon",
         "country": "USA",
         "continent": "North America",
@@ -395,6 +434,7 @@
         "visited": false
     },
     {
+        "destination_id": 40,
         "name": "Mumbai",
         "country": "India",
         "continent": "Asia",
@@ -405,6 +445,7 @@
         "visited": false
     },
     {
+        "destination_id": 41,
         "name": "Kilimanjaro",
         "country": "Tanzania",
         "continent": "Africa",
@@ -415,6 +456,7 @@
         "visited": false
     },
     {
+        "destination_id": 42,
         "name": "Marrakech",
         "country": "Morocco",
         "continent": "Africa",
@@ -425,6 +467,7 @@
         "visited": false
     },
     {
+        "destination_id": 43,
         "name": "Johannesburg",
         "country": "South Africa",
         "continent": "Africa",
@@ -435,6 +478,7 @@
         "visited": false
     },
     {
+        "destination_id": 44,
         "name": "Machu Picchu",
         "country": "Peru",
         "continent": "South America",
@@ -445,6 +489,7 @@
         "visited": false
     },
     {
+        "destination_id": 45,
         "name": "Casablanca",
         "country": "Morocco",
         "continent": "Africa",
@@ -455,6 +500,7 @@
         "visited": false
     },
     {
+        "destination_id": 46,
         "name": "Victoria Falls",
         "country": "Zimbabwe",
         "continent": "Africa",
@@ -465,6 +511,7 @@
         "visited": false
     },
     {
+        "destination_id": 47,
         "name": "Zanzibar",
         "country": "Tanzania",
         "continent": "Africa",
@@ -475,6 +522,7 @@
         "visited": false
     },
     {
+        "destination_id": 48,
         "name": "Chobe National Park",
         "country": "Botswana",
         "continent": "Africa",
@@ -485,6 +533,7 @@
         "visited": false
     },
     {
+        "destination_id": 49,
         "name": "The Nile",
         "country": "Egypt",
         "continent": "Africa",
@@ -495,6 +544,7 @@
         "visited": false
     },
     {
+        "destination_id": 50,
         "name": "The Serengeti",
         "country": "Tanzania",
         "continent": "Africa",
@@ -505,6 +555,7 @@
         "visited": false
     },
     {
+        "destination_id": 51,
         "name": "Nairobi",
         "country": "Kenya",
         "continent": "Africa",
@@ -515,6 +566,7 @@
         "visited": false
     },
     {
+        "destination_id": 52,
         "name": "Iqaluit",
         "country": "Canada",
         "continent": "North America",
@@ -525,6 +577,7 @@
         "visited": false
     },
     {
+        "destination_id": 53,
         "name": "Whitehorse",
         "country": "Canada",
         "continent": "North America",
@@ -535,7 +588,9 @@
         "visited": false
     },
     {
-        "Alexandria": "Egypt",
+        "destination_id": 54,
+        "name": "Alexandria",
+        "Country": "Egypt",
         "continent": "Africa",
         "image": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Alexandria_Corniche.jpg",
         "description": "Alexandria is the second largest city and a major economic centre in Egypt.",
