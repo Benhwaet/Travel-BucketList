@@ -1,12 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const router = express.Router();
-const dbConfig = require('./backend/config/connection');
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize(dbConfig.production);
-
+const sequelize = require('./backend/config/connection');
 
 sequelize.sync({ force: false })
   .then(() => {
@@ -21,10 +19,11 @@ app.use(express.json());
 const authRoutes = require('./backend/routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
-
 const travelDestinationRoutes = require('./backend/routes/travelDestinationRoutes');
 app.use('/api/travelDestinations', travelDestinationRoutes);
 
+const imageUpload = require('./backend/routes/imageUploads');
+app.use('/api', imageUpload);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -34,6 +33,3 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
-const imageUpload = require('./backend/routes/imageUploads');
-app.use('/api', imageUpload);
