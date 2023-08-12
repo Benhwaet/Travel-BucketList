@@ -28,7 +28,7 @@ body {
 }
 
 body.landing-page {
-  background-image: url('/src/images/background/aroundtheworld.jpg');
+  background-image: url('../src/images/background/aroundtheworld.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -185,11 +185,41 @@ main {
   padding: 40px;
 }
 
+
+/* search results container */
+#searchResultsContainer {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  display: none; /* Hide it by default */
+}
+
+/* each search result item */
+#searchResultsContainer p {
+  margin: 5px 0;
+}
+
+/* show results container when there are results */
+#searchResultsContainer.show {
+  display: block;
+}
+
+/* move position of the carousel to make space for the search results */
+nav.carousel-container {
+  margin-top: 50px; /* Increase this value as needed to give more space*/
+}
+
+
 /* Style the individual sections */
-.journal-section,
 .api-section,
 .map-section {
-  width: calc(33.33% - 20px); 
+  width: calc(50% - 10px); /* Adjust width as needed */
+  margin-bottom: 20px;
+}
+
+.journal-section {
+  width: 100%; /* Full width for journal section */
   margin-bottom: 20px;
 }
 
@@ -198,6 +228,7 @@ main {
   width: 100%;
   height: 300px; /* Adjust the height as needed */
 }
+
 /* Photo Library  ( in Footer ?) */
 footer {
   background-color: #fef7ed;
@@ -206,31 +237,14 @@ footer {
 }
 
 
-/*  profile page background effect */
-/* @keyframes fadeBackground {
-  0% {
-      background-color: #0e2f52;
-  }
-  50% {
-      background-color: #3f586e;
-  }
-  50% {
-      background-color: #f6f6f6;
-  }
-}
-
-body.profile-page {
-  animation: fadeBackground 10s infinite;
-} */
-
-
 /* Responsive styles */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 30px;
+  main {
+    flex-direction: column;
+    align-items: center;
   }
-  p {
-    font-size: 16px;
+  .api-section,
+  .map-section {
+    width: 100%; /* Full width on smaller screens */
   }
 }
-
