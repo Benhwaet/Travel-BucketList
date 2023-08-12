@@ -20,6 +20,8 @@
     "mysql2": "^3.5.2",
     "sequelize": "^6.32.1",
     "smart-webcomponents": "^15.2.10",
-    "unsplash-js": "^7.0.18"
+    "unsplash-js": "^7.0.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
