@@ -1,28 +1,31 @@
 const bucketList = document.querySelector('#bucket-list');
+const searchBtn = document.querySelector('#search-btn');
+const searchInput = document.querySelector('#search-input');
 
 const travelDestinationSeed = async () => {
-    const response = await fetch('../../../backend/seeds/travelDestinationSeed.json', {
+    const result = await fetch('../../../backend/seeds/travelDestinationSeed.json', {
         method: 'GET',
     });
-    const data = await response.json()
-    return data
+    const json = await result.json()
+    return json;
 }
+console.log(travelDestinationSeed());
 
- console.log(travelDestinationSeed())
+searchBtn.addEventListener('click', () => {
+    console.log('search button clicked');
 
+    for (let i = 0; i < travelDestinationSeed.length; i++) {
 
-for (let i = 0; i < travelDestinationSeed.length; i++) {
-    const travelDestinationData = {
-        name: travelDestinationSeed[i].name,
-        country: travelDestinationSeed[i].country,
-        image: travelDestinationSeed[i].image,
-        description: travelDestinationSeed[i].description,
-        notes: travelDestinationSeed[i].notes,
-        visited: travelDestinationSeed[i].visited
-    }
-    console.log(travelDestinationData.name);
+        const travelDestinationData = {
+            name: travelDestinationSeed[i].name,
+            country: travelDestinationSeed[i].country,
+            image: travelDestinationSeed[i].image,
+            description: travelDestinationSeed[i].description,
+            notes: travelDestinationSeed[i].notes,
+            visited: travelDestinationSeed[i].visited
+        }
 
-const carouselCard = `
+        const carouselCard = `
   <li class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
@@ -57,7 +60,8 @@ const carouselCard = `
   </li>
 `
 
-console.log(travelDestinationData);
+        console.log(travelDestinationData);
 
-bucketList.insertAdjacentHTML('beforeend', carouselCard);
-}
+        bucketList.insertAdjacentHTML('beforeend', carouselCard);
+    }
+});
