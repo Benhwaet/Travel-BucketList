@@ -43,9 +43,15 @@ searchBtn.addEventListener('click', () => {
         <smart-button class="destination-info btn">
           <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
         </smart-button>
+        <div id="infoModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>About ${travelDestinationData[i].name}</h2>
             <div class="destination-info-content">
                 <p>${travelDestinationData[i].description}</p>
             </div>
+          </div>
+        </div>
         <smart-button class="destination-notes btn">
           <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
         </smart-button>
@@ -65,3 +71,4 @@ searchBtn.addEventListener('click', () => {
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
     }
 });
+

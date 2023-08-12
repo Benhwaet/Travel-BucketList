@@ -125,3 +125,36 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 .btn:hover {
   opacity: 50%;
 }
+
+/* Style the modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay-color);
+}
+
+/* Style the modal content */
+.modal-content {
+  background-color: var(--modal-content-background);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: var(--modal-box-shadow);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
