@@ -3,7 +3,7 @@
 
 //based on class notes and models in module 14, activity 15
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../../config/connection');
 
 class TravelDestination extends Model {}
 
