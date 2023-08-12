@@ -36,7 +36,7 @@ TravelDestination.init(
     allowNull: false,
   },
   categories: {
-    type: DataTypes.JSON,
+    type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: true,
   },
   notes: {
