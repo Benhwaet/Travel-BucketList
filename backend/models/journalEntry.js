@@ -24,7 +24,7 @@ JournalEntry.init(
       references: {
         model: 'user',
         key: 'username'
-    },
+    }
   },
     entry_date: {
       type: DataTypes.DATE,
