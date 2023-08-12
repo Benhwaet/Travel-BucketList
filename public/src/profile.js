@@ -31,16 +31,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // memories import 
-import React from 'react';
-import UserPhotos from './frontend/src/sections/Userphotos.js';
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+  
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+  
+      const searchTerm = searchInput.value;
+  
+      
+      window.location.href = `/search.html?search=${encodeURIComponent(searchTerm)}`;
+    });
+  });
 
-function Profile() {
-  return (
-    `<div>
-      {/* Other content */}
-      <UserPhotos /> {/* Add the UserPhotos component */}
-    </div>`
-  );
-}
+  //memories input
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import UserPhotos from './frontend/src/sections/Userphotos.js';
+  
+  // Define the profile
+  function Profile() {
+    return (
+      <div>
+        {/* Other content */}
+        <UserPhotos /> {/* Render the UserPhotos component */}
+      </div>
+    );
+  }
+  
+  // Render the profile
+  ReactDOM.render(<Profile />, document.getElementById('root'));
+  
+
 export default Profile;
