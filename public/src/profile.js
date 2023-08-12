@@ -30,20 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   const searchForm = document.getElementById('search-form');
-  //   const searchInput = document.getElementById('search-input');
+  //API SEARCH FUNCTION
   
-  //   searchForm.addEventListener('submit', function (event) {
-  //     event.preventDefault();
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
   
-  //     const searchTerm = searchInput.value;
+  searchForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
   
+    const searchQuery = searchInput.value;
+  
+    try {
+      const response = await fetch(`/api/travelDestinations/search?name=${searchQuery}`);
+      if (response.ok) {
+        const destinations = await response.json();
+        
+        console.log(destinations);
       
-  //     window.location.href = `/search.html?search=${encodeURIComponent(searchTerm)}`;
-  //   });
-  // });
+      } else {
+        console.error('Error searching destinations:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error searching destinations:', error);
+    }
+  });
+  
+
 
   //memories input
   import React from 'react';
