@@ -3,14 +3,13 @@ const TravelDestination = require('../models/travelDestination');
 const DestinationController = {
   createDestination: async (req, res) => {
     try {
-      const { name, country, continent, image, description, categories, notes, visited } = req.body;
+      const { name, country, continent, image, description, notes, visited } = req.body;
       const newDestination = await TravelDestination.create({
         name,
         country,
         continent,
         image,
         description,
-        categories,
         notes,
         visited
       });
@@ -48,7 +47,7 @@ const DestinationController = {
   updateDestination: async (req, res) => {
     try {
       const destinationId = req.params.id;
-      const { name, country, continent, image, description, categories, notes, visited } = req.body;
+      const { name, country, continent, image, description, notes, visited } = req.body;
       
       const destination = await TravelDestination.findByPk(destinationId);
       if (!destination) {
@@ -61,7 +60,6 @@ const DestinationController = {
         continent,
         image,
         description,
-        categories,
         notes,
         visited
       });
