@@ -2,7 +2,7 @@
 // interact with the journal entry data in the database ???
 
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../../connection');
 
 class JournalEntry extends Model { }
 
