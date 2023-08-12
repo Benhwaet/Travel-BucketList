@@ -1,22 +1,23 @@
 const User = require('./User');
-const JournalEntry = require('./JournalEntry');
-const TravelDestination = require('./TravelDestination');
+const JournalEntry = require('./journalEntry');
+const TravelDestination = require('./travelDestination');
 
-User.hasMany(TravelDestination, JournalEntry, {
+User.hasMany(TravelDestination, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
+
+User.hasMany(JournalEntry, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
 TravelDestination.belongsTo(User, {
-  foreignKey: 'destination_id',
+  foreignKey: 'user_id', //
 });
 
 JournalEntry.belongsTo(User, {
-  foreignKey: 'entry_id',
+  foreignKey: 'user_id',
 })
-
-// JournalEntry.hasOne(TravelDestination, {
-//   foreignKey: 'destination_id',
-// })
 
 module.exports = { User, JournalEntry, TravelDestination };

@@ -3,7 +3,7 @@
 
 //based on class notes and models in module 14, activity 15
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../../connection');
 
 class TravelDestination extends Model {}
 
@@ -35,10 +35,6 @@ TravelDestination.init(
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  categories: {
-    type: DataTypes.ARRAY(DataTypes.STRING),
-    allowNull: true,
-  },
   notes: {
     type: DataTypes.TEXT,
     allowNull: true,
@@ -56,4 +52,4 @@ TravelDestination.init(
 }
 );
 
-module.exports = travelDestination;
+module.exports = TravelDestination;

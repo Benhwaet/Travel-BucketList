@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const cors = require('cors');
 const router = express.Router();
 const Sequelize = require("sequelize");
 const sequelize = require('./connection');
@@ -9,9 +10,12 @@ const sequelize = require('./connection');
 app.use(express.json());
 
 //app.use(express.static(__dirname + '/public'));;
+
 app.use(express.static('public'));
 
 app.use('/node_modules', express.static('node_modules'));
+
+app.use(cors());
 
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);

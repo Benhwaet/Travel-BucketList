@@ -4,7 +4,7 @@
 // user.js --> basically a copy of the model examples in edX module 14, activity 17.
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
-const sequelize = require("../config/connection");
+const sequelize = require("../../connection");
 
 class User extends Model {
   checkPassword(loginPw) {
