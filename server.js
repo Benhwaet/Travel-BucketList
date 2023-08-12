@@ -9,7 +9,9 @@ const sequelize = require('./connection');
 app.use(express.json());
 
 //app.use(express.static(__dirname + '/public'));;
-app.use(express.static('public'));
+app.use(express.static(__dirname));
+
+app.use('/node_modules', express.static('node_modules'));
 
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
