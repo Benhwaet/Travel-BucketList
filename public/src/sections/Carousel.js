@@ -34,7 +34,6 @@ window.addEventListener('click', (event) => {
 const travelDestinationSeed = async () => {
     const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', {
         method: 'GET',
-        model: 'no-cors'
     });
     const json = await result.json()
     return json;
