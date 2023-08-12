@@ -35,10 +35,6 @@ TravelDestination.init(
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  categories: {
-    type: DataTypes.ARRAY(DataTypes.STRING),
-    allowNull: true,
-  },
   notes: {
     type: DataTypes.TEXT,
     allowNull: true,
