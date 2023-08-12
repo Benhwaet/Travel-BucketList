@@ -1,5 +1,6 @@
+const { travelDestination } = require('../models/');
 
-[
+const travelseed = [
     {
         "categories": ["City", "Food", "Culture", "History", "Adventure", "Party", "Shopping", "Nature", "Beach", "Hiking", "Location", "Other"]
     },
@@ -597,5 +598,9 @@
         "categories": ["City", "Culture", "Food", "Adventure", "History", "Shopping"],
         "notes": "Whyyy library, whyyyyyy?",
         "visited": false
-    }
-]
+    },
+];
+
+const seedTravel = () => travelDestination.bulkcreate(travelseed);
+
+module.exports = seedTravel;

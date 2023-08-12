@@ -30,17 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  //memories input
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import UserPhotos from './frontend/src/sections/Userphotos.js';
+  
+  // Define the profile
+  function Profile() {
+    return (
+      <div>
+        {/* Other content */}
+        <UserPhotos /> {/* Render the UserPhotos component */}
+      </div>
+    );
+  }
+  
+  // Render the profile
+  ReactDOM.render(<Profile />, document.getElementById('root'));
 
-  // memories import 
-import React from 'react';
-import UserPhotos from './frontend/src/sections/Userphotos.js';
-
-function Profile() {
-  return (
-    `<div>
-      {/* Other content */}
-      <UserPhotos /> {/* Add the UserPhotos component */}
-    </div>`
-  );
-}
 export default Profile;
