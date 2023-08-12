@@ -6,9 +6,9 @@
         "country": "Japan",
         "continent": "Asia",
         "image": "../../frontend/src/images/note-thanun--Rn42aCTZGw-unsplash.jpg",
-        "description": "Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world. Also, I want to play arcade games.",
+        "description": "Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world",
         "categories": ["City", "Food", "Culture", "History", "Nature"],
-        "notes": " ",
+        "notes": "Japan, the land of anime and manga. I would love to go to Tokyo and see the city. I would also love to go to Kyoto and see the temples.",
         "visited": false
     },
     {
