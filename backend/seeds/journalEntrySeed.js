@@ -1,4 +1,4 @@
-const { journalEntry } = require('../models');
+const { JournalEntry } = require('../models');
 
 const journalentry = [
     {
@@ -32,6 +32,6 @@ const journalentry = [
     },
 ];
 
-const seedJournal = () => journalEntry.bulkcreate(journalentry);
+const seedJournal = () => JournalEntry.bulkcreate(journalentry);
 
 module.exports = seedJournal;

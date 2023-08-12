@@ -1,4 +1,4 @@
-const { travelDestination } = require('../models/');
+const { TravelDestination } = require('../models');
 
 const travelseed = [
 
@@ -594,6 +594,6 @@ const travelseed = [
     },
 ];
 
-const seedTravel = () => travelDestination.bulkcreate(travelseed);
+const seedTravel = () => TravelDestination.bulkcreate(travelseed);
 
 module.exports = seedTravel;
