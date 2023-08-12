@@ -8,7 +8,7 @@ const sequelize = require('./connection');
 
 app.use(express.json());
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));;
 
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
