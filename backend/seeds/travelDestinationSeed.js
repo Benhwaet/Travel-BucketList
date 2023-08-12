@@ -1,6 +1,6 @@
 const { TravelDestination } = require('../models');
 
-const travelseed = [
+const travelDestinationSeed = [
 
     {
         "destination_id": 1,
@@ -594,6 +594,6 @@ const travelseed = [
     },
 ];
 
-const seedTravel = () => TravelDestination.bulkcreate(travelseed);
+const seedTravel = () => TravelDestination.bulkCreate(travelDestinationSeed);
 
 module.exports = seedTravel;

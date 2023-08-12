@@ -32,6 +32,6 @@ const journalentry = [
     },
 ];
 
-const seedJournal = () => JournalEntry.bulkcreate(journalentry);
+const seedJournal = () => JournalEntry.bulkCreate(journalentry);
 
 module.exports = seedJournal;
