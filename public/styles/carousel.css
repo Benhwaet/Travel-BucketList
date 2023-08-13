@@ -17,27 +17,36 @@ smart-carousel {
   --smart-ui-state-active: #933838;
   --smart-ui-state-focus: #bf3737;
   display: flex;
-  justify-content: space-between;
-  height: 275px;
+  justify-content: center;
+  align-items: center;
+  height: 285px;
+  width: 800px;
+  border-width: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: none;
 }
 
 .smart-carousel-item {
-  background-color: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
-  transition: background-color 0s ease-in-out;
+  transition: none;
 }
 
 .smart-carousel-item.smart-active {
   background-color: #b5eef7;
+  opacity: 60%;
   border-radius: 20px;
-  transition: background-color 0s ease-in-out;
+  transition: transform 0.5s linear;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
 smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   background-color: #b5eef7;
   border-radius: 20px;
-  transition: background-color 1s ease-in-out;
+  transition: none;
 }
 
 .smart-items-container {
@@ -52,7 +61,7 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   background-color: rgb(255, 240, 232);
   border-radius: 40%;
   width: 50px;
-  max-height: 20%;
+  max-height: 15%;
   margin-top: 75px;
   cursor: pointer;
 }
@@ -71,7 +80,6 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   justify-content: center;
   margin: 10px;
   padding: 10px;
-  box-shadow: inset 0 0 10px #000000;
   border-radius: 15px;
 }
 
@@ -113,7 +121,6 @@ one should be hidden if the other is visible */
 
 .destination-description p {
   font-size: 15px;
-
 }
 
 .hidden {
@@ -181,3 +188,22 @@ one should be hidden if the other is visible */
   color: #933838;
   opacity: 50%;  
 }
+
+@media only screen and (max-width: 800px) {
+  smart-carousel {
+    max-width: 600px;
+    margin-bottom: 50px;
+  }
+  smart-carousel .smart-carousel-item {
+    width: 250px;
+  }
+  }
+  
+  @media only screen and (max-width: 500px) {
+  smart-carousel {
+    width: 300px;
+  }
+  smart-carousel .smart-carousel-item {
+    width:180px !important;
+  }
+  }

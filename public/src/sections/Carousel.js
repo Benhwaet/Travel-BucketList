@@ -43,7 +43,7 @@ notesBtn.addEventListener('click', () => {
 
 visitedBtn.addEventListener('click', () => {
   console.log('visited button clicked');
-  if ()
+});
 //connect button to entire great-grandparent element
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list?**
@@ -68,18 +68,20 @@ const destinations = async () => {
   }
 
 console.log(destinations());
+
+
 const destinationsData = destinations();
 
 console.log(destinationsData.length);
 
-const createCard = (name, country, image, description, visited) => {
-  const name = destinationsData[i].name;
-  const country = destinationsData[i].country;
-  const image = destinationsData[i].image;
-  const description = destinationsData[i].description;
-  const visited = destinationsData[i].visited
+// const createCard = (name, country, image, description, visited) => {
+//   const name = destinationsData[i].name;
+//   const country = destinationsData[i].country;
+//   const image = destinationsData[i].image;
+//   const description = destinationsData[i].description;
+//   const visited = destinationsData[i].visited
 
-  console.log(name, country, image, description, notes, visited);
+//   console.log(name, country, image, description, notes, visited);
 
   const carouselCard = `
   <li class="bl-card-item">
@@ -132,7 +134,7 @@ const createCard = (name, country, image, description, visited) => {
 `
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-}
+
 
 
 

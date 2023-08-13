@@ -21,7 +21,7 @@
 <body class="profile-page">
   <header>
     <div class="search-bar">
-      <input type="text" placeholder="Search for destinations" />
+      <input type="text" placeholder="Search for destinations"/>
       <button id="searchBtn">Search</button>
       <!-- Add search button here if needed -->
 
@@ -46,7 +46,7 @@
 
   <!-- plain html placeholder for card item, will be js generated once connected to API-->
   <nav class="carousel-container">
-    <smart-carousel hide-indicators keyboard loop id="carousel">
+    <smart-carousel id="carouselCircle" slide-show hide-indicators keyboard display-mode="multiple">
       <ul id="bucket-list" class="smart-carousel">
 
         <li class="bl-card-item">
@@ -98,7 +98,103 @@
           </section>
         </li>
       
-      
+        <li class="bl-card-item">
+          <section class="bl-card-body">
+            <div class = "bl-card-main">
+            <div class = "bl-card-main-info hidden">
+              <div class="info-container">
+                <div class="info-content">
+                  <h2>About Tokyo</h2>
+                  <div class="destination-description">
+                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="bl-card-main-default">
+              <div class="bl-card-header">
+<!-- src=${destinations[i].name}, ${destinations[i].country}-->
+                <h3 class="bl-item-label">Tokyo, Japan</h3>
+              </div>
+              <div class="bl-card-image">
+                <!-- src=${destinations[i].image}I -->
+                <img class="bl-location-image" src="./src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
+                  alt="location image from Unsplash" />
+              </div>
+            </div>
+            </div>
+            <div class="bl-buttons-footer">
+             <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
+              or replace the bl-card-main element into a text display if modals don't work -->
+              <button class="destination-info btn">
+                <i class="icon fa-solid fa-circle-info"></i>
+              </button>
+            <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
+            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
+              <button class="destination-notes btn">
+                <i class="icon fa-solid fa-list"></i>
+              </button>  
+            <!-- clicking on this button will change the icon and button colour, while also changing 
+              the destinations 'visited' BOOELAN to 'true' -->
+              <button class="visited-destination btn">
+                <i class="icon fa-solid fa-check"></i>
+              </button>
+            <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
+              <button class="delete-destination btn" onclick="removeCardItem()">
+                <i class="icon fa fa-trash"></i>
+              </button>
+            </div>
+          </section>
+        </li>
+
+        <li class="bl-card-item">
+          <section class="bl-card-body">
+            <div class = "bl-card-main">
+            <div class = "bl-card-main-info hidden">
+              <div class="info-container">
+                <div class="info-content">
+                  <h2>About Tokyo</h2>
+                  <div class="destination-description">
+                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="bl-card-main-default">
+              <div class="bl-card-header">
+<!-- src=${destinations[i].name}, ${destinations[i].country}-->
+                <h3 class="bl-item-label">Tokyo, Japan</h3>
+              </div>
+              <div class="bl-card-image">
+                <!-- src=${destinations[i].image}I -->
+                <img class="bl-location-image" src="./src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
+                  alt="location image from Unsplash" />
+              </div>
+            </div>
+            </div>
+            <div class="bl-buttons-footer">
+             <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
+              or replace the bl-card-main element into a text display if modals don't work -->
+              <button class="destination-info btn">
+                <i class="icon fa-solid fa-circle-info"></i>
+              </button>
+            <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
+            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
+              <button class="destination-notes btn">
+                <i class="icon fa-solid fa-list"></i>
+              </button>  
+            <!-- clicking on this button will change the icon and button colour, while also changing 
+              the destinations 'visited' BOOELAN to 'true' -->
+              <button class="visited-destination btn">
+                <i class="icon fa-solid fa-check"></i>
+              </button>
+            <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
+              <button class="delete-destination btn" onclick="removeCardItem()">
+                <i class="icon fa fa-trash"></i>
+              </button>
+            </div>
+          </section>
+        </li>
       </ul>
     </smart-carousel>
   </nav>
@@ -125,7 +221,23 @@
     </section>
   <!-- Journal Section (( below other sections  )) -->
   <section class="journal-section">
-
+      <secttion id="journat-entry">
+        <div class="journal-container">
+          <div class="journal-header">
+            <h2>Journal</h2>
+          </div>
+          <div class="journal-body">
+            <div class="journal-entry">
+              <div class="journal-entry-header">
+                <h3>Entry Title</h3>
+              </div>
+              <div class="journal-entry-body">
+                <p>Entry Content</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </secttion>
   </section>
   </main>
 
