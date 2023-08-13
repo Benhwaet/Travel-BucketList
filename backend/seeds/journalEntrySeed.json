@@ -4,21 +4,24 @@
         "title": "It begins",
         "username": "Benhwaet",
         "entry_date": "2023-08-10",
-        "entry_content": "I have decided to start a travel journal, in order to mark all the places I'd love to go and probably never will."
+        "entry_content": "I have decided to start a travel journal, in order to mark all the places I'd love to go and probably never will.",
+        "destination_id": 1
     },
     {
         "entry_id": 2,
         "title": "Entry the Second",
         "username": "Benhwaet",
         "entry_date": "2023-08-11",
-        "entry_content": "I did go to a few places already, so my travel bucket list won't seem as empty if I include those."
+        "entry_content": "I did go to a few places already, so my travel bucket list won't seem as empty if I include those.",
+        "destination_id": 2
     },
     {
         "entry_id": 3,
         "title": "Entry the Third: My first few trips",
         "username": "Benhwaet",
         "entry_date": "2023-08-12",
-        "entry-content": "The first few trips are relatively boring, since I stayed in Canada and didn't do much other than go to the theatre in Toronto and go to la Ronde in Montreal."
+        "entry-content": "The first few trips are relatively boring, since I stayed in Canada and didn't do much other than go to the theatre in Toronto and go to la Ronde in Montreal.",
+        "destination_id": 4
     },
     {
         "entry_id": 4,
