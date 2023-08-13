@@ -1,6 +1,4 @@
-const { JournalEntry } = require('../models');
-
-const journalentry = [
+[
     {
         "entry_id": 1,
         "title": "It begins",
@@ -29,9 +27,5 @@ const journalentry = [
         "entry_date": "2023-08-13",
         "entry-content": "For High School Graduation, I went to the Mayan Riviera in Mexico. Though we stayed at a resort, we were able to go visit Chichen Itza.",
         "destination_id": 7
-    },
-];
-
-const seedJournal = () => JournalEntry.bulkCreate(journalentry);
-
-module.exports = seedJournal;
+    }
+]
