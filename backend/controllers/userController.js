@@ -61,7 +61,7 @@ const userController = {
         return res.status(400).json({ message: 'User not found' });
       }
 
-      const validPassword = await bcrypt.compare(req.body.password, userData.password);
+      const validPassword = await bcrypt.compare(req.body.password, user.password);
 
       if (!validPassword) {
         return res.status(400).json({ message: 'Invalid credentials' });
