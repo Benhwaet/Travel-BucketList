@@ -6,15 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerBtn = document.getElementById('registerBtn');
     const modal = document.getElementById('registerModal');
     const closeBtn = document.getElementById('closeBtn');
+    const loginModal = document.getElementById('loginModal');
 
       // Show the registration modal when the Sign Up button is clicked
       registerBtn.addEventListener('click', () => {
         modal.style.display = 'block';
-    });
-
-    // Show the login form (or implement your login logic here)
-    loginBtn.addEventListener('click', () => {
-        alert('Login functionality will be implemented here.');
     });
 
     // Close the registration modal when the close button is clicked
@@ -37,6 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // successful registration = you can close the modal
         modal.style.display = 'none';
     });
+});
+
+// Show the login form (or implement your login logic here)
+loginBtn.addEventListener('click', () => {
+    loginModal.style.display = 'block';
+});
+// Close the registration modal when the close button is clicked
+closeBtn.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+
+// Close the registration modal if the user clicks outside of it
+window.addEventListener('click', (event) => {
+    if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+    }
 });
 
 
