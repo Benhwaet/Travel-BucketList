@@ -94,7 +94,7 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 
 .bl-card-main {
   background: linear-gradient(to bottom, #004e5a, #51a5b0, #ffffff);
-
+}
 /* these are the toggled elements, 
 one should be hidden if the other is visible */
 

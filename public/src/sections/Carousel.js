@@ -13,22 +13,45 @@ const notesBtn = document.querySelector('.destination-notes');
 const visitedBtn = document.querySelector('.visited-destination');
 const deleteBtn = document.querySelector('.delete-destination');
 
+const destinations = async () => {
+  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+  {
+      method: 'GET',
+  });
+  const json = await result.json()
+  return json;
+}
+
+
+class carouselCard {
+  constructor (name, country, image, description, notes, visited) {
+      this.name = name;
+      this.country = country;
+      this.image = image;
+      this.description = description;
+      this.notes = notes;
+      this.visited = visited;
+
+  this.createCard = function () {
+      console.log(`Name: ${this.name}, Country: ${this.country}, Image: ${this.image}, Description: ${this.description}, Notes: ${this.notes}, Visited: ${this.visited}`);
+  }
+}
+};
+
+
 //button functions
 infoBtn.addEventListener('click', () => {
-  
-});
-
-infoBtn.addEventListener('click', () => {
   console.log('info button clicked');
-  if (cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.removeClass('hidden');
-    cardMainDefault.addClass('hidden');
-  } 
-  else if (!cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.addClass('hidden');
-    cardMainDefault.removeClass('hidden');
-  }
-});
+})
+//   if (cardMainInfo.classList.contains('hidden')) {
+//     cardMainInfo.removeClass('hidden');
+//     cardMainDefault.addClass('hidden');
+//   } 
+//   else if (!cardMainInfo.classList.contains('hidden')) {
+//     cardMainInfo.addClass('hidden');
+//     cardMainDefault.removeClass('hidden');
+//   }
+// });
 
 //**more pseudo than code, but the idea is to have the notes button
 //open the journal entry with a matching destination or a brand new note entry
@@ -49,6 +72,7 @@ visitedBtn.addEventListener('click', () => {
 //do we need a separate table for bucket-list?**
 
 deleteBtn.addEventListener("click", () => {
+  console.log('delete button clicked')
   getElementByClassName("bl-card-item").remove();
 });
 
@@ -57,22 +81,9 @@ deleteBtn.addEventListener("click", () => {
 // }
 
 
-
-const destinations = async () => {
-    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
-    {
-        method: 'GET',
-    });
-    const json = await result.json()
-    return json;
-  }
-
 console.log(destinations());
-
-
 const destinationsData = destinations();
 
-console.log(destinationsData.length);
 
 // const createCard = (name, country, image, description, visited) => {
 //   const name = destinationsData[i].name;
@@ -83,13 +94,13 @@ console.log(destinationsData.length);
 
 //   console.log(name, country, image, description, notes, visited);
 
-  const carouselCard = `
+  const carouselCardInsert = `
   <li class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
       <div>
         <div class="bl-card-header">
-          <h3 class="bl-item-label">${name},${country} </h3>
+          <h3 class="bl-item-label">${this.name},${country} </h3>
         </div>
         <div class="bl-card-image">
           <img class="bl-location-image" src="${image}" 
