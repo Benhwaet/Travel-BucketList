@@ -63,7 +63,7 @@ const userController = {
 
       console.log('User found. Comparing passwords...');
 
-      const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
+      const validPassword = await user.checkPassword(password.trim());
       console.log('Password Comparison Result:', validPassword);
 
       if (!validPassword) {
