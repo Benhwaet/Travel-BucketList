@@ -6,6 +6,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
+const { Op } = require('sequelize');
 const secretKey = 'replace-with-a-secure-secret-key';
 const { User } = require('../models');
 
@@ -41,17 +42,18 @@ const userController = {
       console.error(error);
       res.status(500).json({ error: 'Error creating user' });
     }
-  }
-};
+  },
 
-exports.getAllUsers = async (req, res) => {
-  try {
-    const users = await User.findAll();
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ error: 'Internal server error' });
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await User.findAll();
+      res.json(users);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal server error' });
+    }
   }
 };
 
 module.exports = userController;
+
 
