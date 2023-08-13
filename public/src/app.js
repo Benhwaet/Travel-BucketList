@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
 
-        const loginData = {
+        const requestData = {
             email: email,
             password: password
         };
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
                 method: 'POST',
-                body: JSON.stringify(loginData),
+                body: JSON.stringify(requestData),
                 headers: { 'Content-Type': 'application/json' }
             });
 
