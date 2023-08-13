@@ -27,23 +27,23 @@ const userseed = [
 },
 {
     "user_id": 4,
-    "username": "Koala",
+    "username": "Ko_ala",
     "profile_picture": " ",
-    "email": "koala@gaol.com",
+    "email": "ko_ala@gaol.com",
     "password": "Qwerty50",
     "created_on": "2023-08-10"
 },
 {
     "user_id": 5,
-    "username": "badgeridoo",
+    "username": "badgeridoo82",
     "profile_picture": " ",
-    "email": "badger@gaol.com",
+    "email": "badger82@gaol.com",
     "password": "Qwerty60",
     "created_on": "2023-08-10"
 },
 {
     "user_id": 6,
-    "username": "Crisanthemum",
+    "username": "Crisanthemum21",
     "profile_picture": " ",
     "email": "crisant@gaol.com",
     "password": "Qwerty70",

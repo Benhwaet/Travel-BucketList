@@ -22,6 +22,7 @@
     <div class="search-bar">
       <input type="text" placeholder="Search for destinations" />
       <!-- Add search button here if needed -->
+
     </div>
     <div class="user-profile">
       <!-- Profile Picture (displayed as a bubble) -->
@@ -35,10 +36,16 @@
     </div>
   </header>
 
+  <!-- search results area -->
+  <div class="search-results" id="searchResults">
+    <!-- Content from search results will be displayed here -->
+  </div>
+
+
   <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
   <!-- plain html now in place of js generated html or handlebars later-->
   <nav class="carousel-container">
-    <smart-carousel hide-indicators loop keyboard id="carousel" display-mode="multiple">
+    <section id="carousel" display-mode="multiple">
       <ul id="bucket-list">
 
         <li class="bl-card-item">
@@ -55,18 +62,18 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn">
+              <button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-              </smart-button>
-              <smart-button class="destination-notes btn">
+              </button>
+              <button class="destination-notes btn">
                 <i class="icon fa-solid fa-list"></i>
-              </smart-button>
-              <smart-button class="visited-destination btn">
+              </button>
+              <button class="visited-destination btn">
                 <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button class="delete-destination btn" onclick="removeCard()">
+              </button>
+              <button class="delete-destination btn" onclick="removeCard()">
                 <i class="icon fa fa-trash"></i>
-              </smart-button>
+              </button>
             </div>
           </section>
         </li>
@@ -83,18 +90,18 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn">
+              <button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
-              </smart-button>
-              <smart-button id="destination-notes" class="btn">
+              </button>
+              <button id="destination-notes" class="btn">
                 <i class="icon fa-solid fa-list"></i>
-              </smart-button>
-              <smart-button id="visited-destination" class="btn">
+              </button>
+              <button id="visited-destination" class="btn">
                 <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button id="delete-destination" class="btn">
+              </button>
+              <button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
-              </smart-button>
+              </button>
             </div>
           </section>
         </li>
@@ -111,37 +118,55 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
-              <smart-button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
-              <smart-button id="visited-destination" class="btn">
+              <button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></button>
+              <div id="infoModal" class="modal">
+                <div class="modal-content">
+                  <span class="close" id="closeBtn">&times;</span>
+                  <h2>About Tokyo</h2>
+                  <div class="destination-info-content">
+                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
+                  </div>
+                </div>
+              </div>
+              <button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></button>
+              <div id="notesModal" class="modal">
+                <div class="modal-content">
+                  <span class="close" id="closeBtn">&times;</span>
+                  <h2>What to do in {Tokyo}</h2>
+                  <div class="destination-notes-content">
+                      <p>"Japan, the land of anime and manga. I would love to go to Tokyo and see the city. I would also love to go to Kyoto and see the temples."</p>
+                  </div>
+                </div>
+              </div>
+              <button id="visited-destination" class="btn">
                 <i class="icon fa-solid fa-check"></i>
-              </smart-button>
-              <smart-button id="delete-destination" class="btn">
+              </button>
+              <button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
-              </smart-button>
+              </button>
             </div>
         </li>
 
       </ul>
-    </smart-carousel>
+    </section>
   </nav>
 
   
   <main>
 
-     <!-- Journal Section (( LeEFT )) -->
-  <section class="journal-section">
-  </section>
-
-  <!-- Hotel/Flight API Section  (( CENTER ))-->
+  <!-- Hotel/Flight API Section  (( Left ))-->
   <section class="api-section">
   </section>
 
-  <!-- Interactive Map Section (( RIGHT ))-->
+  <!-- Interactive Map Section (( Right ))-->
   <section class="map-section">
     <div class="map-container" id="map"></div>
   </section>
 
+
+  <!-- Journal Section (( below other sections  )) -->
+  <section class="journal-section">
+  </section>
   </main>
 
   <!-- Footer -->
@@ -151,10 +176,9 @@
     <div id="imageContainer"></div>
     
     <h1>Memory Uploads</h1>
-    <form id="image-form" enctype="multipart/form-data">
-      <input type="file" name="image" accept=".jpg, .jpeg, .png" required>
-      <button type="submit">Upload</button>
-    </form>
+    <input type="file" id="imageInput" accept=".jpg, .jpeg, .png" />
+   <button id="uploadBtn">Upload Image</button>
+   <img id="uploadedImage" alt="Uploaded Image" style="display: none;" />
   </footer>
 
     <!-- where the images will display after being uploaded -->
@@ -163,7 +187,7 @@
   
 
   <!-- Add more scripts here if needed -->
-  <!-- smart-webcomponent npm package files to implement carousel display of bucket list destinations -->
+  <!-- webcomponent npm package files to implement carousel display of bucket list destinations -->
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
 
   <script src="../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
