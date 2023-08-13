@@ -176,10 +176,9 @@
     <div id="imageContainer"></div>
     
     <h1>Memory Uploads</h1>
-    <form id="image-form" enctype="multipart/form-data">
-      <input type="file" name="image" accept=".jpg, .jpeg, .png" required>
-      <button type="submit">Upload</button>
-    </form>
+    <input type="file" id="imageInput" accept=".jpg, .jpeg, .png" />
+   <button id="uploadBtn">Upload Image</button>
+   <img id="uploadedImage" alt="Uploaded Image" style="display: none;" />
   </footer>
 
     <!-- where the images will display after being uploaded -->
