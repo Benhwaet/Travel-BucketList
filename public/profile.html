@@ -11,6 +11,7 @@
 
   <link rel="stylesheet"  href="./styles/main.css" />
   <link rel="stylesheet"  href="./styles/carousel.css" />
+  <link rel="stylesheet"  href="./styles/book.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -45,10 +46,10 @@
   <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
   <!-- plain html now in place of js generated html or handlebars later-->
   <nav class="carousel-container">
-    <section id="carousel" display-mode="multiple">
-      <ul id="bucket-list">
+    <smart-carousel hide-indicators keyboard loop display-mode="multiple" id="carousel">
+      <ul id="bucket-list" class="smart-carousel">
 
-        <li class="bl-card-item">
+        <li class="bl-card-item smart-items-container">
           <section class="bl-card-body">
             <div class = "bl-card-main">
             <div>
@@ -62,18 +63,36 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <button class="destination-info btn">
+              <smart-button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-              </button>
-              <button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </button>
-              <button class="visited-destination btn">
+              </smart-button>
+              <div id="infoModal" class="modal">
+                <div class="modal-content">
+                  <span class="close" id="closeBtn">&times;</span>
+                  <h2>About ${destinations[i].name}</h2>
+                  <div class="destination-info-content">
+                      <p>${destinations[i].description}</p>
+                  </div>
+                </div>
+              </div>
+              <smart-button class="destination-notes btn">
+                <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
+              </smart-button>
+              <div id="notesModal" class="modal">
+              <div class="modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <h2>Insert Title Here</h2>
+                <div class="destination-info-content">
+                    <p>${destinations[i].notes}</p>
+                </div>
+              </div>
+            </div>
+              <smart-button class="visited-destination btn">
                 <i class="icon fa-solid fa-check"></i>
-              </button>
-              <button class="delete-destination btn" onclick="removeCard()">
+              </smart-button>
+              <smart-button class="delete-destination btn" onclick="removeCard()">
                 <i class="icon fa fa-trash"></i>
-              </button>
+              </smart-button>
             </div>
           </section>
         </li>
@@ -90,18 +109,18 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <button class="destination-info btn">
+              <smart-button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
-              </button>
-              <button id="destination-notes" class="btn">
+              </smart-button>
+              <smart-button id="destination-notes" class="btn">
                 <i class="icon fa-solid fa-list"></i>
-              </button>
-              <button id="visited-destination" class="btn">
+              </smart-button>
+              <smart-button id="visited-destination" class="btn">
                 <i class="icon fa-solid fa-check"></i>
-              </button>
-              <button id="delete-destination" class="btn">
+              </smart-button>
+              <smart-button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
-              </button>
+              </smart-button>
             </div>
           </section>
         </li>
@@ -118,7 +137,7 @@
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></button>
+              <smart-button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></smart-button>
               <div id="infoModal" class="modal">
                 <div class="modal-content">
                   <span class="close" id="closeBtn">&times;</span>
@@ -128,7 +147,7 @@
                   </div>
                 </div>
               </div>
-              <button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></button>
+              <smart-button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></smart-button>
               <div id="notesModal" class="modal">
                 <div class="modal-content">
                   <span class="close" id="closeBtn">&times;</span>
@@ -138,26 +157,21 @@
                   </div>
                 </div>
               </div>
-              <button id="visited-destination" class="btn">
+              <smart-button id="visited-destination" class="btn">
                 <i class="icon fa-solid fa-check"></i>
-              </button>
-              <button id="delete-destination" class="btn">
+              </smart-button>
+              <smart-button id="delete-destination" class="btn">
                 <i class="icon fa fa-trash"></i>
-              </button>
+              </smart-button>
             </div>
         </li>
-
+      
       </ul>
-    </section>
+    </smart-carousel>
   </nav>
 
   
   <main>
-
-     <!-- Journal Section (( LEFT )) -->
-  <section class="journal-section">
-  </section>
-
   <!-- Hotel/Flight API Section  (( CENTER ))-->
   <section class="api-section">
   </section>
@@ -170,6 +184,30 @@
 
   <!-- Journal Section (( LeEFT )) -->
   <section class="journal-section">
+    <div class="book">
+      <div id="pages" class="pages">
+        <div class="page" style="background-image: url('../public/src/images/background/beach.png')"><h1 style="margin-top: 20px;">Cover Page</h1></div>
+        
+        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')">
+        <section class="journal-entry">
+          <div class="journal-entry-header" style="margin-top: 10px;">
+            <h3 class="journal-entry-title">Tokyo, Japan</h3>
+            <p class="journal-entry-date">Date: 10/10/2021</p>
+          </div>
+          <div class="journal-entry-body">
+            <p class="journal-entry-text" style="width: 66.66%;">"Japan, the land of anime and manga. I would love to go to Tokyo and see the city. I would also love to go to Kyoto and see the temples."</p>
+          </div>
+        </section>
+        </div>
+        
+        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
+        
+        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
+        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
+        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
+      </div>
+    </div>
+    
   </section>
   </main>
 
@@ -199,7 +237,6 @@
   <script src="../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="./src/sections/Carousel.js"></script>
-  <script src="./src/profile.js"></script>
   <script type="module" src="./src/profile.js"></script>
   <script src="./src/sections/Map.js"></script>
 

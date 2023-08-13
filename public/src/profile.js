@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Define the profile
   function Profile() {
     return (
-      <div>
+      `<div>
         {/* Other content */}
         <UserPhotos /> {/* Render the UserPhotos component */}
-      </div>
+      </div>`
     );
   }
   

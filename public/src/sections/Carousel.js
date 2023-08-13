@@ -1,6 +1,4 @@
 const bucketList = document.querySelector('#bucket-list');
-
-document.addEventListener('DOMContentLoaded', () => {
 const infoBtn = document.querySelector('.destination-info');
 const modal = document.querySelector('#infoModal');
 const closeBtn = document.querySelector('#closeBtn');
@@ -17,7 +15,7 @@ infoBtn.addEventListener('click', () => {
 });
 
 notesBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
+  
 });
 
 closeBtn.addEventListener('click', () => {
@@ -29,21 +27,18 @@ window.addEventListener('click', (event) => {
       modal.style.display = 'none';
   }
 });
-});
 
-const travelDestinationSeed = async () => {
+const destinations = async () => {
     const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', {
         method: 'GET',
     });
     const json = await result.json()
     return json;
 }
-console.log(travelDestinationSeed());
+console.log(destinations());
+console.log(destinations.length);
 
-searchBtn.addEventListener('click', () => {
-    console.log('search button clicked');
-
-    for (let i = 0; i < destinations[i].length; i++) {
+    for (let i = 0; i < destinations.length; i++) {
 
         const travelDestinationData = {
             name: destinations[i].name,
@@ -61,10 +56,10 @@ searchBtn.addEventListener('click', () => {
       <div class = "bl-card-main">
       <div>
         <div class="bl-card-header">
-          <h3 class="bl-item-label">${destinations[i].name},${destinations[i].country} </h3>
+          <h3 class="bl-item-label">${name},${country} </h3>
         </div>
         <div class="bl-card-image">
-          <img class="bl-location-image" src="${destinations[i].image}" 
+          <img class="bl-location-image" src="${image}" 
           alt="location image from Unsplash or creative commons sources" />
         </div>
       </div>
@@ -76,9 +71,9 @@ searchBtn.addEventListener('click', () => {
         <div id="infoModal" class="modal">
           <div class="modal-content">
             <span class="close" id="closeBtn">&times;</span>
-            <h2>About ${destinations[i].name}</h2>
+            <h2>About ${name}</h2>
             <div class="destination-info-content">
-                <p>${destinations[i].description}</p>
+                <p>${description}</p>
             </div>
           </div>
         </div>
@@ -90,7 +85,7 @@ searchBtn.addEventListener('click', () => {
           <span class="close" id="closeBtn">&times;</span>
           <h2>Insert Title Here</h2>
           <div class="destination-info-content">
-              <p>${destinations[i].notes}</p>
+              <p>${notes}</p>
           </div>
         </div>
       </div>
@@ -108,7 +103,28 @@ searchBtn.addEventListener('click', () => {
         console.log(travelDestinationData);
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-    }
+    };
+
+
+
+   //not functioning, but kept to keep the general idea 
+//of class changing to alter the icon upon click
+visitedBtn.addEventListener('click', () => {
+  if(icon.classList.contains("fa-check")) {
+    icon.classList.remove("fa-check");
+    icon.classList.add("fa-circle-check");
+  } else if (icon.classList.contains("fa-circle-check")){
+    icon.classList.remove("fa-circle-check");
+    icon.classList.add("fa-check");
+  }
 });
 
+deleteBtn.addEventListener("click", () => {
+  //connect button to entire great-grandparent element
+  //to remove entire card from carousel
+  getElementByClassName("bl-card-item").remove();
+});
 
+// removeCard = () => {
+//  getElementsByClassName("bl-card-item").remove(); 
+// }
