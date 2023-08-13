@@ -36,19 +36,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-  
-  sequelize.sync({ force: false })
-    .then(() => {
-      console.log('Database synced successfully.');
-    })
-    .catch((err) => {
-      console.error('Error syncing the database:', err);
-    });
-});
-
-
 const multer = require('multer');
 const cloudinary = require('./backend/config/db.config'); // cloudinary config
 app.use(express.json());
@@ -75,7 +62,14 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on port ${port}`);
+  
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('Database synced successfully.');
+    })
+    .catch((err) => {
+      console.error('Error syncing the database:', err);
+    });
 });
