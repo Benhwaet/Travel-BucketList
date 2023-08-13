@@ -269,7 +269,7 @@ footer {
 .airplane-container {
   position: absolute;
   top: 80%; 
-  left: 10%; 
+  left: -05%; 
   transform: translateY(-50%);
   width: 100px; 
   height: auto; 
