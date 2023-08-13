@@ -46,13 +46,23 @@
 
   <!-- plain html placeholder for card item, will be js generated once connected to API-->
   <nav class="carousel-container">
-    <smart-carousel hide-indicators keyboard loop display-mode="multiple" id="carousel">
+    <smart-carousel hide-indicators keyboard loop id="carousel">
       <ul id="bucket-list" class="smart-carousel">
 
         <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
-            <div>
+            <div class = "bl-card-main-info hidden">
+              <div class="info-container">
+                <div class="info-content">
+                  <h2>About Tokyo</h2>
+                  <div class="destination-description">
+                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="bl-card-main-default">
               <div class="bl-card-header">
 <!-- src=${destinations[i].name}, ${destinations[i].country}-->
                 <h3 class="bl-item-label">Tokyo, Japan</h3>
@@ -67,36 +77,27 @@
             <div class="bl-buttons-footer">
              <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
               or replace the bl-card-main element into a text display if modals don't work -->
-              <smart-button class="destination-info btn">
+              <button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
-              </smart-button>
-              <div id="infoModal" class="modal">
-                <div class="modal-content">
-                  <span class="close" id="closeBtn">&times;</span>
-                  <h2>About {Tokyo}</h2>
-                  <div class="destination-info-content">
-                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
-                  </div>
-                </div>
-              </div>
+              </button>
             <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
-            if none exists, it creates a new page after the last page containing that id-->
-              <smart-button class="destination-notes" btn onclick="location.href='#travel-journal'">
+            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
+              <button class="destination-notes btn">
                 <i class="icon fa-solid fa-list"></i>
-              </smart-button>  
+              </button>  
             <!-- clicking on this button will change the icon and button colour, while also changing 
               the destinations 'visited' BOOELAN to 'true' -->
-              <smart-button class="visited-destination btn">
+              <button class="visited-destination btn">
                 <i class="icon fa-solid fa-check"></i>
-              </smart-button>
+              </button>
             <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
-              <smart-button class="delete-destination btn" onclick="removeCardItem()">
+              <button class="delete-destination btn" onclick="removeCardItem()">
                 <i class="icon fa fa-trash"></i>
-              </smart-button>
+              </button>
             </div>
           </section>
         </li>
-
+      
       
       </ul>
     </smart-carousel>
@@ -125,38 +126,6 @@
   <!-- Journal Section (( below other sections  )) -->
   <section class="journal-section">
 
-    <!-- To use or delete according to needs -->
-    <!-- <div id="travel-journal" class="book">
-      <div id="pages" class="pages">
-        <div id="front-page" class="page" style="background-image: url('../public/src/images/background/beach.png')">
-          <h1 style="margin-top: 20px;">Cover Page</h1>
-        </div>
-        
-        <div id="table-of-entries" class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')">
-        <h2 style="margin-top: 20px;">Table of Entries</h2>
-          <a href="#page_id1" class="page-link">1. Tokyo, Japan</a>
-        </div>
-        
-        <div id="page_id{}" class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
-          
-        <section class="journal-entry">
-          <form class="journal-entry-form">
-          <div class="journal-entry-header" style="margin-top: 10px;">
-            <h3 class="journal-entry-title"></h3>
-            <p class="journal-entry-date"></p>
-          </div>
-          <div class="journal-entry-body">
-            <p class="journal-entry-text" style="width: 66.66%;"></p>
-          </div>
-        </form>
-        </section>
-
-        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
-        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
-        <div class="page" style="background-image: url('../public/src/images/background/paper-texture-1359509235aJV.jpg')"></div>
-      </div>
-    </div> -->
-    
   </section>
   </main>
 
@@ -182,7 +151,6 @@
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
 
   <script src="../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
-  <script src="../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="./src/sections/Carousel.js"></script>
   <script src="./src/profile.js"></script>

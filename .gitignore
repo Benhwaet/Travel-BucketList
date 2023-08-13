@@ -11,7 +11,4 @@ build/
 .env.development
 uploads/
 
-carouselItemPseudocode.txt
-marquee-test.css
-marquee-test.html
-profile-copy.html
+journal.html

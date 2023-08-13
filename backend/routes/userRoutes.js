@@ -1,11 +1,15 @@
+// userRoutes.js
 const express = require('express');
 const userController = require('../controllers/userController');
 const multer = require('multer');
 const router = express.Router();
-const { User } = require('../models');
+const { User } = require('../models'); 
 const secretKey = 'replace-with-a-secure-secret-key';
 
-//login
+
+router.get('/users', userController.getAllUsers);
+
+// Login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -38,10 +42,12 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//signup
-router.post('/signup', userController.signup);
-
-//logout
+// // Signup
+router.post('/signup', async (req, res) => {
+  console.log(req.body); 
+  await userController.signup(req, res);
+});
+// Logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
