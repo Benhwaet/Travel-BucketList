@@ -27,7 +27,7 @@ marker2.bindPopup('Marker 2').openPopup();
 
 // marker customizations 
 const customIcon = L.icon({
-    iconUrl: 'path/to/icon.png',
+    // iconUrl: 'path/to/icon.png',
     iconSize: [32, 32],
     iconAnchor: [16, 32],
     popupAnchor: [0, -32]

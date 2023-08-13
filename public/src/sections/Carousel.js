@@ -1,71 +1,114 @@
-
-// 	document.readyState === 'complete' ? init() : window.onload = init;
-
-// 	function init() { 
-// 		const carousel = new Smart.Carousel('#carousel',  { dataSource:  [{ label: 'Slide 1', content: 'Content 1'}, 
-//         { label: 'Slide 2', content: 'Content 2'}, { label: 'Slide 3', content: 'Content 3'}] });
-// 	}
-
-// Smart(
-//   "#carousel",
-//   class {
-//     get properties() {
-//       return {
-//         // data to be pulled from Amadeus (travel) and Unsplash (photos) APIs, saved to db, then displayed in carousel
-//         // initial images as placeholders to be used until connection to back-end
-//         dataSource: [
-//           { label: "Slide 1", content: "Content 1" },
-//           { label: "Slide 2", content: "Content 2" },
-//           { label: "Slide 3", content: "Content 3" },
-//         ],
-//       };
-//     }
-//   }
-// );
-
-// $( function() {
-//   $( "#tabs" ).tabs({
-//     collapsible: true
-//   });
-// } );
+const bucketList = document.querySelector('#bucket-list');
 
 document.addEventListener('DOMContentLoaded', () => {
-    const infoBtn = document.getElementById("destination-info");
-    const noteBtn = document.getElementById("destination-notes");
-    const checkBtn = document.getElementById("visited-destination");
-    const deleteBtn = document.getElementById("delete-destination");
-    const icon = document.querySelector(".icon");
+const infoBtn = document.querySelector('.destination-info');
+const modal = document.querySelector('#infoModal');
+const closeBtn = document.querySelector('#closeBtn');
+const infoContent = document.querySelector('.destination-info-content');
+const deleteBtn = document.querySelector('.delete-destination');
+const visitedBtn = document.querySelector('.visited-destination');
+const notesBtn = document.querySelector('.destination-notes');
+const notesContent = document.querySelector('.destination-notes-content');
+const notesModal = document.querySelector('#notesModal');
 
 
-// infoBtn.addEventListener("click", () => {
-//   //open dropdown, or dropup with info about location
-//   //taken from Amadeus API
-// });
+infoBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
 
-// noteBtn.addEventListener("click", () => {
-//   //linked to location entry in journal? Or display a text box?
-// });
+notesBtn.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
 
-//not functioning, but kept to keep the general idea 
-//of class changing to alter the icon upon click
-checkBtn.addEventListener('click', () => {
-  if(icon.classList.contains("fa-check")) {
-    icon.classList.remove("fa-check");
-    icon.classList.add("fa-circle-check");
-  } else if (icon.classList.contains("fa-circle-check")){
-    icon.classList.remove("fa-circle-check");
-    icon.classList.add("fa-check");
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+      modal.style.display = 'none';
   }
 });
-
-deleteBtn.addEventListener("click", () => {
-  //connect button to entire great-grandparent element
-  //to remove entire card from carousel
-  getElementByClassName("bl-card-item").remove();
 });
 
-// removeCard = () => {
-//  getElementsByClassName("bl-card-item").remove(); 
-// }
+const travelDestinationSeed = async () => {
+    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', {
+        method: 'GET',
+    });
+    const json = await result.json()
+    return json;
+}
+console.log(travelDestinationSeed());
 
+searchBtn.addEventListener('click', () => {
+    console.log('search button clicked');
+
+    for (let i = 0; i < destinations[i].length; i++) {
+
+        const travelDestinationData = {
+            name: destinations[i].name,
+            country: destinations[i].country,
+            image: destinations[i].image,
+            description: destinations[i].description,
+            notes: destinations[i].notes,
+            visited: destinations[i].visited
+        }
+
+        
+        const carouselCard = `
+  <li class="bl-card-item">
+    <section class="bl-card-body">
+      <div class = "bl-card-main">
+      <div>
+        <div class="bl-card-header">
+          <h3 class="bl-item-label">${destinations[i].name},${destinations[i].country} </h3>
+        </div>
+        <div class="bl-card-image">
+          <img class="bl-location-image" src="${destinations[i].image}" 
+          alt="location image from Unsplash or creative commons sources" />
+        </div>
+      </div>
+      </div>
+      <div class="bl-buttons-footer">
+        <smart-button class="destination-info btn">
+          <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
+        </smart-button>
+        <div id="infoModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>About ${destinations[i].name}</h2>
+            <div class="destination-info-content">
+                <p>${destinations[i].description}</p>
+            </div>
+          </div>
+        </div>
+        <smart-button class="destination-notes btn">
+          <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
+        </smart-button>
+        <div id="notesModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeBtn">&times;</span>
+          <h2>Insert Title Here</h2>
+          <div class="destination-info-content">
+              <p>${destinations[i].notes}</p>
+          </div>
+        </div>
+      </div>
+        <smart-button class="visited-destination btn">
+          <i class="icon fa-solid fa-check"></i>
+        </smart-button>
+        <smart-button class="delete-destination btn" onclick="removeCard()">
+          <i class="icon fa fa-trash"></i>
+        </smart-button>
+      </div>
+    </section>
+  </li>
+`
+
+        console.log(travelDestinationData);
+
+        bucketList.insertAdjacentHTML('beforeend', carouselCard);
+    }
 });
+
+
