@@ -59,7 +59,7 @@ const userController = {
       }
 
       const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
-
+      console.log('Password Comparison Result:', validPassword);
       if (!validPassword) {
         return res.status(400).json({ message: 'Invalid credentials' });
       }
