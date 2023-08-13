@@ -10,5 +10,3 @@ build/
 .env
 .env.development
 uploads/
-
-journal.html
