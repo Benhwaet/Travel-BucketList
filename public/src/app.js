@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('password', password);
 
         try {
-            const response = await fetch('/api/user/signup', {
+            const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/signup', {
                 method: 'POST',
-                body: JSON.stringify(formData),
+                body: formData,
                 headers: { 'Content-Type': 'application/json' }
             });
 
@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('/api/user/login', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify({ email, password }),
+                headers: { 'Content-Type': 'application/json' }
             });
 
             if (response.ok) {
