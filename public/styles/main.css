@@ -163,7 +163,7 @@ button {
 }
 
 body.profile-page {
-  background: linear-gradient(to bottom, #004e5a, #51a5b0, #ffffff);
+  background: linear-gradient(to bottom, #ffffff,#51a5b0,#004e5a, #51a5b0, #ffffff);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
