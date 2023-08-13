@@ -3,7 +3,7 @@
 
 //copy pasted from class notes, edX module 14, activity 19
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../models/User');
 
 // CREATE new user
 router.post('/', async (req, res) => {
