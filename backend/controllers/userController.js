@@ -26,7 +26,13 @@ const userController = {
         return res.status(409).json({ error: 'Username or email already exists' });
       }
 
+      console.log('Creating a new user...');
+      console.log('Email:', email);
+      console.log('Username:', username);
+      console.log('Hashing password...');
       const hashedPassword = await bcrypt.hash(password, 10);
+      
+      console.log('Creating user in the database...');
       const newUser = await User.create({
         email: email,
         username: username,
@@ -36,9 +42,10 @@ const userController = {
 
       const token = jwt.sign({ userId: newUser.id }, secretKey, { expiresIn: '1h' });
       const { password: _, ...userData } = newUser;
+      console.log('User created successfully:', userData);
       res.json({ token, user: userData });
     } catch (error) {
-      console.error(error);
+      console.error('Error creating user:', error);
       res.status(500).json({ error: 'Error creating user' });
     }
   },
