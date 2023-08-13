@@ -8,8 +8,9 @@ const DestinationController = require('../controllers/travelDestinationControlle
 router.get('/destinations', DestinationController.getAllDestinations);
 router.get('/destinations/:id', DestinationController.getDestinationById);
 router.post('/destinations', DestinationController.createDestination);
-router.put('/destinations/:id', DestinationController.updateDestination); // Fixed the function name
+router.put('/destinations/:id', DestinationController.updateDestination); 
 router.delete('/destinations/:id', DestinationController.deleteDestination);
+router.get('/search', DestinationController.searchDestinationsByName);
 
 module.exports = router;
 
