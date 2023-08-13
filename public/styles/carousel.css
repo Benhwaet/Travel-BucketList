@@ -97,11 +97,9 @@ one should be hidden if the other is visible */
   background-color: rgb(153, 39, 39);
   width: 140px;
   border-radius: 15px;
-
 }
 
-
-.info-popup {
+.info-container {
   /* display: flex; */
   /* align-items: center; */
   width: 100%;

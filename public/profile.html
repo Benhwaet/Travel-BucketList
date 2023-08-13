@@ -46,14 +46,14 @@
 
   <!-- plain html placeholder for card item, will be js generated once connected to API-->
   <nav class="carousel-container">
-    <smart-carousel hide-indicators keyboard loop display-mode="multiple" id="carousel">
+    <smart-carousel hide-indicators keyboard loop id="carousel">
       <ul id="bucket-list" class="smart-carousel">
 
         <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
-            <div class = "bl-card-main-alt visible">
-              <div class="info-popup">
+            <div class = "bl-card-main-info hidden">
+              <div class="info-container">
                 <div class="info-content">
                   <h2>About Tokyo</h2>
                   <div class="destination-description">
@@ -62,7 +62,7 @@
                 </div>
               </div>
               </div>
-              <div class="bl-card-main-default hidden">
+              <div class="bl-card-main-default">
               <div class="bl-card-header">
 <!-- src=${destinations[i].name}, ${destinations[i].country}-->
                 <h3 class="bl-item-label">Tokyo, Japan</h3>
