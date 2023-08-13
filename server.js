@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const dbConfig = require('./config/db.config');
+const dbConfig = require('./backend/config/db.config');
 const cors = require('cors');
 const router = express.Router();
 const Sequelize = require("sequelize");
@@ -21,8 +21,9 @@ app.use(cors());
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
 
-const authRoutes = require('./backend/routes/authRoutes');
-app.use('/api/auth', authRoutes);
+//To view user api
+const userRoutes = require('./backend/routes/userRoutes');
+app.use('/api/user', userRoutes);
 
 const travelDestinationRoutes = require('./backend/routes/travelDestinationRoutes');
 app.use('/api/travelDestinations', travelDestinationRoutes);
@@ -36,21 +37,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-  
-  sequelize.sync({ force: false })
-    .then(() => {
-      console.log('Database synced successfully.');
-    })
-    .catch((err) => {
-      console.error('Error syncing the database:', err);
-    });
-});
-
-
 const multer = require('multer');
-const cloudinary = require('/backend/config/db.config'); // cloudinary config
+const cloudinary = require('./backend/config/db.config'); // cloudinary config
 app.use(express.json());
 
 // multer for handling file uploads
@@ -75,7 +63,14 @@ app.post('/upload', upload.single('image'), async (req, res) => {
   }
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on port ${port}`);
+  
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('Database synced successfully.');
+    })
+    .catch((err) => {
+      console.error('Error syncing the database:', err);
+    });
 });
