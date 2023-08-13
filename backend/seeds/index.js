@@ -15,6 +15,7 @@ const seedAll = async () => {
         returning: true,
       });
    
+    await JournalEntry.bulkCreate(seedJournal);
 
     // await JournalEntry.bulkCreate(seedJournal)
     await TravelDestination.bulkCreate(seedTravelDestination);
