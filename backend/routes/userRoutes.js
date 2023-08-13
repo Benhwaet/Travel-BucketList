@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
 // // Signup
 router.post('/signup', async (req, res) => {
   console.log(req.body); 
-  userController.signup(req, res);
+  await userController.signup(req, res);
 });
 // Logout
 router.post('/logout', (req, res) => {
