@@ -4,26 +4,34 @@
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
-const { JournalEntry } = require('../models');
+const { JournalEntry, TravelDestination } = require('../models');
 
 const JournalController = {
-  createJournalEntry: async (req, res) => {
-    try {
-      const { title, username, entry_date, entry_content, destination_id } = req.body;
-      const newEntry = await JournalEntry.create({
-        title,
-        username,
-        entry_date,
-        entry_content,
-        destination_id,
-      });
-
-      res.status(201).json({ entry: newEntry });
-    } catch (error) {
-      console.error('Failed to create journal entry:', error);
-      res.status(500).json({ error: 'Failed to create journal entry.' });
-    }
-  },
+    createJournalEntry: async (req, res) => {
+        try {
+          const { title, username, entry_date, entry_content, destination_id } = req.body;
+    
+         
+          const destination = await TravelDestination.findByPk(destination_id);
+          if (!destination) {
+            return res.status(404).json({ error: 'Travel destination not found.' });
+          }
+    
+         
+          const newEntry = await JournalEntry.create({
+            title,
+            username,
+            entry_date,
+            entry_content,
+            destination_id,
+          });
+    
+          res.status(201).json({ entry: newEntry });
+        } catch (error) {
+          console.error('Failed to create journal entry:', error);
+          res.status(500).json({ error: 'Failed to create journal entry.' });
+        }
+      },
 
   getAllJournalEntries: async (req, res) => {
     try {
