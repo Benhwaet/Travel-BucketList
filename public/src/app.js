@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('password', password);
 
         try {
-            const response = await fetch('/signup', {
+            const response = await fetch('/api/user/signup', {
                 method: 'POST',
                 body: formData,
             });
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('password', password);
 
         try {
-            const response = await fetch('/login', {
+            const response = await fetch('/api/user/login', {
                 method: 'POST',
                 body: formData,
             });
