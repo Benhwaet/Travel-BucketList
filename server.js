@@ -21,6 +21,7 @@ app.use(cors());
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
 
+//To view user api
 const userRoutes = require('./backend/routes/userRoutes');
 app.use('/api/user', userRoutes);
 
