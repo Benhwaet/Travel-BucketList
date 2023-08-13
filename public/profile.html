@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/carousel.css" />
-  <link rel="stylesheet" href="./styles/book.css" />
+  
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -100,105 +100,6 @@
           </section>
         </li>
 
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class="bl-card-main">
-              <div class="bl-card-main-info hidden">
-                <div class="info-container">
-                  <div class="info-content">
-                    <h2>About Tokyo</h2>
-                    <div class="destination-description">
-                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most
-                        populous metropolitan area in the world"</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="bl-card-main-default">
-                <div class="bl-card-header">
-                  <!-- src=${destinations[i].name}, ${destinations[i].country}-->
-                  <h3 class="bl-item-label">Tokyo, Japan</h3>
-                </div>
-                <div class="bl-card-image">
-                  <!-- src=${destinations[i].image}I -->
-                  <img class="bl-location-image" src="./src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
-                    alt="location image from Unsplash" />
-                </div>
-              </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
-              or replace the bl-card-main element into a text display if modals don't work -->
-              <button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"></i>
-              </button>
-              <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
-            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
-              <button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </button>
-              <!-- clicking on this button will change the icon and button colour, while also changing 
-              the destinations 'visited' BOOELAN to 'true' -->
-              <button class="visited-destination btn">
-                <i class="icon fa-solid fa-check"></i>
-              </button>
-              <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
-              <button class="delete-destination btn" onclick="removeCardItem()">
-                <i class="icon fa fa-trash"></i>
-              </button>
-            </div>
-          </section>
-        </li>
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class="bl-card-main">
-              <div class="bl-card-main-info hidden">
-                <div class="info-container">
-                  <div class="info-content">
-                    <h2>About Tokyo</h2>
-                    <div class="destination-description">
-                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most
-                        populous metropolitan area in the world"</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="bl-card-main-default">
-                <div class="bl-card-header">
-                  <!-- src=${destinations[i].name}, ${destinations[i].country}-->
-                  <h3 class="bl-item-label">Tokyo, Japan</h3>
-                </div>
-                <div class="bl-card-image">
-                  <!-- src=${destinations[i].image}I -->
-                  <img class="bl-location-image" src="./src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
-                    alt="location image from Unsplash" />
-                </div>
-              </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
-              or replace the bl-card-main element into a text display if modals don't work -->
-              <button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"></i>
-              </button>
-              <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
-            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
-              <button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </button>
-              <!-- clicking on this button will change the icon and button colour, while also changing 
-              the destinations 'visited' BOOELAN to 'true' -->
-              <button class="visited-destination btn">
-                <i class="icon fa-solid fa-check"></i>
-              </button>
-              <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
-              <button class="delete-destination btn" onclick="removeCardItem()">
-                <i class="icon fa fa-trash"></i>
-              </button>
-            </div>
-          </section>
-        </li>
       </ul>
     </smart-carousel>
   </nav>
@@ -277,13 +178,11 @@
 
   <script src="../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
   <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
-  <script src="./src/sections/Carousel.js"></script>
   <script src="./src/profile.js"></script>
+  <script src="./src/sections/Carousel.js"></script>
   <script src="./src/sections/Map.js"></script>
-
-  <!--keep here for display entries if need.-->
   <script src="./src/sections/Journal.js"></script>
-  <script src="./src/sections/book.js"></script>
+
 </body>
 
 </html>
