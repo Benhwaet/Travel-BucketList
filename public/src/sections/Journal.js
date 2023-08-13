@@ -4,10 +4,23 @@ const journalSection = document.querySelector(".journal-section");
 
 
 const journalEntry = `  
-<div class="journal-entry-header" style="margin-top: 10px;">
-    <h3 class="journal-entry-title">{destination}</h3>
-    <p class="journal-entry-date">Date: 10/10/2021</p>
-</div>
-<div class="journal-entry-body">
-    <p class="journal-entry-text" style="width: 66.66%;">"Japan, the land of anime and manga. I would love to go to Tokyo and see the city. I would also love to go to Kyoto and see the temples."</p>
-</div>`
+<section class="journal-section">
+      <secttion id="journat-entry">
+        <div class="journal-container">
+          <div class="journal-header">
+            <h2 class="destination-name">${city}, ${country}</h2>
+            <h3 class="authored">by ${username}, on ${entry-date}</h3>
+          </div>
+          <div class="journal-body">
+            <div class="journal-entry">
+              <div class="journal-entry-header">
+                <h3 contentEditable="true" class="journal-title">${title}</h3>
+              </div>
+              <div class="journal-entry-body">
+                <p contentEditable="true">${entry-content}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </section>`;
