@@ -61,11 +61,12 @@ const userController = {
             return res.status(400).json({ message: 'User not found' });
         }
 
-        const validPassword = await bcrypt.compare(password, user.password);
+        const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
 
         if (!validPassword) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
+        
 
         const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
 
