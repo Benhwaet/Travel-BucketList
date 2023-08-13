@@ -20,25 +20,31 @@ notesBtn.addEventListener('click', () => {
   }
 });
 
-//not working well with the smart-carousel element
+
 infoBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
+  if ()
 });
 
-// closeBtn and window.addEventListener are associated to the non-functioning modal
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+// //not working well with the smart-carousel element
+// infoBtn.addEventListener('click', () => {
+//   modal.style.display = 'block';
+// });
 
-window.addEventListener('click', (event) => {
-  if (event.target === modal) {
-      modal.style.display = 'none';
-  }
-});
+// // closeBtn and window.addEventListener are associated to the non-functioning modal
+// closeBtn.addEventListener('click', () => {
+//   modal.style.display = 'none';
+// });
+
+// window.addEventListener('click', (event) => {
+//   if (event.target === modal) {
+//       modal.style.display = 'none';
+//   }
+// });
 
 //connect button to entire great-grandparent element
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list?**
+
 deleteBtn.addEventListener("click", () => {
   getElementByClassName("bl-card-item").remove();
 });
