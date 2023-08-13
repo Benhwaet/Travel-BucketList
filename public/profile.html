@@ -11,6 +11,7 @@
 
   <link rel="stylesheet"  href="./styles/main.css" />
   <link rel="stylesheet"  href="./styles/carousel.css" />
+  <link rel="stylesheet"  href="./styles/book.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -21,6 +22,7 @@
   <header>
     <div class="search-bar">
       <input type="text" placeholder="Search for destinations" />
+      <button id="searchBtn">Search</button>
       <!-- Add search button here if needed -->
 
     </div>
@@ -42,118 +44,72 @@
   </div>
 
 
-  <!-- placeholder list items for carousel, inline style for now, to be included in carousel.css-->
-  <!-- plain html now in place of js generated html or handlebars later-->
+  <!-- plain html placeholder for card item, will be js generated once connected to API-->
   <nav class="carousel-container">
-    <section id="carousel" display-mode="multiple">
-      <ul id="bucket-list">
+    <smart-carousel hide-indicators keyboard loop id="carousel">
+      <ul id="bucket-list" class="smart-carousel">
 
         <li class="bl-card-item">
           <section class="bl-card-body">
             <div class = "bl-card-main">
-            <div>
+            <div class = "bl-card-main-info hidden">
+              <div class="info-container">
+                <div class="info-content">
+                  <h2>About Tokyo</h2>
+                  <div class="destination-description">
+                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="bl-card-main-default">
               <div class="bl-card-header">
+<!-- src=${destinations[i].name}, ${destinations[i].country}-->
                 <h3 class="bl-item-label">Tokyo, Japan</h3>
               </div>
               <div class="bl-card-image">
+                <!-- src=${destinations[i].image}I -->
                 <img class="bl-location-image" src="./src/images/destinations/note-thanun--Rn42aCTZGw-unsplash.jpg"
                   alt="location image from Unsplash" />
               </div>
             </div>
             </div>
             <div class="bl-buttons-footer">
-              <button class="destination-info btn">
-                <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-              </button>
-              <button class="destination-notes btn">
-                <i class="icon fa-solid fa-list"></i>
-              </button>
-              <button class="visited-destination btn">
-                <i class="icon fa-solid fa-check"></i>
-              </button>
-              <button class="delete-destination btn" onclick="removeCard()">
-                <i class="icon fa fa-trash"></i>
-              </button>
-            </div>
-          </section>
-        </li>
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class = "bl-card-main">
-            <div class="bl-card-header">
-              <h3 class="bl-item-label">Petra, Jordan</h3>
-            </div>
-            <div class="bl-card-image">
-              <img class="bl-location-image" src="./src/images/destinations/juanma-clemente-alloza-py8omnp-hko-unsplash.jpg"
-                alt="placeholder image" />
-            </div>
-            </div>
-            <div class="bl-buttons-footer">
+             <!-- clicking this button should show a modal pop-up containing the description associated to the destination_id 
+              or replace the bl-card-main element into a text display if modals don't work -->
               <button class="destination-info btn">
                 <i class="icon fa-solid fa-circle-info"></i>
               </button>
-              <button id="destination-notes" class="btn">
+            <!-- clicking this button will direct the user to the first journal entry containing the matching destination_id,
+            if none exists, it creates a new page into which to write notes and associates it to the destination_id-->
+              <button class="destination-notes btn">
                 <i class="icon fa-solid fa-list"></i>
-              </button>
-              <button id="visited-destination" class="btn">
+              </button>  
+            <!-- clicking on this button will change the icon and button colour, while also changing 
+              the destinations 'visited' BOOELAN to 'true' -->
+              <button class="visited-destination btn">
                 <i class="icon fa-solid fa-check"></i>
               </button>
-              <button id="delete-destination" class="btn">
+            <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
+              <button class="delete-destination btn" onclick="removeCardItem()">
                 <i class="icon fa fa-trash"></i>
               </button>
             </div>
           </section>
         </li>
-
-        <li class="bl-card-item">
-          <section class="bl-card-body">
-            <div class = "bl-card-main">
-            <div class="bl-card-header">
-              <h3 class="bl-item-label">Berlin, Germany</h3>
-            </div>
-            <div class="bl-card-image">
-              <img class="bl-location-image" src="./src/images/destinations/nick-name-VDSxhQ81d3M-unsplash.jpg"
-                alt="placeholder image" />
-            </div>
-            </div>
-            <div class="bl-buttons-footer">
-              <button class="destination-info btn"><i class="icon fa-solid fa-circle-info"></i></button>
-              <div id="infoModal" class="modal">
-                <div class="modal-content">
-                  <span class="close" id="closeBtn">&times;</span>
-                  <h2>About Tokyo</h2>
-                  <div class="destination-info-content">
-                      <p>"Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world"</p>
-                  </div>
-                </div>
-              </div>
-              <button id="destination-notes" class="btn"><i class="icon fa-solid fa-list"></i></button>
-              <div id="notesModal" class="modal">
-                <div class="modal-content">
-                  <span class="close" id="closeBtn">&times;</span>
-                  <h2>What to do in {Tokyo}</h2>
-                  <div class="destination-notes-content">
-                      <p>"Japan, the land of anime and manga. I would love to go to Tokyo and see the city. I would also love to go to Kyoto and see the temples."</p>
-                  </div>
-                </div>
-              </div>
-              <button id="visited-destination" class="btn">
-                <i class="icon fa-solid fa-check"></i>
-              </button>
-              <button id="delete-destination" class="btn">
-                <i class="icon fa fa-trash"></i>
-              </button>
-            </div>
-        </li>
-
+      
+      
       </ul>
-    </section>
+    </smart-carousel>
   </nav>
 
-  
+
   <main>
 
+    <!-- image section to break up the page content  -->
+    <section class="travel">
+      <img src="/public/src/images/background/travel1.png" alt="">
+    </section>
   <!-- Hotel/Flight API Section  (( Left ))-->
   <section class="api-section">
   </section>
@@ -163,9 +119,13 @@
     <div class="map-container" id="map"></div>
   </section>
 
-
+  <!-- image section to break up the page content  -->
+ <section class="travel">
+      <img src="/public/src/images/background/travel2.png" alt="">
+    </section>
   <!-- Journal Section (( below other sections  )) -->
   <section class="journal-section">
+
   </section>
   </main>
 
@@ -191,7 +151,6 @@
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
 
   <script src="../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
-  <script src="../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="./src/sections/Carousel.js"></script>
   <script src="./src/profile.js"></script>
