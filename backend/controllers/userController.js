@@ -6,9 +6,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
-const secretKey = 'replace-with-a-secure-secret-key';
 const { User } = require('../models');
 
 const userController = {
@@ -33,7 +31,7 @@ const userController = {
       console.log('Username:', username);
       console.log('Hashing password...');
       const hashedPassword = await bcrypt.hash(password, 10);
-      
+
       console.log('Creating user in the database...');
       const newUser = await User.create({
         email: email,
@@ -42,10 +40,9 @@ const userController = {
         profile_picture: req.file ? req.file.filename : 'default-profile.png'
       });
 
-      const token = jwt.sign({ userId: newUser.id }, secretKey, { expiresIn: '1h' });
       const { password: _, ...userData } = newUser;
       console.log('User created successfully:', userData);
-      res.json({ token, user: userData });
+      res.json({ user: userData });
     } catch (error) {
       console.error('Error creating user:', error);
       res.status(500).json({ error: 'Error creating user' });
@@ -54,30 +51,25 @@ const userController = {
 
   login: async (req, res) => {
     const { email, password } = req.body;
-    console.log('Email:', email);
-    console.log('Password:', password);
     try {
-        const user = await User.findOne({ where: { email } });
-        console.log('User:', user);
-        if (!user) {
-            return res.status(400).json({ message: 'User not found' });
-        }
+      const user = await User.findOne({ where: { email } });
 
-        const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
+      if (!user) {
+        return res.status(400).json({ message: 'User not found' });
+      }
 
-        if (!validPassword) {
-            return res.status(400).json({ message: 'Invalid credentials' });
-        }
-        
+      const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
 
-        const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+      if (!validPassword) {
+        return res.status(400).json({ message: 'Invalid credentials' });
+      }
 
-        res.json({ token, user });
+      res.json({ user });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Login error' });
+      console.error(error);
+      res.status(500).json({ error: 'Login error' });
     }
-},
+  },
 
   getAllUsers: async (req, res) => {
     try {
@@ -90,6 +82,3 @@ const userController = {
 };
 
 module.exports = userController;
-
-
-
