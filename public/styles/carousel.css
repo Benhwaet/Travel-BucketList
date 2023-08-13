@@ -13,9 +13,9 @@ nav {
 smart-carousel {
   --smart-carousel-default-width: 75%;
   --smart-background: none;
-  --smart-ui-state-hover: #8b1b1b;
-  --smart-ui-state-active: #933838;
-  --smart-ui-state-focus: #bf3737;
+  --smart-ui-state-hover: #e3dbb7;
+  --smart-ui-state-active: #e3dbb7;
+  --smart-ui-state-focus: #e3dbb7;
   display: flex;
   justify-content: space-between;
   height: 275px;
@@ -35,7 +35,7 @@ smart-carousel {
 
 /* from node-module file smart.default.css - wanted to change background color  */
 smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
-  background-color: #b5eef7;
+  background-color: #e3dbb7;
   border-radius: 20px;
   transition: background-color 1s ease-in-out;
 }
@@ -49,7 +49,8 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 }
 
 .smart-arrow {
-  background-color: rgb(255, 240, 232);
+  background-color: #004e5a;
+  color: #ffffff;
   border-radius: 40%;
   width: 50px;
   max-height: 20%;
@@ -82,11 +83,14 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   padding: 20px;
 }
 
+
+.bl-card-main {
+  background: linear-gradient(to bottom, #004e5a, #51a5b0, #ffffff);
+
 /* these are the toggled elements, 
 one should be hidden if the other is visible */
 
 /* displays destination.name, destination.country, and destination.image */
-.bl-card-main,
 .bl-card-main-default {
   background-color: rgb(153, 39, 39);
   width: 140px;
@@ -132,7 +136,7 @@ one should be hidden if the other is visible */
 .bl-location-button {
   width: 90%;
   height: 30px;
-  background-color: rgb(153, 39, 39);
+  background-color: #004e5a;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -166,7 +170,7 @@ one should be hidden if the other is visible */
 .btn {
   border-radius: 20px;
   width: 45px;
-  background-color: rgb(153, 39, 39);
+  background-color: #004e5a;
   color: white;
   cursor: pointer;
 }
