@@ -1,11 +1,11 @@
-/* Define root color variables ** we can update this colour theme once apis are working*/
+/* Define root color variables */
 :root {
-  --primary-color: #004e5a; /* Blue color for buttons and links */
-  --secondary-color: #e3dbb7; /* sand colour for header background */
-  --background-color: #ffffff; /* background colour */
-  --modal-overlay-color: rgba(0, 0, 0, 0.4); /* Modal overlay background colour */
-  --modal-content-background: #fff; /* Modal content background colour */
-  --modal-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Modal box shadow */
+  --primary-color: #004e5a;
+  --secondary-color: #e3dbb7;
+  --background-color: #ffffff;
+  --modal-overlay-color: rgba(0, 0, 0, 0.4);
+  --modal-content-background: #fff;
+  --modal-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Reset default margin and padding */
@@ -27,15 +27,16 @@ body {
   background-color: var(--background-color);
 }
 
+/* Landing page background image */
 body.landing-page {
   background-image: url('../src/images/background/aroundtheworld.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
 }
 
-/* Apply root color theme to the header */
+/* Header styling */
 header {
   display: flex;
   flex-wrap: no-wrap;
@@ -45,18 +46,17 @@ header {
   padding: 10px;
   color: #fff;
   box-shadow: 0 0 40px #e3dbb7;
-  border: 3px solid  #e3dbb7;
+  border: 3px solid #e3dbb7;
 }
 
-
-/* Set navigation style */
+/* Navigation styling */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Style the Login/Register button */
+/* Button styling */
 button {
   background-color: var(--primary-color);
   color: #fff;
@@ -67,28 +67,32 @@ button {
   border-radius: 5px;
 }
 
-/* Style the main content section */
+/* Main content section styling */
 main {
   padding: 40px;
   text-align: center;
 }
 
+/* Heading styling */
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
 }
 
+/* Paragraph styling */
 p {
   font-size: 18px;
   max-width: 800px;
   margin: 0 auto 40px;
 }
 
+/* Call to action container */
 .cta-container {
   display: flex;
   justify-content: center;
 }
 
+/* Button styling for register and login */
 #registerBtn,
 #loginBtn {
   display: inline-block;
@@ -106,7 +110,7 @@ p {
   background-color: #0056b3;
 }
 
-/* Style the modal overlay */
+/* Modal overlay styling */
 .modal {
   display: none;
   position: fixed;
@@ -117,7 +121,7 @@ p {
   background-color: var(--modal-overlay-color);
 }
 
-/* Style the modal content */
+/* Modal content styling */
 .modal-content {
   background-color: var(--modal-content-background);
   padding: 20px;
@@ -131,7 +135,7 @@ p {
   color: black;
 }
 
-/* Style the close button */
+/* Close button styling */
 .close {
   position: absolute;
   top: 10px;
@@ -141,13 +145,14 @@ p {
   color: black;
 }
 
-/* Style the form inside the modal */
+/* Form inside modal styling */
 form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+/* Input and button styling */
 input,
 button {
   padding: 10px;
@@ -162,15 +167,15 @@ button {
   cursor: pointer;
 }
 
+/* Profile page background gradient */
 body.profile-page {
-  background: linear-gradient(to bottom, #ffffff,#51a5b0,#004e5a, #51a5b0, #ffffff);
+  background: linear-gradient(to bottom, #ffffff, #51a5b0, #004e5a, #51a5b0, #ffffff);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-attachment: fixed;  */
 }
 
-/* Style the profile picture as a circular bubble in the navigation bar */
+/* Styling for the profile picture in the navigation bar */
 .profile-picture {
   width: 40px;
   height: 40px;
@@ -182,20 +187,18 @@ body.profile-page {
   margin-right: 10px;
 }
 
-/* images i made in paintshop */
+/* Styling for travel images */
+.travel {
+  margin: 20px 0;
+  text-align: center;
+}
+
 .travel img {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  width: 50%;
-  height: 50%;
-
+  max-width: 50%;
 }
 
-/* Journal  */
-main {
+/* Journal section styling */
+main .journal-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -203,59 +206,55 @@ main {
   padding: 40px;
 }
 
-
-/* search results container */
+/* Search results container styling */
 #searchResultsContainer {
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
   margin-top: 20px;
-  display: none; /* Hide it by default */
+  display: none;
 }
 
-/* each search result item */
+/* Styling for each search result item */
 #searchResultsContainer p {
   margin: 5px 0;
 }
 
-/* show results container when there are results */
+/* Show search results container */
 #searchResultsContainer.show {
   display: block;
 }
 
-/* move position of the carousel to make space for the search results */
+/* Move position of the carousel to make space for the search results */
 nav.carousel-container {
-  margin-top: 50px; /* Increase this value as needed to give more space*/
+  margin-top: 50px;
 }
 
-
-/* Style the individual sections */
+/* Section styling for API and Map */
 .api-section,
 .map-section {
-  width: calc(50% - 10px); /* Adjust width as needed */
+  width: calc(50% - 10px);
   margin-bottom: 20px;
 }
 
-.journal-section {
-  width: 100%; /* Full width for journal section */
-  margin-top: 70px;
-  margin-bottom: 70px;
-  margin-left:100px;
+/* Map container styling */
+.map-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Style the map container */
 .map-container {
   width: 100%;
-  height: 400px; /* Adjust the height as needed */
+  height: 400px;
 }
 
-/* Photo Library  ( in Footer ?) */
+/* Footer styling */
 footer {
   background-color: #fef7ed;
   padding: 20px;
   margin-top: 20px;
 }
-
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -265,6 +264,6 @@ footer {
   }
   .api-section,
   .map-section {
-    width: 100%; /* Full width on smaller screens */
+    width: 100%;
   }
 }

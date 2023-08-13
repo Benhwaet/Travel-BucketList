@@ -28,14 +28,14 @@ smart-carousel {
 }
 
 .smart-carousel-item.smart-active {
-  background-color: #b5eef7;
+  background-color: #e3dbb7;
   border-radius: 20px;
   transition: background-color 0s ease-in-out;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
 smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
-  background-color: #e3dbb7;
+  background-color: #51a5b0;
   border-radius: 20px;
   transition: background-color 1s ease-in-out;
 }
@@ -83,19 +83,14 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   padding: 20px;
 }
 
-
-.bl-card-main {
-  background: linear-gradient(to bottom, #004e5a, #51a5b0, #ffffff);
-
-/* these are the toggled elements, 
-one should be hidden if the other is visible */
-
 /* displays destination.name, destination.country, and destination.image */
-.bl-card-main-default {
+.bl-card-main {
   background-color: rgb(153, 39, 39);
+  background: linear-gradient(to bottom, #004e5a, #51a5b0, #ffffff);
   width: 140px;
   border-radius: 15px;
 }
+
 /* displays destination.name and destination.description */
 .bl-card-main-alt {
   background-color: rgb(153, 39, 39);
@@ -164,7 +159,6 @@ one should be hidden if the other is visible */
   display: flex;
   justify-content: center;
 }
-
 
 /* part of the button footer */
 .btn {
