@@ -46,8 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('/api/user/signup', {
                 method: 'POST',
-                body: ({email, user, password}),
-                headers: { 'Content-Type': 'application/json' },
+                body: formData,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                  },
             });
 
             if (response.ok) {
