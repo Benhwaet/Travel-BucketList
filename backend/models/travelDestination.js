@@ -4,52 +4,56 @@
 //based on class notes and models in module 14, activity 15
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../connection');
+const JournalEntry = require('./journalEntry');
 
 class TravelDestination extends Model {}
 
 TravelDestination.init(
   {
-  destination_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
+    destination_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    continent: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    visited: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    }
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  country: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  continent: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  image: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  notes: {
-    type: DataTypes.TEXT,
-    allowNull: true,
-  },
-  visited: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'travelDestination',
   }
-},
-{
-  sequelize,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'travelDestination',
-}
 );
+
+
+TravelDestination.hasMany(JournalEntry, { foreignKey: 'destination_id' });
 
 module.exports = TravelDestination;

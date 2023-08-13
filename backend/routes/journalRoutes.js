@@ -14,4 +14,5 @@ router.put('/entries/:id', JournalController.updateJournalEntry);
 router.delete('/entries/:id', JournalController.deleteJournalEntry);
 router.get('/search', JournalController.searchEntriesByTitle);
 
+
 module.exports = router;

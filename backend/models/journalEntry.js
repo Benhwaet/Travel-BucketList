@@ -3,8 +3,9 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../connection');
+const TravelDestination = require('./travelDestination');
 
-class JournalEntry extends Model { }
+class JournalEntry extends Model {}
 
 JournalEntry.init(
   {
@@ -24,8 +25,8 @@ JournalEntry.init(
       references: {
         model: 'user',
         key: 'username'
-    }
-  },
+      }
+    },
     entry_date: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -39,7 +40,7 @@ JournalEntry.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'travelDestination',
+        model: TravelDestination,
         key: 'destination_id'
       },
     },
@@ -51,5 +52,8 @@ JournalEntry.init(
     modelName: 'journalEntry',
   }
 );
+
+
+JournalEntry.belongsTo(TravelDestination, { foreignKey: 'destination_id' });
 
 module.exports = JournalEntry;
