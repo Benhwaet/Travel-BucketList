@@ -38,7 +38,7 @@ smart-carousel {
 .smart-carousel-item.smart-active {
   background-color: #e3dbb7;
   border-radius: 20px;
-  transition: transform 0.5s linear;
+  transition: none;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */

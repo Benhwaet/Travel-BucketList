@@ -22,36 +22,19 @@ const destinations = async () => {
   return json;
 }
 
-
-class carouselCard {
-  constructor (name, country, image, description, notes, visited) {
-      this.name = name;
-      this.country = country;
-      this.image = image;
-      this.description = description;
-      this.notes = notes;
-      this.visited = visited;
-
-  this.createCard = function () {
-      console.log(`Name: ${this.name}, Country: ${this.country}, Image: ${this.image}, Description: ${this.description}, Notes: ${this.notes}, Visited: ${this.visited}`);
-  }
-}
-};
-
-
 //button functions
 infoBtn.addEventListener('click', () => {
   console.log('info button clicked');
-})
-//   if (cardMainInfo.classList.contains('hidden')) {
-//     cardMainInfo.removeClass('hidden');
-//     cardMainDefault.addClass('hidden');
-//   } 
-//   else if (!cardMainInfo.classList.contains('hidden')) {
-//     cardMainInfo.addClass('hidden');
-//     cardMainDefault.removeClass('hidden');
-//   }
-// });
+
+  if (cardMainInfo.classList.contains('hidden')) {
+    cardMainInfo.removeClass('hidden');
+    cardMainDefault.addClass('hidden');
+  } 
+  else if (!cardMainInfo.classList.contains('hidden')) {
+    cardMainInfo.addClass('hidden');
+    cardMainDefault.removeClass('hidden');
+  }
+});
 
 //**more pseudo than code, but the idea is to have the notes button
 //open the journal entry with a matching destination or a brand new note entry
