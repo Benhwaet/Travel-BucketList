@@ -16,8 +16,8 @@ const userController = {
       const userExists = await User.findOne({
         where: {
           [Op.or]: [
-            { username: username },
-            { email: email }
+            { email: email },
+            { username: username }
           ]
         }
       });
@@ -28,8 +28,8 @@ const userController = {
 
       const hashedPassword = await bcrypt.hash(password, 10);
       const newUser = await User.create({
-        username: username,
         email: email,
+        username: username,
         password: hashedPassword,
         profile_picture: req.file ? req.file.filename : 'default-profile.png'
       });
