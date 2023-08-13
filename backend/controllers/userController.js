@@ -13,7 +13,7 @@ const { User } = require('../models');
 
 const userController = {
   signup: async (req, res) => {
-    const { username, email, password } = req.body;
+    const { email, username, password } = req.body;
     try {
       const userExists = await User.findOne({
         where: {
