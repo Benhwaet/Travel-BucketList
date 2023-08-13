@@ -21,8 +21,8 @@ app.use(cors());
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
 
-const authRoutes = require('./backend/routes/authRoutes');
-app.use('/api/auth', authRoutes);
+const userRoutes = require('./backend/routes/userRoutes');
+app.use('/api/user', userRoutes);
 
 const travelDestinationRoutes = require('./backend/routes/travelDestinationRoutes');
 app.use('/api/travelDestinations', travelDestinationRoutes);
@@ -50,7 +50,7 @@ app.listen(port, () => {
 
 
 const multer = require('multer');
-const cloudinary = require('/backend/config/db.config'); // cloudinary config
+const cloudinary = require('./backend/config/db.config'); // cloudinary config
 app.use(express.json());
 
 // multer for handling file uploads
