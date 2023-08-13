@@ -52,21 +52,29 @@ const userController = {
   login: async (req, res) => {
     const { email, password } = req.body;
     try {
+      console.log('Received login request for email:', email);
+
       const user = await User.findOne({ where: { email } });
 
       if (!user) {
+        console.log('User not found for email:', email);
         return res.status(400).json({ message: 'User not found' });
       }
 
+      console.log('User found. Comparing passwords...');
+
       const validPassword = await bcrypt.compare(password.trim(), user.password.trim());
       console.log('Password Comparison Result:', validPassword);
+
       if (!validPassword) {
+        console.log('Invalid password for user:', email);
         return res.status(400).json({ message: 'Invalid credentials' });
       }
 
+      console.log('Login successful for user:', email);
       res.json({ user });
     } catch (error) {
-      console.error(error);
+      console.error('Error during login:', error);
       res.status(500).json({ error: 'Login error' });
     }
   },

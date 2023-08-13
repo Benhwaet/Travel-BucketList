@@ -66,36 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
     loginForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
-        const email = document.getElementById('loginEmail').value.trim();
-        const password = document.getElementById('loginPassword').value.trim();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value.trim();
 
-        const requestData = {
-            email: email,
-            password: password
-        };
-        console.log('Email:', email);
-        console.log('Password:', password);
+    const requestData = {
+        email: email,
+        password: password
+    };
+    console.log('Login Request Data:', requestData);
 
-        try {
-            const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
-                method: 'POST',
-                body: JSON.stringify(requestData),
-                headers: { 'Content-Type': 'application/json' }
-            });
+    try {
+        const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
+            method: 'POST',
+            body: JSON.stringify(requestData),
+            headers: { 'Content-Type': 'application/json' }
+        });
 
-            if (response.ok) {
-                const responseData = await response.json();
-                console.log('Login successful:', responseData);
- 
-                loginForm.style.display = 'none';
-            } else {
-                const errorData = await response.json();
-                console.error('Login error:', errorData);
-            }
-        } catch (error) {
-            console.error('Login error:', error);
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Login Response Data:', responseData);
+            console.log('Login successful:', responseData);
+
+            loginForm.style.display = 'none';
+        } else {
+            const errorData = await response.json();
+            console.error('Login Error Response Data:', errorData);
+            console.error('Login error:', errorData.message);
         }
+    } catch (error) {
+        console.error('Login error:', error);
+    }
     });
 });
