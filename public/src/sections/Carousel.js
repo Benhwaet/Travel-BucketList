@@ -9,12 +9,23 @@ const notesBtn = document.querySelector('.destination-notes');
 const notesContent = document.querySelector('.destination-notes-content');
 const notesModal = document.querySelector('#notesModal');
 
+//**more pseudo than code, but the idea is to have the notes button
+//open the journal entry with a matching destination or a brand new note entry
+//alter at will
+notesBtn.addEventListener('click', () => {
+  if (notes.destination_id === carouselCard.destination_id) {
+            location.href='#travel-journal.destination_id';
+  } else if (notes.destination_id !== carouselCard.destination_id) {
+    location.href='#travel-journal.new_note';
+  }
+});
 
+//not working well with the smart-carousel element
 infoBtn.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
-
+// closeBtn and window.addEventListener are associated to the non-functioning modal
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
 });
@@ -25,15 +36,31 @@ window.addEventListener('click', (event) => {
   }
 });
 
+//connect button to entire great-grandparent element
+//to remove entire card from carousel and out of bucket-list table
+//do we need a separate table for bucket-list?**
+deleteBtn.addEventListener("click", () => {
+  getElementByClassName("bl-card-item").remove();
+});
+
+// removeCard = () => {
+//  getElementsByClassName("bl-card-item").remove(); 
+// }
+
+
+
 const destinations = async () => {
-    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', {
+    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+    {
         method: 'GET',
     });
     const json = await result.json()
     return json;
-}
+  }
+
 console.log(destinations());
 
+const createCard = (name, country, image, description, notes, visited) => {
 
   const name = destinations[i].name;
   const country = destinations[i].country;
@@ -42,7 +69,7 @@ console.log(destinations());
   const notes = destinations[i].notes;
   const visited = destinations[i].visited
 
- console.log(name, country, image, description, notes, visited);
+  console.log(name, country, image, description, notes, visited);
 
   const carouselCard = `
   <li class="bl-card-item">
@@ -97,28 +124,9 @@ console.log(destinations());
         console.log(travelDestinationData);
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
+  };
 
 
 
 
-   //not functioning, but kept to keep the general idea 
-//of class changing to alter the icon upon click
-visitedBtn.addEventListener('click', () => {
-  if(icon.classList.contains("fa-check")) {
-    icon.classList.remove("fa-check");
-    icon.classList.add("fa-circle-check");
-  } else if (icon.classList.contains("fa-circle-check")){
-    icon.classList.remove("fa-circle-check");
-    icon.classList.add("fa-check");
-  }
-});
 
-deleteBtn.addEventListener("click", () => {
-  //connect button to entire great-grandparent element
-  //to remove entire card from carousel
-  getElementByClassName("bl-card-item").remove();
-});
-
-// removeCard = () => {
-//  getElementsByClassName("bl-card-item").remove(); 
-// }
