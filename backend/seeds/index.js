@@ -22,10 +22,7 @@ const seedAll = async () => {
     //   });
    
 
-    await TravelDestination(seedJournal, {
-        individualHooks: true,
-        returning: true,
-      });
+    await TravelDestination.bulkCreate(seedTravelDestination);
    
 
     process.exit(0);
