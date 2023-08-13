@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-   
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const responseData = await response.json();
                 console.log('Login successful:', responseData);
  
-                loginForm.style.display = 'none'; 
+                loginForm.style.display = 'none';
             } else {
                 const errorData = await response.json();
                 console.error('Login error:', errorData);
