@@ -3,6 +3,8 @@
 
 //copy pasted from class notes, edX module 14, activity 19
 // userController.js
+const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
