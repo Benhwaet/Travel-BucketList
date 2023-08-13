@@ -1,3 +1,4 @@
+//Taken from codepen.io/dungkhanh/pen/rNxrzMz and modified to fit my needs, gist also includes html with class=book and book.js
 var pages = document.getElementsByClassName('page');
 for(var i = 0; i < pages.length; i++)
   {

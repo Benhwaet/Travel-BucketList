@@ -17,7 +17,7 @@ smart-carousel {
   --smart-ui-state-focus: #bf3737;
   display: flex;
   justify-content: space-between;
-  height: 240px;
+  height: 275px;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
@@ -50,19 +50,23 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   align-content: center;
   object-fit: fill;
   width: 95%;
-  margin-top: 20px;
   list-style: none;
 }
 
 .bl-card-item {
   display: flex;
   justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: inset 0 0 10px #000000;
+  border-radius: 15px;
 }
 
 .bl-card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .bl-card-main {
@@ -121,6 +125,16 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   cursor: pointer;
 
 }
+
+/* .btn:visited {
+  background-color: rgb(153, 39, 39);
+  color: white;
+}
+
+.icon:visited {
+  background-color: rgb(153, 39, 39);
+  color: white;
+} */
 
 .btn:hover {
   opacity: 50%;
