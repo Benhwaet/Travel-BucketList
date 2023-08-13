@@ -1,14 +1,10 @@
 // schema and attributes for the user table
 // interact with the journal entry data in the database ???
 
-// schema and attributes for the user table
-// interact with the journal entry data in the database ???
-
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../connection');
-const TravelDestination = require('./travelDestination');
+const sequelize = require('../config/connection');
 
-class JournalEntry extends Model {}
+class JournalEntry extends Model { }
 
 JournalEntry.init(
   {
@@ -28,8 +24,8 @@ JournalEntry.init(
       references: {
         model: 'user',
         key: 'username'
-      }
     },
+  },
     entry_date: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -43,7 +39,7 @@ JournalEntry.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: TravelDestination,
+        model: 'travelDestination',
         key: 'destination_id'
       },
     },
@@ -55,7 +51,5 @@ JournalEntry.init(
     modelName: 'journalEntry',
   }
 );
-
-JournalEntry.belongsTo(TravelDestination, { foreignKey: 'destination_id' });
 
 module.exports = JournalEntry;

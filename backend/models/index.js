@@ -17,7 +17,7 @@ TravelDestination.belongsTo(User, {
 });
 
 JournalEntry.belongsTo(User, {
-  foreignKey: 'user_id',
+  foreignKey: 'destination_id',
 })
 
 module.exports = { User, JournalEntry, TravelDestination };
