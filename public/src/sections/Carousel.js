@@ -35,14 +35,12 @@ const destinations = async () => {
 console.log(destinations());
 
 
-for (let i = 0; i < destinations.length; i++) {
-
-  let name = destinations[i].name;
-  let country = destinations[i].country;
-  let image = destinations[i].image;
-  let description = destinations[i].description;
-  let notes = destinations[i].notes;
-  let visited = destinations[i].visited
+  const name = destinations[i].name;
+  const country = destinations[i].country;
+  const image = destinations[i].image;
+  const description = destinations[i].description;
+  const notes = destinations[i].notes;
+  const visited = destinations[i].visited
 
  console.log(name, country, image, description, notes, visited);
 
@@ -99,7 +97,7 @@ for (let i = 0; i < destinations.length; i++) {
         console.log(travelDestinationData);
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-  };
+
 
 
 
