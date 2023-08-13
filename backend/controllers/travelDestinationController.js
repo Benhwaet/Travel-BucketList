@@ -1,4 +1,5 @@
-const TravelDestination = require('../models/travelDestination');
+const { Op } = require('sequelize');
+const { TravelDestination } = require('../models');
 
 const DestinationController = {
   createDestination: async (req, res) => {
@@ -48,7 +49,7 @@ const DestinationController = {
     try {
       const destinationId = req.params.id;
       const { name, country, continent, image, description, notes, visited } = req.body;
-      
+
       const destination = await TravelDestination.findByPk(destinationId);
       if (!destination) {
         return res.status(404).json({ error: 'Destination not found.' });
@@ -84,6 +85,26 @@ const DestinationController = {
       res.json({ message: 'Destination deleted successfully.' });
     } catch (error) {
       res.status(500).json({ error: 'Failed to delete destination.' });
+    }
+  },
+
+  
+  searchDestinationsByName: async (req, res) => {
+    const { name } = req.query;
+
+    try {
+      const destinations = await TravelDestination.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${name}%`,
+          },
+        },
+      });
+
+      res.json(destinations);
+    } catch (error) {
+      console.error('Error searching destinations:', error);
+      res.status(500).json({ error: 'Error searching destinations' });
     }
   },
 };

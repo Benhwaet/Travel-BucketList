@@ -21,9 +21,9 @@
 <body class="profile-page">
   <header>
     <div class="search-bar">
-      <input id="search-input" type="text" placeholder="Search for destinations" />
+      <input type="text" placeholder="Search for destinations" />
       <!-- Add search button here if needed -->
-      <button id="search-btn">Search</button>
+
     </div>
     <div class="user-profile">
       <!-- Profile Picture (displayed as a bubble) -->
@@ -167,17 +167,18 @@
 
   
   <main>
-  <!-- Hotel/Flight API Section  (( CENTER ))-->
+
+  <!-- Hotel/Flight API Section  (( Left ))-->
   <section class="api-section">
   </section>
 
-  <!-- Interactive Map Section (( RIGHT ))-->
+  <!-- Interactive Map Section (( Right ))-->
   <section class="map-section">
     <div class="map-container" id="map"></div>
   </section>
 
 
-  <!-- Journal Section (( LeEFT )) -->
+  <!-- Journal Section (( below other sections  )) -->
   <section class="journal-section">
     <div id="travel-journal" class="book">
       <div id="pages" class="pages">
@@ -213,10 +214,9 @@
     <div id="imageContainer"></div>
     
     <h1>Memory Uploads</h1>
-    <form id="image-form" enctype="multipart/form-data">
-      <input type="file" name="image" accept=".jpg, .jpeg, .png" required>
-      <button type="submit">Upload</button>
-    </form>
+    <input type="file" id="imageInput" accept=".jpg, .jpeg, .png" />
+   <button id="uploadBtn">Upload Image</button>
+   <img id="uploadedImage" alt="Uploaded Image" style="display: none;" />
   </footer>
 
     <!-- where the images will display after being uploaded -->
@@ -232,7 +232,7 @@
   <script src="../node_modules/smart-webcomponents/source/modules/smart.button.js"></script>
   <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="./src/sections/Carousel.js"></script>
-  <script type="module" src="./src/profile.js"></script>
+  <script src="./src/profile.js"></script>
   <script src="./src/sections/Map.js"></script>
 
   <!--keep here for display entries if need.-->
