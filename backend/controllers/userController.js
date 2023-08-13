@@ -55,26 +55,26 @@ const userController = {
   login: async (req, res) => {
     const { email, password } = req.body;
     try {
-      const user = await User.findOne({ where: { email } });
+        const user = await User.findOne({ where: { email } });
 
-      if (!user) {
-        return res.status(400).json({ message: 'User not found' });
-      }
+        if (!user) {
+            return res.status(400).json({ message: 'User not found' });
+        }
 
-      const validPassword = await bcrypt.compare(password, user.password);
+        const validPassword = await bcrypt.compare(password, user.password);
 
-      if (!validPassword) {
-        return res.status(400).json({ message: 'Invalid credentials' });
-      }
+        if (!validPassword) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
 
-      const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
 
-      res.json({ token, user });
+        res.json({ token, user });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Login error' });
+        console.error(error);
+        res.status(500).json({ error: 'Login error' });
     }
-  },
+},
 
   getAllUsers: async (req, res) => {
     try {
