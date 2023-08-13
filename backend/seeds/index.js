@@ -16,12 +16,7 @@ const seedAll = async () => {
       });
    
 
-    // await JournalEntry.bulkCreate(seedtravelDestination, {
-    //     individualHooks: true,
-    //     returning: true,
-    //   });
-   
-
+    // await JournalEntry.bulkCreate(seedJournal)
     await TravelDestination.bulkCreate(seedTravelDestination);
    
 

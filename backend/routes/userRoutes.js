@@ -6,6 +6,9 @@ const router = express.Router();
 const { User } = require('../models'); 
 const secretKey = 'replace-with-a-secure-secret-key';
 
+
+router.get('/users', UserController.getAllUsers);
+
 // Login
 router.post('/login', async (req, res) => {
   try {
