@@ -13,13 +13,19 @@ const notesBtn = document.querySelector('.destination-notes');
 const visitedBtn = document.querySelector('.visited-destination');
 const deleteBtn = document.querySelector('.delete-destination');
 
+const destinations = async () => {
+  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+  {
+      method: 'GET',
+  });
+  const json = await result.json()
+  return json;
+}
+
 //button functions
 infoBtn.addEventListener('click', () => {
-  
-});
-
-infoBtn.addEventListener('click', () => {
   console.log('info button clicked');
+
   if (cardMainInfo.classList.contains('hidden')) {
     cardMainInfo.removeClass('hidden');
     cardMainDefault.addClass('hidden');
@@ -43,12 +49,13 @@ notesBtn.addEventListener('click', () => {
 
 visitedBtn.addEventListener('click', () => {
   console.log('visited button clicked');
-  if ()
+});
 //connect button to entire great-grandparent element
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list?**
 
 deleteBtn.addEventListener("click", () => {
+  console.log('delete button clicked')
   getElementByClassName("bl-card-item").remove();
 });
 
@@ -57,37 +64,26 @@ deleteBtn.addEventListener("click", () => {
 // }
 
 
-
-const destinations = async () => {
-    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
-    {
-        method: 'GET',
-    });
-    const json = await result.json()
-    return json;
-  }
-
 console.log(destinations());
 const destinationsData = destinations();
 
-console.log(destinationsData.length);
 
-const createCard = (name, country, image, description, visited) => {
-  const name = destinationsData[i].name;
-  const country = destinationsData[i].country;
-  const image = destinationsData[i].image;
-  const description = destinationsData[i].description;
-  const visited = destinationsData[i].visited
+// const createCard = (name, country, image, description, visited) => {
+//   const name = destinationsData[i].name;
+//   const country = destinationsData[i].country;
+//   const image = destinationsData[i].image;
+//   const description = destinationsData[i].description;
+//   const visited = destinationsData[i].visited
 
-  console.log(name, country, image, description, notes, visited);
+//   console.log(name, country, image, description, notes, visited);
 
-  const carouselCard = `
+  const carouselCardInsert = `
   <li class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
       <div>
         <div class="bl-card-header">
-          <h3 class="bl-item-label">${name},${country} </h3>
+          <h3 class="bl-item-label">${this.name},${country} </h3>
         </div>
         <div class="bl-card-image">
           <img class="bl-location-image" src="${image}" 
@@ -132,7 +128,7 @@ const createCard = (name, country, image, description, visited) => {
 `
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-}
+
 
 
 
