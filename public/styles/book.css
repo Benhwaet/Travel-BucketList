@@ -1,3 +1,4 @@
+/* //Taken from codepen.io/dungkhanh/pen/rNxrzMz and modified to fit my needs, gist also includes html with class=book and book.js */
 .book {
   transition: opacity 0.4s 0.2s;
   perspective: 100vw;

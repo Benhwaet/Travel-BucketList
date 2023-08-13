@@ -14,9 +14,6 @@ infoBtn.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
-notesBtn.addEventListener('click', () => {
-  
-});
 
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
@@ -36,21 +33,20 @@ const destinations = async () => {
     return json;
 }
 console.log(destinations());
-console.log(destinations.length);
 
-    for (let i = 0; i < destinations.length; i++) {
 
-        const travelDestinationData = {
-            name: destinations[i].name,
-            country: destinations[i].country,
-            image: destinations[i].image,
-            description: destinations[i].description,
-            notes: destinations[i].notes,
-            visited: destinations[i].visited
-        }
+for (let i = 0; i < destinations.length; i++) {
 
-        
-        const carouselCard = `
+  let name = destinations[i].name;
+  let country = destinations[i].country;
+  let image = destinations[i].image;
+  let description = destinations[i].description;
+  let notes = destinations[i].notes;
+  let visited = destinations[i].visited
+
+ console.log(name, country, image, description, notes, visited);
+
+  const carouselCard = `
   <li class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
@@ -103,7 +99,7 @@ console.log(destinations.length);
         console.log(travelDestinationData);
 
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-    };
+  };
 
 
 

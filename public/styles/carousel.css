@@ -126,6 +126,16 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
 
 }
 
+/* .btn:visited {
+  background-color: rgb(153, 39, 39);
+  color: white;
+}
+
+.icon:visited {
+  background-color: rgb(153, 39, 39);
+  color: white;
+} */
+
 .btn:hover {
   opacity: 50%;
 }
