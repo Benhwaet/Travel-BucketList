@@ -33,23 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     registrationForm.addEventListener('submit', async (event) => {
         event.preventDefault();
-
+    
         const email = document.getElementById('registerEmail').value;
         const username = document.getElementById('registerUsername').value;
         const password = document.getElementById('registerPassword').value;
-        
-        console.log('email:', email);
-        console.log('username:', username);
-        console.log('password:', password);
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('username', username);
-        formData.append('password', password);
-
+    
+        const requestData = {
+            email: email,
+            username: username,
+            password: password
+        };
+    
         try {
             const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/signup', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(requestData),
                 headers: { 'Content-Type': 'application/json' }
             });
 
