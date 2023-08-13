@@ -1,13 +1,34 @@
+//see module 11, activity 7, index.js on how to call api info from backend
+
 const bucketList = document.querySelector('#bucket-list');
+
+const cardItem = document.querySelector('.bl-card-item');
+const cardMain = document.querySelector('.bl-card-main');
+const cardMainDefault = document.querySelector('.bl-card-main-default');
+const cardMainInfo = document.querySelector('.bl-card-main-info');
+
+// button variables
 const infoBtn = document.querySelector('.destination-info');
-const modal = document.querySelector('#infoModal');
-const closeBtn = document.querySelector('#closeBtn');
-const infoContent = document.querySelector('.destination-info-content');
-const deleteBtn = document.querySelector('.delete-destination');
-const visitedBtn = document.querySelector('.visited-destination');
 const notesBtn = document.querySelector('.destination-notes');
-const notesContent = document.querySelector('.destination-notes-content');
-const notesModal = document.querySelector('#notesModal');
+const visitedBtn = document.querySelector('.visited-destination');
+const deleteBtn = document.querySelector('.delete-destination');
+
+//button functions
+infoBtn.addEventListener('click', () => {
+  
+});
+
+infoBtn.addEventListener('click', () => {
+  console.log('info button clicked');
+  if (cardMainInfo.classList.contains('hidden')) {
+    cardMainInfo.removeClass('hidden');
+    cardMainDefault.addClass('hidden');
+  } 
+  else if (!cardMainInfo.classList.contains('hidden')) {
+    cardMainInfo.addClass('hidden');
+    cardMainDefault.removeClass('hidden');
+  }
+});
 
 //**more pseudo than code, but the idea is to have the notes button
 //open the journal entry with a matching destination or a brand new note entry
@@ -20,25 +41,13 @@ notesBtn.addEventListener('click', () => {
   }
 });
 
-//not working well with the smart-carousel element
-infoBtn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
-
-// closeBtn and window.addEventListener are associated to the non-functioning modal
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-  if (event.target === modal) {
-      modal.style.display = 'none';
-  }
-});
-
+visitedBtn.addEventListener('click', () => {
+  console.log('visited button clicked');
+  if ()
 //connect button to entire great-grandparent element
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list?**
+
 deleteBtn.addEventListener("click", () => {
   getElementByClassName("bl-card-item").remove();
 });
@@ -59,15 +68,16 @@ const destinations = async () => {
   }
 
 console.log(destinations());
+const destinationsData = destinations();
 
-const createCard = (name, country, image, description, notes, visited) => {
+console.log(destinationsData.length);
 
-  const name = destinations[i].name;
-  const country = destinations[i].country;
-  const image = destinations[i].image;
-  const description = destinations[i].description;
-  const notes = destinations[i].notes;
-  const visited = destinations[i].visited
+const createCard = (name, country, image, description, visited) => {
+  const name = destinationsData[i].name;
+  const country = destinationsData[i].country;
+  const image = destinationsData[i].image;
+  const description = destinationsData[i].description;
+  const visited = destinationsData[i].visited
 
   console.log(name, country, image, description, notes, visited);
 
@@ -121,11 +131,8 @@ const createCard = (name, country, image, description, notes, visited) => {
   </li>
 `
 
-        console.log(travelDestinationData);
-
         bucketList.insertAdjacentHTML('beforeend', carouselCard);
-  };
-
+}
 
 
 

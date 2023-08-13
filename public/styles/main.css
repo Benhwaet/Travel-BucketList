@@ -89,7 +89,8 @@ p {
   justify-content: center;
 }
 
-#registerBtn {
+#registerBtn,
+#loginBtn {
   display: inline-block;
   padding: 12px 24px;
   background-color: var(--primary-color);
@@ -100,7 +101,8 @@ p {
   transition: background-color 0.3s ease;
 }
 
-#registerBtn:hover {
+#registerBtn:hover,
+#loginBtn:hover {
   background-color: #0056b3;
 }
 
@@ -126,6 +128,7 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 400px;
+  color: black;
 }
 
 /* Style the close button */
@@ -135,6 +138,7 @@ p {
   right: 10px;
   font-size: 24px;
   cursor: pointer;
+  color: black;
 }
 
 /* Style the form inside the modal */

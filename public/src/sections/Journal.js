@@ -1,4 +1,5 @@
-const 
+const journalSection = document.querySelector(".journal-section");
+
 
 
 

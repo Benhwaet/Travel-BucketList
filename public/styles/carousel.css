@@ -1,3 +1,4 @@
+/* settings for the carousel area itself */
 * {
   font-family: cursive;
 }
@@ -18,6 +19,18 @@ smart-carousel {
   display: flex;
   justify-content: space-between;
   height: 275px;
+}
+
+.smart-carousel-item {
+  background-color: none;
+  border-radius: 20px;
+  transition: background-color 0s ease-in-out;
+}
+
+.smart-carousel-item.smart-active {
+  background-color: #b5eef7;
+  border-radius: 20px;
+  transition: background-color 0s ease-in-out;
 }
 
 /* from node-module file smart.default.css - wanted to change background color  */
@@ -69,10 +82,46 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   padding: 20px;
 }
 
-.bl-card-main {
+/* these are the toggled elements, 
+one should be hidden if the other is visible */
+
+/* displays destination.name, destination.country, and destination.image */
+.bl-card-main,
+.bl-card-main-default {
   background-color: rgb(153, 39, 39);
   width: 140px;
   border-radius: 15px;
+}
+/* displays destination.name and destination.description */
+.bl-card-main-alt {
+  background-color: rgb(153, 39, 39);
+  width: 140px;
+  border-radius: 15px;
+}
+
+.info-container {
+  /* display: flex; */
+  /* align-items: center; */
+  width: 100%;
+  height: 200px;
+  background-color: rgb(255, 240, 232);
+  color:#933838;
+  border-radius: 15px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.destination-description p {
+  font-size: 15px;
+
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
 }
 
 .bl-card-header {
@@ -112,63 +161,23 @@ smart-carousel[display-mode=multiple] .smart-carousel-item.smart-active {
   justify-content: center;
 }
 
-.btn {
-  border-radius: 20px;
-  width: 45px;
-}
 
+/* part of the button footer */
 .btn {
   border-radius: 20px;
   width: 45px;
   background-color: rgb(153, 39, 39);
   color: white;
   cursor: pointer;
-
 }
 
-/* .btn:visited {
-  background-color: rgb(153, 39, 39);
-  color: white;
+.btn:active {
+  background-color: #00bafe;
+  color: #933838;
 }
-
-.icon:visited {
-  background-color: rgb(153, 39, 39);
-  color: white;
-} */
 
 .btn:hover {
-  opacity: 50%;
-}
-
-/* Style the modal overlay */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--modal-overlay-color);
-}
-
-/* Style the modal content */
-.modal-content {
-  background-color: var(--modal-content-background);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: var(--modal-box-shadow);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 400px;
-}
-
-/* Style the close button */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  cursor: pointer;
+  background-color: white;
+  color: #933838;
+  opacity: 50%;  
 }

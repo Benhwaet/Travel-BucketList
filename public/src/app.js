@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerBtn = document.getElementById('registerBtn');
     const modal = document.getElementById('registerModal');
     const closeBtn = document.getElementById('closeBtn');
-    const registrationForm = document.getElementById('registrationForm');
-    const loginForm = document.getElementById('loginForm');
 
-  
+    // Show the registration modal when the Sign Up button is clicked
     registerBtn.addEventListener('click', () => {
         modal.style.display = 'block';
     });
@@ -24,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        if (modal.style.display === 'block' && event.target === modal) {
+            modal.style.display = 'none';   
+        } else if (event.target === loginForm) {
             loginForm.style.display = 'none';
         }
     });
@@ -95,4 +94,20 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Login error:', error);
         }
     });
+});
+
+// Show the login form (or implement your login logic here)
+loginBtn.addEventListener('click', () => {
+    loginModal.style.display = 'block';
+});
+// Close the registration modal when the close button is clicked
+closeBtn.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+
+// Close the registration modal if the user clicks outside of it
+window.addEventListener('click', (event) => {
+    if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+    }
 });
