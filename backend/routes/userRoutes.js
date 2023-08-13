@@ -7,7 +7,7 @@ const { User } = require('../models');
 const secretKey = 'replace-with-a-secure-secret-key';
 
 
-router.get('/users', UserController.getAllUsers);
+router.get('/users', userController.getAllUsers);
 
 // Login
 router.post('/login', async (req, res) => {
