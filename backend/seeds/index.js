@@ -1,6 +1,6 @@
 const sequelize = require('../../connection');
 const seedUser = require('./userSeed.json');
-const seedtravelDestination = require('./travelDestinationSeed.json');
+const seedTravelDestination = require('./travelDestinationSeed.json');
 const seedJournal = require('./journalEntrySeed.json');
 const { User } = require('../models');
 const { JournalEntry } = require('../models');
