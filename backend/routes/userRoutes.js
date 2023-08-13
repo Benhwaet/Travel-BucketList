@@ -3,6 +3,7 @@ const userController = require('../controllers/userController');
 const multer = require('multer');
 const router = express.Router();
 const { User } = require('../models');
+const secretKey = 'replace-with-a-secure-secret-key';
 
 //login
 router.post('/login', async (req, res) => {
