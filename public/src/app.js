@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('registerModal');
     const closeBtn = document.getElementById('closeBtn');
 
-      // Show the registration modal when the Sign Up button is clicked
-      registerBtn.addEventListener('click', () => {
+    // Show the registration modal when the Sign Up button is clicked
+    registerBtn.addEventListener('click', () => {
         modal.style.display = 'block';
     });
 
@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
     window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+        if (modal.style.display === 'block' && event.target === modal) {
+            modal.style.display = 'none';   
+        } else if (event.target === loginForm) {
             loginForm.style.display = 'none';
         }
     });
