@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             email: email,
             password: password
         };
+        console.log('Email:', email);
+        console.log('Password:', password);
 
         try {
             const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
