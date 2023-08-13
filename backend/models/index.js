@@ -26,7 +26,7 @@ JournalEntry.belongsTo(TravelDestination, {
 
 TravelDestination.hasMany(JournalEntry, {
   foreignKey: 'destination_id',
-  onDelete: 'CASCADE'
+  onDelete: 'NULL'
 });
 
 module.exports = { User, JournalEntry, TravelDestination };
