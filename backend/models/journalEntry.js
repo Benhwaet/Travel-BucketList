@@ -43,7 +43,7 @@ JournalEntry.init(
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: travelDestination,
+        model: TravelDestination,
         key: 'destination_id'
       },
     },
@@ -55,7 +55,6 @@ JournalEntry.init(
     modelName: 'journalEntry',
   }
 );
-
 
 JournalEntry.belongsTo(TravelDestination, { foreignKey: 'destination_id' });
 
