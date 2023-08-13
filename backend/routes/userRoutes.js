@@ -43,7 +43,7 @@ router.post('/login', async (req, res) => {
 });
 
 // // Signup
-// router.post('/signup', userController.signup);
+router.post('/signup', userController.signup);
 
 // Logout
 router.post('/logout', (req, res) => {
