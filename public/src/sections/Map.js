@@ -65,14 +65,61 @@ const marker54 = L.marker([56.1304, -106.3468]).addTo(map); // Canada
 
 
 // pop up of marker content 
-marker1.bindPopup('Marker 1').openPopup();
-marker2.bindPopup('Marker 2').openPopup();
-// marker3.bindPopup('Marker 3').openPopup();
-// marker4.bindPopup('Marker 4').openPopup();
-// marker5.bindPopup('Marker 5').openPopup();              set these commented out markers to the seeds we are using with the correct locations 
-// marker6.bindPopup('Marker 6').openPopup();
-// marker7.bindPopup('Marker 7').openPopup();
-// marker8.bindPopup('Marker 8').openPopup();
+marker1.bindPopup('Tokyo, Japan').openPopup();
+marker2.bindPopup('Petra, Jordan').openPopup();
+marker3.bindPopup('Mont Saint-Michel, France').openPopup();
+marker4.bindPopup('Berlin, Germany').openPopup();
+marker5.bindPopup('London, England').openPopup();
+marker6.bindPopup('New York City, United States').openPopup();
+marker7.bindPopup('Chichen Itza, Mexico').openPopup();
+marker8.bindPopup('Angkor Wat, Cambodia').openPopup();
+marker9.bindPopup('San Francisco, United States').openPopup();
+marker10.bindPopup('São Paulo, Brazil').openPopup();
+marker11.bindPopup('Rio de Janeiro, Brazil').openPopup();
+marker12.bindPopup('Cape Town, South Africa').openPopup();
+marker13.bindPopup('Seoul, South Korea').openPopup();
+marker14.bindPopup('Hong Kong, China').openPopup();
+marker15.bindPopup('Bangkok, Thailand').openPopup();
+marker16.bindPopup('Singapore, Singapore').openPopup();
+marker17.bindPopup('Istanbul, Turkey').openPopup();
+marker18.bindPopup('Lausanne, Switzerland').openPopup();
+marker19.bindPopup('Geneva, Switzerland').openPopup();
+marker20.bindPopup('Toronto, Canada').openPopup();
+marker21.bindPopup('Montreal, Canada').openPopup();
+marker22.bindPopup('Montreux, Switzerland').openPopup();
+marker23.bindPopup('Reykjavik, Iceland').openPopup();
+marker24.bindPopup('Oslo, Norway').openPopup();
+marker25.bindPopup('Bodleian Library, England').openPopup();
+marker26.bindPopup('Stonehenge, England').openPopup();
+marker27.bindPopup('The Louvre, France').openPopup();
+marker28.bindPopup('Disney World, USA').openPopup();
+marker29.bindPopup('Disneyland, USA').openPopup();
+marker30.bindPopup('Universal Studios, USA').openPopup();
+marker31.bindPopup('Library of Alexandria, Egypt').openPopup();
+marker32.bindPopup('The Great Wall of China, China').openPopup();
+marker33.bindPopup('The Colosseum, Italy').openPopup();
+marker34.bindPopup('The Parthenon, Greece').openPopup();
+marker35.bindPopup('The Pyramids of Giza, Egypt').openPopup();
+marker36.bindPopup('The Taj Mahal, India').openPopup();
+marker37.bindPopup('Kerala Backwaters, India').openPopup();
+marker38.bindPopup('The Great Barrier Reef, Australia').openPopup();
+marker39.bindPopup('The Grand Canyon, USA').openPopup();
+marker40.bindPopup('Mumbai, India').openPopup();
+marker41.bindPopup('Kilimanjaro, Tanzania').openPopup();
+marker42.bindPopup('Marrakech, Morocco').openPopup();
+marker43.bindPopup('Johannesburg, South Africa').openPopup();
+marker44.bindPopup('Machu Picchu, Peru').openPopup();
+marker45.bindPopup('Casablanca, Morocco').openPopup();
+marker46.bindPopup('Victoria Falls, Zimbabwe').openPopup();
+marker47.bindPopup('Zanzibar, Tanzania').openPopup();
+marker48.bindPopup('Chobe National Park, Botswana').openPopup();
+marker49.bindPopup('The Nile, Egypt').openPopup();
+marker50.bindPopup('The Serengeti, Tanzania').openPopup();
+marker51.bindPopup('Nairobi, Kenya').openPopup();
+marker52.bindPopup('Iqaluit, Canada').openPopup();
+marker53.bindPopup('Whitehorse, Canada').openPopup();
+marker54.bindPopup('Alexandria, Egypt').openPopup();
+
 
 // marker customizations 
 const customIcon = L.icon({
