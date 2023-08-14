@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const sequelize = require("../../connection");
 
 class User extends Model {
-  async checkPassword(loginPw) {
+  checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
