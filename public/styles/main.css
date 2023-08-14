@@ -211,7 +211,7 @@ main .journal-section {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-image: url('../../public/src/images/background/paper-texture-1359509235aJV.jpg')
+  background-image: url('../src/images/background/paper-texture-1359509235aJV.jpg')
 }
 
 /* Search results container styling */

@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  //memories input
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import UserPhotos from './frontend/src/sections/Userphotos.js';
+  // //memories input
+  // import React from 'react';
+  // import ReactDOM from 'react-dom';
+  // import UserPhotos from './frontend/src/sections/Userphotos.js';
 
 
   // Define the profile
