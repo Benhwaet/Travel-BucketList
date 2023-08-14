@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
         if (response.ok) {
-          document.location.replace('/profile.html');
+          window.location.href = '/profile.html';
         } else {
           const errorData = await response.json();
           alert('Failed to log in: ' + errorData.message);
