@@ -17,7 +17,7 @@ TravelDestination.belongsTo(User, {
 });
 
 JournalEntry.belongsTo(User, {
-  foreignKey: 'destination_id',
+  foreignKey: 'user_id',
 })
 
 JournalEntry.belongsTo(TravelDestination, {

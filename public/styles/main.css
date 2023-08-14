@@ -85,7 +85,15 @@ p {
   max-width: 800px;
   margin: 0 auto 40px;
 }
-
+/* welcome text background for readability */
+#welcome-text {
+  background-color: #004e5a;
+  opacity: 90%;
+  color: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+}
 /* Call to action container */
 .cta-container {
   display: flex;

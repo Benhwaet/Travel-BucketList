@@ -1,20 +1,15 @@
 //see module 11, activity 7, index.js on how to call api info from backend
+import fetch from 'node-fetch';
 
-const destinationList = document.querySelector('#bucket-list');
 
-const cardItem = document.querySelector('.bl-card-item');
-const cardMain = document.querySelector('.bl-card-main');
-const cardMainDefault = document.querySelector('.bl-card-main-default');
-const cardMainInfo = document.querySelector('.bl-card-main-info');
-
-const destinations = async () => {
-  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+(async () => {
+  const destinations = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
   {
       method: 'GET',
   });
   const json = await result.json()
   return json;
-}
+})();
 
 const destinationsData = destinations();
 console.log(destinationsData);
@@ -84,55 +79,103 @@ destination.innerHTML = `<li class="bl-card-item">
   return destination;
 };
 
-// button variables
-const infoBtn = document.querySelector('.destination-info');
-const notesBtn = document.querySelector('.destination-notes');
+const destinationList = document.querySelector('#bucket-list');
+const cardItem = document.querySelector('.bl-card-item');
+const cardMain = document.querySelector('.bl-card-main');
+const infoModal = document.querySelector('#info-modal');
+const infoModalContent = document.querySelector('#info-modal-content');
+const closeBtn = document.querySelector('#closeBtn');
+
+// forEach(variable => {  })
+const cardItems = document.querySelectorAll('.bl-card-item');
+const cardMains = document.querySelectorAll('.bl-card-main');
+const infoModals = document.querySelectorAll('#info-modal');
+const infoModalContents = document.querySelectorAll('#info-modal-content');
+
+
+// button variables and eventListener functiobs
+//to display the modal containing destination descriptions
+// --> still need to figure out individual button targeting for info btns
+const infoBtns = document.querySelectorAll('.destination-info');
+
+infoBtns.forEach((infoBtn) => {
+
+  infoBtn.addEventListener('click', () => {
+    console.log('click click boom');
+
+    ///not in the right position, but worked before adding
+    //closest to the closeBtns
+      // window.addEventListener('click', (event) => {
+      //   if (event.target === infoModal) {
+      //     infoModal.style.display = 'none';
+      //   }
+      // });
+    
+    infoModals.forEach((infoModal) => {
+      infoModal.style.display = 'block';
+
+      const closeBtns = document.querySelectorAll('#closeBtn');
+      closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener('click', function () {
+          const closeInfoModal = closeBtn.closest('.modal');
+          closeInfoModal.style.display = 'none';
+        })
+      });
+    });
+  });
+});
+
+
 const visitedBtn = document.querySelector('.visited-destination');
 const deleteBtn = document.querySelector('.delete-destination');
 const icon = document.querySelector('.icon');
 
-//button functions
-infoBtn.addEventListener('click', () => {
-  console.log('info button clicked');
+//to link the destination card to its journal entry(ies)
+const noteBtns = document.querySelectorAll('.destination-notes');
 
-  if (cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.removeClass('hidden');
-    cardMainDefault.addClass('hidden');
-  } 
-  else if (!cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.addClass('hidden');
-    cardMainDefault.removeClass('hidden');
-  }
+noteBtns.forEach((noteBtn) => {
+noteBtn.addEventListener('click', () => {
+  location.href = '#editor-section';
+// for now, go to the journal editor section
+  //PSEUDOcode - open the journal entry with a matching destination or a brand new note entry
+  // if (notes.destination_id === carouselCard.destination_id) {
+  //   location.href = '#travel-journal.destination_id';
+  // } else if (notes.destination_id !== carouselCard.destination_id) {
+  //   location.href = '#travel-journal.new_note';
+  // }
+});
 });
 
-//**more pseudo than code, but the idea is to have the notes button
-//open the journal entry with a matching destination or a brand new note entry
-//alter at will
-notesBtn.addEventListener('click', () => {
-  if (notes.destination_id === carouselCard.destination_id) {
-            location.href='#travel-journal.destination_id';
-  } else if (notes.destination_id !== carouselCard.destination_id) {
-    location.href='#travel-journal.new_note';
-  }
-});
+// visited true/false button
+const visitedBtns = document.querySelectorAll('.visited-destination');
+const visitCheck = document.querySelector('.fa-check');
+const visitCheckCircle = document.querySelector('.fa-check-circle');
 
+visitedBtns.forEach((visitedBtn) => {
 
+  visitedBtn.addEventListener('click', () => {
+    console.log('visited button clicked');
 
-visitedBtn.addEventListener('click', () => {
-  console.log('visited button clicked');
-  if (visitedBtn.icon === 'fa-solid fa-check') {
-    visitedBtn.icon = 'fa-solid fa-check-circle';
-    visitedBtn.style.color = 'purple';
-  }
-  else if (visitedBtn.icon === 'fa-solid fa-check-circle') {
-    visitedBtn.icon = 'fa-solid fa-check';
-  }
+    if (visitedBtn.classList.contains('fa-check')) {
+      visitedBtn.classList.remove('fa-check');
+      visitedBtn.addClass('fa-check-circle');
+      visitedBtn.style.color = 'purple';
+    } else if (visitedBtn.classList.contains('fa-check-circle')) {
+      visitedBtn.classList.remove('fa-check');
+      visitedBtn.addClass('fa-check-circle');
+      visitedBtn.style.color = '#004e5a';
+    }
+  });
 });
 
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list or do we just delete elements from the carousel?
+const deleteBtns = document.querySelectorAll('.delete-destination');
 
+deleteBtns.forEach((deleteBtn) => {
 deleteBtn.addEventListener("click", () => {
-  console.log('delete button clicked');
-  cardItem.remove();
+  const deleteCard = deleteBtn.closest('.bl-card-item');
+  deleteCard.remove();
 });
+});
+
