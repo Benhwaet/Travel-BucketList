@@ -30,6 +30,7 @@ const userController = {
       console.log('Email:', email);
       console.log('Username:', username);
       console.log('Hashing password...');
+      
       const hashedPassword = await bcrypt.hash(password, 10);
 
       console.log('Creating user in the database...');
@@ -62,7 +63,9 @@ const userController = {
   
       console.log('Received password:', req.body.password);
       
-      const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = await bcrypt.compare(req.body.password, userData.password);
+
+      
       
       console.log('Hashed stored password:', userData.password);
       console.log('Password comparison result:', validPassword);
