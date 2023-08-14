@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('loginBtn');
     const registerBtn = document.getElementById('registerBtn');
     const modal = document.getElementById('registerModal');
+    const Lmodal = document.getElementById('loginModal')
     const closeBtn = document.getElementById('closeBtn');
     const registrationForm = document.getElementById('registrationForm');
     const loginForm = document.getElementById('loginFormElement');
@@ -13,20 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
    
     loginBtn.addEventListener('click', () => {
-        loginForm.style.display = 'block';
+        Lmodal.style.display = 'block';
     });
 
  
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
-        loginForm.style.display = 'none';
+        Lmodal.style.display = 'none';
     });
 
  
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
             modal.style.display = 'none';
-            loginForm.style.display = 'none';
+            Lmodal.style.display = 'none';
         }
     });
 
