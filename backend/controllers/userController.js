@@ -31,7 +31,7 @@ const userController = {
       console.log('Username:', username);
       console.log('Hashing password...');
       
-      const hashedPassword = await bcrypt.hash(password, 10);
+      // const hashedPassword = await bcrypt.hash(password, 10);
 
       console.log('Creating user in the database...');
       const newUser = await User.create({
