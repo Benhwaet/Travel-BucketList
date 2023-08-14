@@ -83,18 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // import UserPhotos from './frontend/src/sections/Userphotos.js';
 
 
-  // Define the profile
-  function Profile() {
-    return (
-      `<div>
-        {/* Other content */}
-        <UserPhotos /> {/* Render the UserPhotos component */}
-      </div>`
-    );
-  }
+  // // Define the profile
+  // function Profile() {
+  //   return (
+  //     `<div>
+  //       {/* Other content */}
+  //       <UserPhotos /> {/* Render the UserPhotos component */}
+  //     </div>`
+  //   );
+  // }
   
-  // Render the profile
-  ReactDOM.render(<Profile />, document.getElementById('root'));
+  // // Render the profile
+  // ReactDOM.render(<Profile />, document.getElementById('root'));
   
 
 export default Profile;

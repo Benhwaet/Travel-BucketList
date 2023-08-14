@@ -183,7 +183,7 @@ body.profile-page {
   background-color: var(--primary-color);
   background-size: cover;
   background-position: center;
-  background-image: url('/path/to/picture'); 
+  background-image: url('https://placehold.co/40x40'); 
   margin-right: 10px;
 }
 
