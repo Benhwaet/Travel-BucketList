@@ -342,7 +342,7 @@ main .journal-section {
   font-size: 16px;
 }
 
-
+/* bens code */
 /* .journal-page {
   border-radius: 5px;
   padding: 20px;
@@ -374,25 +374,25 @@ nav.carousel-container {
   margin-top: 50px;
 }
 
-/* Section styling for API and Map */
-.api-section,
-.map-section {
-  width: calc(50% - 10px);
-  margin-bottom: 20px;
-}
-
-/* Map container styling */
+/* Section Map */
 .map-section {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 70px #ffffff;
+  border: 3px solid #ffffff;
 }
 
 .map-container {
   width: 100%;
   height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 /* Footer styling */
 footer {
   background-color: #fef7ed;
