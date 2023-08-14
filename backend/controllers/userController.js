@@ -50,32 +50,44 @@ const userController = {
   },
 
   login: async (req, res) => {
-    const { email, password } = req.body;
     try {
-      console.log('Received login request for email:', email);
-
-      const user = await User.findOne({ where: { email } });
-
-      if (!user) {
-        console.log('User not found for email:', email);
-        return res.status(400).json({ message: 'User not found' });
+      const userData = await User.findOne({ where: { email: req.body.email } });
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email, please try again' });
+        return;
       }
-
-      console.log('User found. Comparing passwords...');
-
-      const validPassword = await user.checkPassword(password.trim());
-      console.log('Password Comparison Result:', validPassword);
-
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
       if (!validPassword) {
-        console.log('Invalid password for user:', email);
-        return res.status(400).json({ message: 'Invalid credentials' });
+        res
+          .status(400)
+          .json({ message: 'Incorrect password, please try again' });
+        return;
       }
+  
+      req.session.save(() => {
+        req.session.user_id = userData.user_id;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+  
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  },
 
-      console.log('Login successful for user:', email);
-      res.json({ user });
-    } catch (error) {
-      console.error('Error during login:', error);
-      res.status(500).json({ error: 'Login error' });
+  logout: (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
     }
   },
 
