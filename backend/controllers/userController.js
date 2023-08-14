@@ -63,7 +63,7 @@ const userController = {
   
       console.log('Received password:', req.body.password);
       
-      const validPassword = await bcrypt.compare(req.body.password, userData.password)
+      const validPassword = await userData.checkPassword(req.body.password);
 
       
       

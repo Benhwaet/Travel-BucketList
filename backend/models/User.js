@@ -8,10 +8,9 @@ const sequelize = require("../../connection");
 
 class User extends Model {
   checkPassword(loginPw) {
-    console.log('Received login password for comparison:', loginPw);
-    console.log('Stored hashed password in the database:', this.password);
+
     const validPassword = bcrypt.compareSync(loginPw, this.password);
-    console.log('Password comparison result:', validPassword);
+
     return validPassword;
   }
 }

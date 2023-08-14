@@ -11,8 +11,13 @@ const bcrypt = require('bcrypt');
 router.get('/users', userController.getAllUsers);
 
 // Login
-router.post('/login', userController.login);
-
+router.post('/login', async (req, res) => {
+  try {
+    await userController.login(req, res);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 // // Signup
 router.post('/signup', async (req, res) => {
   console.log(req.body); 
