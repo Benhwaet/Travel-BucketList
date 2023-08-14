@@ -77,7 +77,7 @@ const userController = {
         return;
       }
   
-      req.session.save(() => {
+        req.session.save(() => {
         req.session.user_id = userData.user_id;
         req.session.logged_in = true;
         
