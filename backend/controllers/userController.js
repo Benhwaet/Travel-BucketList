@@ -63,19 +63,7 @@ const userController = {
   
       console.log('Received password:', req.body.password);
       
-      const validPassword = await bcrypt.compare(req.body.password, userData.password function(err, result) {
-      if (err){
-        console.error('error comparing passwords:', err);
-        return;
-      }
-      if (result) {
-        console.log('Passwords Match');
-      } else {
-        console.log('Passwords do not match');
-      }
-      });
-    
-      
+      const validPassword = await bcrypt.compare(req.body.password, userData.password)
 
       
       
