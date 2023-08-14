@@ -31,6 +31,9 @@ app.use('/api/travelDestinations', travelDestinationRoutes);
 const imageUpload = require('./backend/routes/imageUploads');
 app.use('/api', imageUpload);
 
+const journalRoutes = require('./backend/routes/journalRoutes');
+app.use('/api/journal', journalRoutes)
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

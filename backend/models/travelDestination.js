@@ -9,47 +9,48 @@ class TravelDestination extends Model {}
 
 TravelDestination.init(
   {
-  destination_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true,
+    destination_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    country: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    continent: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    visited: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    }
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  country: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  continent: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  image: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.TEXT,
-    allowNull: false,
-  },
-  notes: {
-    type: DataTypes.TEXT,
-    allowNull: true,
-  },
-  visited: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'travelDestination',
   }
-},
-{
-  sequelize,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'travelDestination',
-}
 );
 
 module.exports = TravelDestination;
+

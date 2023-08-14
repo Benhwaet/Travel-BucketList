@@ -8,7 +8,7 @@ const cardMainDefault = document.querySelector('.bl-card-main-default');
 const cardMainInfo = document.querySelector('.bl-card-main-info');
 
 const destinations = async () => {
-  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/destinations', 
+  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
   {
       method: 'GET',
   });
