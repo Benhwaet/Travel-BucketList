@@ -7,6 +7,8 @@ const cors = require('cors');
 const router = express.Router();
 const Sequelize = require("sequelize");
 const sequelize = require('./connection');
+const bodyParser = require('body-parser');
+
 
 app.use(express.json());
 
@@ -29,7 +31,7 @@ const travelDestinationRoutes = require('./backend/routes/travelDestinationRoute
 app.use('/api/travelDestinations', travelDestinationRoutes);
 
 const imageUpload = require('./backend/routes/imageUploads');
-app.use('/api', imageUpload);
+app.use('/api/image-uploads', imageUpload);
 
 const journalRoutes = require('./backend/routes/journalRoutes');
 app.use('/api/journal', journalRoutes)
