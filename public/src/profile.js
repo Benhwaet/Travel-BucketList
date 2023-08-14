@@ -56,13 +56,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
+  document.getElementById('uploadBtn').addEventListener('click', async () => {
+    const imageInput = document.getElementById('imageInput');
+    const uploadedImage = document.getElementById('uploadedImage');
 
+    const formData = new FormData();
+    formData.append('image', imageInput.files[0]);
+
+    try {
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      uploadedImage.src = result.secure_url;
+      uploadedImage.style.display = 'block';
+    } catch (error) {
+      console.error(error);
+    }
+  });
 
   //memories input
   import React from 'react';
   import ReactDOM from 'react-dom';
   import UserPhotos from './frontend/src/sections/Userphotos.js';
-  
+
+
   // Define the profile
   function Profile() {
     return (
