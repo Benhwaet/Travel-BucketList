@@ -15,9 +15,9 @@ const infoModals = document.querySelectorAll('#info-modal');
 const infoModalContents = document.querySelectorAll('#info-modal-content');
 
 
-// button variables
+// button variables and eventListener functiobs
 //to display the modal containing destination descriptions
-// --> still need to figure out individual button targeting for card buttons
+// --> still need to figure out individual button targeting for info btns
 const infoBtns = document.querySelectorAll('.destination-info');
 
 infoBtns.forEach((infoBtn) => {
@@ -93,11 +93,14 @@ visitedBtns.forEach((visitedBtn) => {
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list or do we just delete elements from the carousel?
 
-deleteBtn.addEventListener("click", () => {
-  console.log('delete button clicked');
-  cardItem.remove();
-});
+const deleteBtns = document.querySelectorAll('.delete-destination');
 
+deleteBtns.forEach((deleteBtn) => {
+deleteBtn.addEventListener("click", () => {
+  const deleteCard = deleteBtn.closest('.bl-card-item');
+  deleteCard.remove();
+});
+});
 // const destinations = async () => {
 //   const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
 //   {
