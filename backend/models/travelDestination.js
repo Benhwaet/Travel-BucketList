@@ -53,4 +53,3 @@ TravelDestination.init(
 );
 
 module.exports = TravelDestination;
-

@@ -40,9 +40,6 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [8],
-      },
     },
     date_created: {
       type: DataTypes.DATE,
@@ -52,9 +49,8 @@ User.init(
   },
   {
     hooks: {
-      async beforeCreate(newUserData) {
-        const hashedPassword = await bcrypt.hash(newUserData.password, 10);
-        newUserData.password = hashedPassword;
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
     },

@@ -1,14 +1,12 @@
 const express = require('express');
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
-const fs = require('fs'); // Don't forget to require fs module
+const fs = require('fs');
 const dotenv = require('dotenv');
-
 
 dotenv.config();
 
 const router = express.Router();
-const upload = multer({ dest: 'uploads/' });
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -16,23 +14,29 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-router.post('/upload', upload.single('image'), async (req, res) => {
+
+router.get('/get_upload_url', (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No file provided' });
-    }
+    const timestamp = Math.floor(Date.now() / 1000);
 
-    // Upload image to Cloudinary
-    const uploadResult = await cloudinary.uploader.upload(req.file.path);
+    const signature = cloudinary.utils.api_sign_request(
+      {
+        timestamp,
+        upload_preset: 'ml_default',
+      },
+      process.env.CLOUDINARY_API_SECRET
+    );
 
-    // Delete the temporarily uploaded image from the server to save disk space
-    fs.unlinkSync(req.file.path);
+    const uploadUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
 
-    // Respond with Cloudinary upload result
-    res.json(uploadResult);
+    res.json({
+      uploadUrl,
+      timestamp,
+      signature,
+    });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Image upload failed' });
+    res.status(500).json({ error: 'Failed to generate signed upload URL' });
   }
 });
 
