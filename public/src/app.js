@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.querySelector('#loginPassword').value.trim();
     
         if (email && password) {
-          const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
+          const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/users/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
