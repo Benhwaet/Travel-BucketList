@@ -1,6 +1,7 @@
 const journalSection = document.querySelector(".journal-section");
 const deleteEntryBtn = document.querySelector(".delete-entry");
 
+window.onload = () => {
 const journalEntries = async () => {
     const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journal/entries',
     {
@@ -11,20 +12,38 @@ const journalEntries = async () => {
 }
 
 const journalEntriesData = journalEntries();
-console.log(journalEntriesData);
+return journalEntriesData;
+};
 
-const journalEntry = (entry) => {
+console.log(journalEntriesData)
+
+const renderJournalEntry = async () => {
+    const journalEntries = await journalEntriesData();
+    journalEntries.forEach((entries) => {
+        const journalEntry = journalEntry(entries);
+        journalSection.appendChild(journalEntry);
+    });
+}
+
+renderJournalEntry();
+
+deleteEntryBtn.addEventListener("click", () => {
+    console.log('delete button clicked');
+    journalEntry.remove();
+});
+
+const journalEntry = (entries) => {
     const journalEntry = document.createElement("section");
     journalEntry.classList.add("journal-entry");
 
-    const city = entry.city;
-    const country = entry.country;
-    const username = entry.username;
-    const entryDate = entry.entry-date;
-    const title = entry.title;
-    const entryContent = entry.entry-content;
+    const city = entries.city;
+    const country = entries.country;
+    const username = entries.username;
+    const entryDate = entries.entry-date;
+    const title = entries.title;
+    const entryContent = entries.entry-content;
 
-    console.log(entry)
+    console.log(entries)
 
 
 
@@ -49,18 +68,3 @@ const journalEntry = (entry) => {
 
     return journalEntry;
 };
-
-const renderJournalEntries = async () => {
-    const journalEntries = await journalEntriesData;
-    journalEntries.forEach((entry) => {
-        const journalEntry = journalEntry(entry);
-        journalSection.appendChild(journalEntry);
-    });
-}
-
-renderJournalEntries();
-
-deleteEntryBtn.addEventListener("click", () => {
-    console.log('delete button clicked');
-    journalEntry.remove();
-});

@@ -7,83 +7,6 @@ const cardMain = document.querySelector('.bl-card-main');
 const cardMainDefault = document.querySelector('.bl-card-main-default');
 const cardMainInfo = document.querySelector('.bl-card-main-info');
 
-const destinations = async () => {
-  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
-  {
-      method: 'GET',
-  });
-  const json = await result.json()
-  return json;
-}
-
-const destinationsData = destinations();
-console.log(destinationsData);
-
-const destination = (destination) => {
-  destination = document.createElement("section");
-  destination.classList.add("destination");
-
-  const name = destination.name;
-  const country = destination.country;
-  const image = destination.image;
-  const description = destination.description;
-  const notes = destination.notes;
-  const visited = destination.visited;
-
-
-  //serves as the template for the destination to be filled out by API data
-
-destination.innerHTML = `<li class="bl-card-item">
-    <section class="bl-card-body">
-      <div class = "bl-card-main">
-      <div>
-        <div class="bl-card-header">
-          <h3 class="bl-item-label">${name},${country} </h3>
-        </div>
-        <div class="bl-card-image">
-          <img class="bl-location-image" src="${image}" 
-          alt="location image from Unsplash or creative commons sources" />
-        </div>
-      </div>
-      </div>
-      <div class="bl-buttons-footer">
-        <smart-button class="destination-info btn">
-          <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-        </smart-button>
-        <div id="infoModal" class="modal">
-          <div class="modal-content">
-            <span class="close" id="closeBtn">&times;</span>
-            <h2>About ${name}</h2>
-            <div class="destination-info-content">
-                <p>${description}</p>
-            </div>
-          </div>
-        </div>
-        <smart-button class="destination-notes btn">
-          <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
-        </smart-button>
-        <div id="notesModal" class="modal">
-        <div class="modal-content">
-          <span class="close" id="closeBtn">&times;</span>
-          <h2>Insert Title Here</h2>
-          <div class="destination-info-content">
-              <p>${notes}</p>
-          </div>
-        </div>
-      </div>
-        <smart-button class="visited-destination btn">
-          <i class="icon fa-solid fa-check"></i>
-        </smart-button>
-        <smart-button class="delete-destination btn" onclick="removeCard()">
-          <i class="icon fa fa-trash"></i>
-        </smart-button>
-      </div>
-    </section>
-  </li>`
-
-  return destination;
-};
-
 // button variables
 const infoBtn = document.querySelector('.destination-info');
 const notesBtn = document.querySelector('.destination-notes');
@@ -94,6 +17,8 @@ const icon = document.querySelector('.icon');
 //button functions
 infoBtn.addEventListener('click', () => {
   console.log('info button clicked');
+
+  console.log(cardMainInfo.classList);
 
   if (cardMainInfo.classList.contains('hidden')) {
     cardMainInfo.removeClass('hidden');
@@ -116,8 +41,6 @@ notesBtn.addEventListener('click', () => {
   }
 });
 
-
-
 visitedBtn.addEventListener('click', () => {
   console.log('visited button clicked');
   if (visitedBtn.icon === 'fa-solid fa-check') {
@@ -136,3 +59,80 @@ deleteBtn.addEventListener("click", () => {
   console.log('delete button clicked');
   cardItem.remove();
 });
+
+// const destinations = async () => {
+//   const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+//   {
+//       method: 'GET',
+//   });
+//   const json = await result.json()
+//   return json;
+// }
+
+// const destinationsData = destinations();
+// console.log(destinationsData);
+
+// const destination = (destination) => {
+//   destination = document.createElement("section");
+//   destination.classList.add("destination");
+
+//   const name = destination.name;
+//   const country = destination.country;
+//   const image = destination.image;
+//   const description = destination.description;
+//   const notes = destination.notes;
+//   const visited = destination.visited;
+
+
+//   //serves as the template for the destination to be filled out by API data
+
+// destination.innerHTML = `<li class="bl-card-item">
+//     <section class="bl-card-body">
+//       <div class = "bl-card-main">
+//       <div>
+//         <div class="bl-card-header">
+//           <h3 class="bl-item-label">${name},${country} </h3>
+//         </div>
+//         <div class="bl-card-image">
+//           <img class="bl-location-image" src="${image}" 
+//           alt="location image from Unsplash or creative commons sources" />
+//         </div>
+//       </div>
+//       </div>
+//       <div class="bl-buttons-footer">
+//         <smart-button class="destination-info btn">
+//           <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
+//         </smart-button>
+//         <div id="infoModal" class="modal">
+//           <div class="modal-content">
+//             <span class="close" id="closeBtn">&times;</span>
+//             <h2>About ${name}</h2>
+//             <div class="destination-info-content">
+//                 <p>${description}</p>
+//             </div>
+//           </div>
+//         </div>
+//         <smart-button class="destination-notes btn">
+//           <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
+//         </smart-button>
+//         <div id="notesModal" class="modal">
+//         <div class="modal-content">
+//           <span class="close" id="closeBtn">&times;</span>
+//           <h2>Insert Title Here</h2>
+//           <div class="destination-info-content">
+//               <p>${notes}</p>
+//           </div>
+//         </div>
+//       </div>
+//         <smart-button class="visited-destination btn">
+//           <i class="icon fa-solid fa-check"></i>
+//         </smart-button>
+//         <smart-button class="delete-destination btn" onclick="removeCard()">
+//           <i class="icon fa fa-trash"></i>
+//         </smart-button>
+//       </div>
+//     </section>
+//   </li>`
+
+//   return destination;
+// };

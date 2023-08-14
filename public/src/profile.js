@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  //memories input
-  import React from 'react';
-  import ReactDOM from 'react-dom';
-  import UserPhotos from './frontend/src/sections/Userphotos.js';
+  // //memories input
+  // import React from 'react';
+  // import ReactDOM from 'react-dom';
+  // import UserPhotos from './frontend/src/sections/Userphotos.js';
 
 
   // Define the profile
@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   // Render the profile
-  ReactDOM.render(<Profile />, document.getElementById('root'));
+  ReactDOM.render(Profile, document.getElementById('root'));
   
-
 export default Profile;
