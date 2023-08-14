@@ -1,6 +1,7 @@
 // new code 
 document.addEventListener('DOMContentLoaded', function () {
   const pages = document.querySelectorAll('.page'); // all page elements
+  const innerPage = document.querySelectorAll('.inner-page'); // all inner page elements
   const editorText = document.querySelector('.editor-text'); // text editor input
   const addTextBtn = document.querySelector('.add-text-btn'); // add text button
   const deleteButton = document.querySelector('.delete-btn'); // delete button 
@@ -22,7 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
         this.nextElementSibling.classList.add('flipped');
       }
       activePage = this; // Set the activePage to the clicked page ** trying to get this to work better ** 
+    });
+  });
 
+window.onload = () => {
 const journalEntries = async () => {
     const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journal/entries',
     {
@@ -32,28 +36,26 @@ const journalEntries = async () => {
     return json;
 }
 
-const journalEntriesData = journalEntries();
-console.log(journalEntriesData);
+console.log(journalEntries())
 
-const journalEntry = (entry) => {
-    const journalEntry = document.createElement("section");
-    journalEntry.classList.add("journal-entry");
+}
 
-    const city = entry.city;
-    const country = entry.country;
-    const username = entry.username;
-    const entryDate = entry.entry-date;
-    const title = entry.title;
-    const entryContent = entry.entry-content;
+console.log(jentry())
+//to create a journal entry space in which to generate the journal API data
+//still need to specify 
+const renderJournalEntry = async () => {
+    const journalEntries = await journalEntries();
+    journalEntries.forEach((entries) => {
+        const journalEntry = journalEntry(entries);
+        innerPage.appendChild(journalEntry);
 
-    console.log(entry)
-
+        
 
 
 //serves as the template for the journal entry to be filled out by API data
     journalEntry.innerHTML = `<div class="journal-container">
     <div class="journal-header">
-      <h2 class="destination-name">${city}, ${country}</h2>
+      <h2 class="destination-name">${name}, ${country}</h2>
       <h3 class="authored">by ${username}, on ${entryDate}</h3>
     </div>
     <div class="journal-body">
@@ -70,15 +72,10 @@ const journalEntry = (entry) => {
 </section>`
 
     return journalEntry;
-};
-
-const renderJournalEntries = async () => {
-    const journalEntries = await journalEntriesData;
-    journalEntries.forEach((entry) => {
-        const journalEntry = journalEntry(entry);
-        journalSection.appendChild(journalEntry);
-    });
   });
+  renderJournalEntry();
+}};
+
 
   // Add text to the active page when the add text button is clicked ** its laggy af **
   addTextBtn.addEventListener('click', function () {
@@ -111,81 +108,3 @@ const renderJournalEntries = async () => {
     }
   });
 });
-
-
-
-//  *** BENS CODE BELOW I TRIED TO UPDATE *** *** may delete if this new code works better ***
-// // Select the journal section and delete entry buttons
-// const journalSection = document.querySelector(".journal-section");
-
-// // fetch journal entries from the server
-// const fetchJournalEntries = async () => {
-//     try {
-//         const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journal/entries');
-//         const data = await response.json();
-//         return data;
-//     } catch (error) {
-//         console.error("Error fetching journal entries:", error);
-//         return [];
-//     }
-// }
-
-// // create a journal entry element
-// const createJournalEntryElement = (entry) => {
-//     const journalEntry = document.createElement("section");
-//     journalEntry.classList.add("journal-entry");
-
-//     const city = entry.city;
-//     const country = entry.country;
-//     const username = entry.username;
-//     const entryDate = entry.entryDate;
-//     const title = entry.title;
-//     const entryContent = entry.entryContent;
-
-//     journalEntry.innerHTML = `
-//         <div class="journal-container">
-//             <div class="journal-header">
-//                 <h2 class="destination-name">${city}, ${country}</h2>
-//                 <h3 class="authored">by ${username}, on ${entryDate}</h3>
-//             </div>
-//             <div class="journal-body">
-//                 <div class="journal-entry">
-//                     <div class="journal-entry-header">
-//                         <h3 contentEditable="true" class="journal-title">${title}</h3>
-//                     </div>
-//                     <div class="journal-entry-body">
-//                         <p contentEditable="true">${entryContent}</p>
-//                     </div>
-//                     <button class="save-entry">Save</button>
-//                     <button class="delete-entry">Delete</button>
-//                 </div>
-//             </div>
-//         </div>
-//     `;
-
-//     return journalEntry;
-// };
-
-// // Function to render journal entries on the page
-// const renderJournalEntries = async () => {
-//     const journalEntries = await fetchJournalEntries();
-//     journalEntries.forEach((entry) => {
-//         const journalEntryElement = createJournalEntryElement(entry);
-//         journalSection.appendChild(journalEntryElement);
-//     });
-// }
-
-// // Call the function to render journal entries
-// renderJournalEntries();
-
-// // Add event listeners to delete entry buttons
-// journalSection.addEventListener("click", (event) => {
-//     const deleteEntryBtn = event.target.closest(".delete-entry");
-//     if (deleteEntryBtn) {
-//         const journalEntry = deleteEntryBtn.closest(".journal-entry");
-//         if (journalEntry) {
-//             journalEntry.remove();
-//             // Add code here to send a DELETE request to your API
-//         }
-//     }
-// });
