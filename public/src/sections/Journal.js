@@ -40,7 +40,7 @@ console.log(journalEntries())
 
 }
 
-console.log(jentry())
+
 //to create a journal entry space in which to generate the journal API data
 //still need to specify 
 const renderJournalEntry = async () => {
