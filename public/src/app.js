@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('registerModal');
     const closeBtn = document.getElementById('closeBtn');
     const registrationForm = document.getElementById('registrationForm');
-    const loginForm = document.getElementById('loginForm');
+    const loginForm = document.getElementById('loginFormElement');
 
   
     registerBtn.addEventListener('click', () => {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = document.querySelector('#loginPassword').value.trim();
     
         if (email && password) {
-          const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/users/login', {
+          const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
