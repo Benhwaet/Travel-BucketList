@@ -6,9 +6,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');
-const secretKey = 'replace-with-a-secure-secret-key';
 const { User } = require('../models');
 
 const userController = {
@@ -33,7 +31,7 @@ const userController = {
       console.log('Username:', username);
       console.log('Hashing password...');
       const hashedPassword = await bcrypt.hash(password, 10);
-      
+
       console.log('Creating user in the database...');
       const newUser = await User.create({
         email: email,
@@ -42,10 +40,9 @@ const userController = {
         profile_picture: req.file ? req.file.filename : 'default-profile.png'
       });
 
-      const token = jwt.sign({ userId: newUser.id }, secretKey, { expiresIn: '1h' });
       const { password: _, ...userData } = newUser;
       console.log('User created successfully:', userData);
-      res.json({ token, user: userData });
+      res.json({ user: userData });
     } catch (error) {
       console.error('Error creating user:', error);
       res.status(500).json({ error: 'Error creating user' });
@@ -55,23 +52,29 @@ const userController = {
   login: async (req, res) => {
     const { email, password } = req.body;
     try {
+      console.log('Received login request for email:', email);
+
       const user = await User.findOne({ where: { email } });
 
       if (!user) {
+        console.log('User not found for email:', email);
         return res.status(400).json({ message: 'User not found' });
       }
 
-      const validPassword = await bcrypt.compare(password, user.password);
+      console.log('User found. Comparing passwords...');
+
+      const validPassword = await user.checkPassword(password.trim());
+      console.log('Password Comparison Result:', validPassword);
 
       if (!validPassword) {
+        console.log('Invalid password for user:', email);
         return res.status(400).json({ message: 'Invalid credentials' });
       }
 
-      const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
-
-      res.json({ token, user });
+      console.log('Login successful for user:', email);
+      res.json({ user });
     } catch (error) {
-      console.error(error);
+      console.error('Error during login:', error);
       res.status(500).json({ error: 'Login error' });
     }
   },
@@ -87,6 +90,3 @@ const userController = {
 };
 
 module.exports = userController;
-
-
-
