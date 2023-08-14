@@ -17,17 +17,7 @@ const infoModalContents = document.querySelectorAll('#info-modal-content');
 
 // button variables
 //to display the modal containing destination descriptions
-
-// **close modal when close button is clicked**
-// const closeButtons = document.querySelectorAll('.close');
-// closeButtons.forEach((closeButton) => {
-//   closeButton.addEventListener('click', function () {
-//     const infoModal = closeButton.closest('.modal');
-//     infoModal.style.display = 'none'; Hide the modal
-//   });
-// });
-
-// --> still need to figure out individual button targeting
+// --> still need to figure out individual button targeting for card buttons
 const infoBtns = document.querySelectorAll('.destination-info');
 
 infoBtns.forEach((infoBtn) => {
@@ -35,27 +25,29 @@ infoBtns.forEach((infoBtn) => {
   infoBtn.addEventListener('click', () => {
     console.log('click click boom');
 
+    ///not in the right position, but worked before adding
+    //closest to the closeBtns
+    window.addEventListener('click', (event) => {
+      if (event.target === infoModal) {
+        infoModal.style.display = 'none';
+      }
+    });
+
     infoModals.forEach((infoModal) => {
       infoModal.style.display = 'block';
 
-      window.addEventListener('click', (event) => {
-        if (event.target === infoModal) {
-          infoModal.style.display = 'none';
-        }
-      })
       const closeBtns = document.querySelectorAll('#closeBtn');
       closeBtns.forEach((closeBtn) => {
         closeBtn.addEventListener('click', function () {
           const closeInfoModal = closeBtn.closest('.modal');
           closeInfoModal.style.display = 'none';
-        });
+        })
       });
     });
   });
 });
 
 
-const notesBtn = document.querySelector('.destination-notes');
 const visitedBtn = document.querySelector('.visited-destination');
 const deleteBtn = document.querySelector('.delete-destination');
 const icon = document.querySelector('.icon');
@@ -63,27 +55,41 @@ const icon = document.querySelector('.icon');
 
 
 //**more pseudo than code, but the idea is to have the notes button
-//open the journal entry with a matching destination or a brand new note entry
+
 //alter at will
-notesBtn.addEventListener('click', () => {
-  if (notes.destination_id === carouselCard.destination_id) {
-    location.href = '#travel-journal.destination_id';
-  } else if (notes.destination_id !== carouselCard.destination_id) {
-    location.href = '#travel-journal.new_note';
-  }
+const noteBtns = document.querySelectorAll('.destination-notes');
+
+noteBtns.forEach((noteBtn) => {
+noteBtn.addEventListener('click', () => {
+  location.href = '#editor-section';
+// for now, go to the journal editor section
+  //PSEUDOcode - open the journal entry with a matching destination or a brand new note entry
+  // if (notes.destination_id === carouselCard.destination_id) {
+  //   location.href = '#travel-journal.destination_id';
+  // } else if (notes.destination_id !== carouselCard.destination_id) {
+  //   location.href = '#travel-journal.new_note';
+  // }
+});
 });
 
-visitedBtn.addEventListener('click', () => {
-  console.log('visited button clicked');
-  if (visitedBtn.icon === 'fa-solid fa-check') {
-    visitedBtn.icon = 'fa-solid fa-check-circle';
-    visitedBtn.style.color = 'purple';
-  }
-  else if (visitedBtn.icon === 'fa-solid fa-check-circle') {
-    visitedBtn.icon = 'fa-solid fa-check';
-  }
-});
+const visitedBtns = document.querySelectorAll('.visited-destination');
 
+visitedBtns.forEach((visitedBtn) => {
+
+  visitedBtn.addEventListener('click', () => {
+    console.log('visited button clicked');
+
+    if (visitedBtn.classList.contains('fa-check')) {
+      visitedBtn.classList.remove('fa-check');
+      visitedBtn.addClass('fa-check-circle');
+      visitedBtn.style.color = 'purple';
+    } else if (visitedBtn.classList.contains('fa-check-circle')) {
+      visitedBtn.classList.remove('fa-check');
+      visitedBtn.addClass('fa-check-circle');
+      visitedBtn.style.color = '#004e5a';
+    }
+  });
+});
 //to remove entire card from carousel and out of bucket-list table
 //do we need a separate table for bucket-list or do we just delete elements from the carousel?
 
