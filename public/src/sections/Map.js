@@ -122,20 +122,16 @@ marker52.bindPopup('Iqaluit, Canada').openPopup();
 marker53.bindPopup('Whitehorse, Canada').openPopup();
 marker54.bindPopup('Alexandria, Egypt').openPopup();
 
-// marker customizations 
-const customIcon = L.icon({
-    // iconUrl: 'path/to/icon.png',
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  });
-  const defaultMarker = L.marker([51.5, -0.09], { icon: customIcon }).addTo(map);
+// // marker customizations 
+// const customIcon = L.icon({
+//     // iconUrl: 'path/to/icon.png',
+//     iconSize: [32, 32],
+//     iconAnchor: [16, 32],
+//     popupAnchor: [0, -32]
+//   });
+//   const customMarker = L.marker([51.5, -0.09], { icon: customIcon }).addTo(map);
   
-//   marker funtion , for interactivity 
+// //   marker funtion , for interactivity 
 // customMarker.on('click', function () {
 //     alert('Custom marker clicked!');
 //   });
-
-  defaultMarker.on('click', function () {
-  alert('Default marker clicked!');
-});

@@ -2,7 +2,7 @@ const journalSection = document.querySelector(".journal-section");
 const deleteEntryBtn = document.querySelector(".delete-entry");
 
 const journalEntries = async () => {
-    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journalEntries/entries',
+    const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journal/entries',
     {
         method: 'GET',
     });
