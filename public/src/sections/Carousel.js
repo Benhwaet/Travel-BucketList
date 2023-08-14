@@ -4,18 +4,41 @@ const destinationList = document.querySelector('#bucket-list');
 
 const cardItem = document.querySelector('.bl-card-item');
 const cardMain = document.querySelector('.bl-card-main');
-const cardMainDefault = document.querySelector('.bl-card-main-default');
-const cardMainInfo = document.querySelector('.bl-card-main-info');
+const infoModal = document.querySelector('#info-modal');
+const infoModalContent = document.querySelector('#info-modal-content');
+const closeBtn = document.querySelector('#closeBtn');
+
+// forEach(variable => {  })
+const cardItems = document.querySelectorAll('.bl-card-item');
+const cardMains = document.querySelectorAll('.bl-card-main');
+const infoModals = document.querySelectorAll('#info-modal');
+const infoModalContents = document.querySelectorAll('#info-modal-content');
+const closeBtns = document.querySelectorAll('#closeBtn');
 
 // button variables
-infoBtns = document.querySelectorAll('.destination-info');
+const infoBtns = document.querySelectorAll('.destination-info');
+
+
 
 infoBtns.forEach((infoBtn) => {
-  infoBtn.addEventListener('click', function () {
-    console.log('info button clicked');
-    cardMainInfo.classList.toggle('hidden');
-    cardMainDefault.classList.toggle('hidden');
-    
+  
+  infoBtn.addEventListener('click', () => {
+    console.log('click click boom');
+  infoModals.forEach((infoModal) => {
+    infoModal.style.display = 'block';
+  });
+});
+
+
+  closeBtn.addEventListener('click', () => {
+    infoModal.style.display = 'none';
+});
+
+  window.addEventListener('click', (event) => {
+    if (event.target === infoModal) {
+        infoModal.style.display = 'none';
+    }
+});
     // if (cardMainInfo.classList.contains('hidden')) {
     //   cardMainInfo.removeClass('hidden');
     //   cardMainDefault.addClass('hidden');
@@ -26,7 +49,7 @@ infoBtns.forEach((infoBtn) => {
     // }
  
   });
-});
+
 
 const notesBtn = document.querySelector('.destination-notes');
 const visitedBtn = document.querySelector('.visited-destination');
