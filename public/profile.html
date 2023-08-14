@@ -10,10 +10,7 @@
 
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/carousel.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.js/3/jquery.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.js/3/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -48,7 +45,7 @@
 
   <!-- plain html placeholder for card item, will be js generated once connected to API-->
   <nav class="carousel-container">
-    <smart-carousel id="carouselCircle" slide-show hide-indicators keyboard display-mode="multiple">
+    <section id="carousel" slide-show hide-indicators keyboard display-mode="multiple">
       <ul id="bucket-list" class="smart-carousel">
 <!-- kept in place to monitor carousel functions ans styling -->
         <li class="bl-card-item">
@@ -202,7 +199,7 @@
         </li>
 
       </ul>
-    </smart-carousel>
+    </section>
   </nav>
 
 
@@ -229,12 +226,35 @@
     <div class="book">
       <div id="pages" class="pages">
         <!-- Each page element with background image -->
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191221.png')"></div>
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191283.png')"></div>
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191250.png')"></div>
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191400.png')"></div>
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191336.png')"></div>
-        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191370.png')"></div>
+        <div id="front-cover" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191221.png')"></div>
+    
+        <div id="table-of-contents" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191283.png')"></div>
+       
+        <!-- journal entry template, to be generated on each page? does not display correctly on pages -->
+              <!-- <div id="journat-entry">
+                <div class="journal-container">
+                  <div class="journal-header">
+                    <h2 class="destination-name">{{city}}, {{country}}</h2>
+                    <h3 class="authored">by {{username}}, on {{entry-date}}</h3>
+                  </div>
+                  <div class="journal-body">
+                    <div class="journal-entry">
+                      <div class="journal-entry-header">
+                        <h3 contentEditable="true" class="journal-title">{{title}}</h3>
+                      </div>
+                      <div class="journal-entry-body">
+                        <p>{{entry-content}}</p>
+                      </div>
+                      <button class="delete-entry">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            
+        <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191250.png')"></div>
+        <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191400.png')"></div>
+        <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191336.png')"></div>
+        <div id="back-cover" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191370.png')"></div>
       </div>
     </div>
   </div>
@@ -249,32 +269,6 @@
   <div class="delete-text-btn">
     <button class="delete-btn">Delete</button>
   </div>
-
-    <!-- <section class="journal-section">
-      <div class="journal-page">
-        <div id="journat-entry">
-          <div class="journal-container">
-            <div class="journal-header">
-              <h2 class="destination-name">{{city}}, {{country}}</h2>
-              <h3 class="authored">by {{username}}, on {{entry-date}}</h3>
-            </div>
-            <div class="journal-body">
-              <div class="journal-entry">
-                <div class="journal-entry-header">
-                  <h3 contentEditable="true" class="journal-title">{{title}}</h3>
-                </div>
-                <div class="journal-entry-body">
-                  <p contentEditable="true">{{entry-content}}</p>
-                </div>
-                <button class="save-entry">Save</button>
-                <button class="delete-entry">Delete</button>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
   </main>
 

@@ -1,6 +1,7 @@
 // new code 
 document.addEventListener('DOMContentLoaded', function () {
   const pages = document.querySelectorAll('.page'); // all page elements
+  const innerPage = document.querySelectorAll('.inner-page'); // all inner page elements
   const editorText = document.querySelector('.editor-text'); // text editor input
   const addTextBtn = document.querySelector('.add-text-btn'); // add text button
   const deleteButton = document.querySelector('.delete-btn'); // delete button 
@@ -35,46 +36,26 @@ const journalEntries = async () => {
     return json;
 }
 
-const journalEntriesData = journalEntries();
-return journalEntriesData;
-};
+console.log(journalEntries())
 
-console.log(journalEntriesData)
-
-const renderJournalEntry = async () => {
-    const journalEntries = await journalEntriesData();
-    journalEntries.forEach((entries) => {
-        const journalEntry = journalEntry(entries);
-        journalSection.appendChild(journalEntry);
-    });
 }
 
-renderJournalEntry();
+console.log(jentry())
+//to create a journal entry space in which to generate the journal API data
+//still need to specify 
+const renderJournalEntry = async () => {
+    const journalEntries = await journalEntries();
+    journalEntries.forEach((entries) => {
+        const journalEntry = journalEntry(entries);
+        innerPage.appendChild(journalEntry);
 
-deleteEntryBtn.addEventListener("click", () => {
-    console.log('delete button clicked');
-    journalEntry.remove();
-});
-
-const journalEntry = (entries) => {
-    const journalEntry = document.createElement("section");
-    journalEntry.classList.add("journal-entry");
-
-    const city = entries.city;
-    const country = entries.country;
-    const username = entries.username;
-    const entryDate = entries.entry-date;
-    const title = entries.title;
-    const entryContent = entries.entry-content;
-
-    console.log(entries)
-
+        
 
 
 //serves as the template for the journal entry to be filled out by API data
     journalEntry.innerHTML = `<div class="journal-container">
     <div class="journal-header">
-      <h2 class="destination-name">${city}, ${country}</h2>
+      <h2 class="destination-name">${name}, ${country}</h2>
       <h3 class="authored">by ${username}, on ${entryDate}</h3>
     </div>
     <div class="journal-body">
@@ -91,15 +72,10 @@ const journalEntry = (entries) => {
 </section>`
 
     return journalEntry;
-};
+  });
+  renderJournalEntry();
+}};
 
-const renderJournalEntries = async () => {
-    const journalEntries = await journalEntriesData;
-    journalEntries.forEach((entry) => {
-        const journalEntry = journalEntry(entry);
-        journalSection.appendChild(journalEntry);
-    });
-  };
 
   // Add text to the active page when the add text button is clicked ** its laggy af **
   addTextBtn.addEventListener('click', function () {

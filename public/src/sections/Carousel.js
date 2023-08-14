@@ -8,27 +8,53 @@ const cardMainDefault = document.querySelector('.bl-card-main-default');
 const cardMainInfo = document.querySelector('.bl-card-main-info');
 
 // button variables
-const infoBtn = document.querySelector('.destination-info');
+infoBtns = document.querySelectorAll('.destination-info');
+
+infoBtns.forEach((infoBtn) => {
+  infoBtn.addEventListener('click', function () {
+    console.log('info button clicked');
+    cardMainInfo.classList.toggle('hidden');
+    cardMainDefault.classList.toggle('hidden');
+    
+    // if (cardMainInfo.classList.contains('hidden')) {
+    //   cardMainInfo.removeClass('hidden');
+    //   cardMainDefault.addClass('hidden');
+    // } 
+    // else if (!cardMainInfo.classList.contains('hidden')) {
+    //   cardMainInfo.addClass('hidden');
+    //   cardMainDefault.removeClass('hidden');
+    // }
+ 
+  });
+});
+
 const notesBtn = document.querySelector('.destination-notes');
 const visitedBtn = document.querySelector('.visited-destination');
 const deleteBtn = document.querySelector('.delete-destination');
 const icon = document.querySelector('.icon');
 
-//button functions
-infoBtn.addEventListener('click', () => {
-  console.log('info button clicked');
+//From Coral: 
+// infoButtons.forEach((button) => {
+//   button.addEventListener('click', function () {
+//     const cardItem = button.closest('.bl-card-item');
+//     const cardMainInfo = cardItem.querySelector('.bl-card-main-info');
+//     const cardMainDefault = cardItem.querySelector('.bl-card-main-default');
+//     const infoModal = cardItem.querySelector('.modal'); correct selector
+//     toggles classes or show/hide elements as needed
+//     cardMainInfo.classList.toggle('hidden');
+//     cardMainDefault.classList.toggle('hidden');
+//     infoModal.style.display = 'block'; Show the modal
+//   });
+// });
 
-  console.log(cardMainInfo.classList);
-
-  if (cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.removeClass('hidden');
-    cardMainDefault.addClass('hidden');
-  } 
-  else if (!cardMainInfo.classList.contains('hidden')) {
-    cardMainInfo.addClass('hidden');
-    cardMainDefault.removeClass('hidden');
-  }
-});
+// **close modal when close button is clicked**
+// const closeButtons = document.querySelectorAll('.close');
+// closeButtons.forEach((closeButton) => {
+//   closeButton.addEventListener('click', function () {
+//     const infoModal = closeButton.closest('.modal');
+//     infoModal.style.display = 'none'; Hide the modal
+//   });
+// });
 
 //**more pseudo than code, but the idea is to have the notes button
 //open the journal entry with a matching destination or a brand new note entry
