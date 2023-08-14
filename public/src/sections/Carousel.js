@@ -13,62 +13,10 @@ const cardItems = document.querySelectorAll('.bl-card-item');
 const cardMains = document.querySelectorAll('.bl-card-main');
 const infoModals = document.querySelectorAll('#info-modal');
 const infoModalContents = document.querySelectorAll('#info-modal-content');
-const closeBtns = document.querySelectorAll('#closeBtn');
+
 
 // button variables
-const infoBtns = document.querySelectorAll('.destination-info');
-
-
-
-infoBtns.forEach((infoBtn) => {
-  
-  infoBtn.addEventListener('click', () => {
-    console.log('click click boom');
-  infoModals.forEach((infoModal) => {
-    infoModal.style.display = 'block';
-  });
-});
-
-
-  closeBtn.addEventListener('click', () => {
-    infoModal.style.display = 'none';
-});
-
-  window.addEventListener('click', (event) => {
-    if (event.target === infoModal) {
-        infoModal.style.display = 'none';
-    }
-});
-    // if (cardMainInfo.classList.contains('hidden')) {
-    //   cardMainInfo.removeClass('hidden');
-    //   cardMainDefault.addClass('hidden');
-    // } 
-    // else if (!cardMainInfo.classList.contains('hidden')) {
-    //   cardMainInfo.addClass('hidden');
-    //   cardMainDefault.removeClass('hidden');
-    // }
- 
-  });
-
-
-const notesBtn = document.querySelector('.destination-notes');
-const visitedBtn = document.querySelector('.visited-destination');
-const deleteBtn = document.querySelector('.delete-destination');
-const icon = document.querySelector('.icon');
-
-//From Coral: 
-// infoButtons.forEach((button) => {
-//   button.addEventListener('click', function () {
-//     const cardItem = button.closest('.bl-card-item');
-//     const cardMainInfo = cardItem.querySelector('.bl-card-main-info');
-//     const cardMainDefault = cardItem.querySelector('.bl-card-main-default');
-//     const infoModal = cardItem.querySelector('.modal'); correct selector
-//     toggles classes or show/hide elements as needed
-//     cardMainInfo.classList.toggle('hidden');
-//     cardMainDefault.classList.toggle('hidden');
-//     infoModal.style.display = 'block'; Show the modal
-//   });
-// });
+//to display the modal containing destination descriptions
 
 // **close modal when close button is clicked**
 // const closeButtons = document.querySelectorAll('.close');
@@ -79,14 +27,49 @@ const icon = document.querySelector('.icon');
 //   });
 // });
 
+// --> still need to figure out individual button targeting
+const infoBtns = document.querySelectorAll('.destination-info');
+
+infoBtns.forEach((infoBtn) => {
+
+  infoBtn.addEventListener('click', () => {
+    console.log('click click boom');
+
+    infoModals.forEach((infoModal) => {
+      infoModal.style.display = 'block';
+
+      window.addEventListener('click', (event) => {
+        if (event.target === infoModal) {
+          infoModal.style.display = 'none';
+        }
+      })
+      const closeBtns = document.querySelectorAll('#closeBtn');
+      closeBtns.forEach((closeBtn) => {
+        closeBtn.addEventListener('click', function () {
+          const closeInfoModal = closeBtn.closest('.modal');
+          closeInfoModal.style.display = 'none';
+        });
+      });
+    });
+  });
+});
+
+
+const notesBtn = document.querySelector('.destination-notes');
+const visitedBtn = document.querySelector('.visited-destination');
+const deleteBtn = document.querySelector('.delete-destination');
+const icon = document.querySelector('.icon');
+
+
+
 //**more pseudo than code, but the idea is to have the notes button
 //open the journal entry with a matching destination or a brand new note entry
 //alter at will
 notesBtn.addEventListener('click', () => {
   if (notes.destination_id === carouselCard.destination_id) {
-            location.href='#travel-journal.destination_id';
+    location.href = '#travel-journal.destination_id';
   } else if (notes.destination_id !== carouselCard.destination_id) {
-    location.href='#travel-journal.new_note';
+    location.href = '#travel-journal.new_note';
   }
 });
 
