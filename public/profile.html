@@ -10,7 +10,8 @@
 
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/carousel.css" />
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -126,8 +127,34 @@
       <img src="/public/src/images/background/travel2.png" alt="">
     </section>
 
-    <!-- Journal Section (( below other sections  )) -->
-    <section class="journal-section">
+   <!-- Journal Section (( below other sections  )) -->
+   <div class="book-container">
+    <div class="book-cover"></div>
+    <div class="book">
+      <div id="pages" class="pages">
+        <!-- Each page element with background image -->
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191221.png')"></div>
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191283.png')"></div>
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191250.png')"></div>
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191400.png')"></div>
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191336.png')"></div>
+        <div class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191370.png')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="editor">
+    <!-- Text editor and add text button -->
+    <textarea class="editor-text" placeholder="Write about your trip here..."></textarea>
+    <button class="add-text-btn">Add Text</button>
+  </div>
+
+  <!-- Delete button template -->
+  <div class="delete-text-btn">
+    <button class="delete-btn">Delete</button>
+  </div>
+
+    <!-- <section class="journal-section">
       <div class="journal-page">
         <div id="journat-entry">
           <div class="journal-container">
@@ -151,7 +178,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
   </main>
 

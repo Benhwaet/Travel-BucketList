@@ -207,12 +207,148 @@ main .journal-section {
 }
 
 /* Journal card styling */
-.journal-page {
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-cover {
+  background-image: url('/public/src/images/background/desk.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.book {
+  transition: opacity 0.4s 0.2s;
+}
+.page {
+  width: 20vw;
+  height: 27.5vw;
+  float: left;
+  margin-bottom: 0.5em;
+  background: top no-repeat;
+  background-size: cover;
+}
+.page:nth-child(even) {
+  clear: both;
+}
+.book {
+  perspective: 125vw;
+}
+.book .pages {
+  width: 40vw;
+  height: 27.5vw;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  border-radius: 4px;
+}
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 20vw;
+  height: 27.5vw;
+  transform-origin: 0 0;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: #f0f0f0;
+}
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: background 0.7s;
+  z-index: 2;
+}
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  border-radius: 0 2px 2px 0;
+}
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-radius: 2px 0 0 2px;
+  border-color: black;
+}
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+.book .page.grabbing {
+  transition: none;
+}
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+*,
+* :before,
+*:after {
+  box-sizing: border-box;
+}
+
+.editor {
+  margin-top: 20px;
+  text-align: center;
+}
+.editor-text {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+/* .journal-page {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-image: url('../../public/src/images/background/paper-texture-1359509235aJV.jpg')
-}
+} */
 
 /* Search results container styling */
 #searchResultsContainer {
