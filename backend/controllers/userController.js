@@ -60,8 +60,13 @@ const userController = {
         return;
       }
   
+      console.log('Received password:', req.body.password);
+      
       const validPassword = await userData.checkPassword(req.body.password);
-  
+      
+      console.log('Hashed stored password:', userData.password);
+      console.log('Password comparison result:', validPassword);
+      
       if (!validPassword) {
         res
           .status(400)
@@ -75,7 +80,6 @@ const userController = {
         
         res.json({ user: userData, message: 'You are now logged in!' });
       });
-  
     } catch (err) {
       res.status(400).json(err);
     }
