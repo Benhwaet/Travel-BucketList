@@ -37,7 +37,7 @@ const userController = {
       const newUser = await User.create({
         email: email,
         username: username,
-        password: hashedPassword,
+        password: password,
         profile_picture: req.file ? req.file.filename : 'default-profile.png'
       });
 
