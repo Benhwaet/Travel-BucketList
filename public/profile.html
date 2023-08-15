@@ -114,14 +114,29 @@
     </section>
 
    <!-- Journal Section (( below other sections  )) -->
-   <div class="book-container">
+    
+
+ 
+    <!-- Other content on the profile page -->
+    <div class="infinite-pad">
+      <div id="scrollableArea" class="scrollable-area">
+        <!-- Initial content and dynamically added paragraphs will be placed here -->
+      </div>
+      <button id="saveButton">Save</button>
+    </div>
+  
+  
+
+
+   <!-- old journal code (( flippable book)) (( dont delete in case we need it )) -->
+   <!-- <div class="book-container">
     <div class="book-cover"></div>
     <div class="book">
       <div id="pages" class="pages">
-        <!-- Each page element with background image -->
-        <div id="front-cover" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191221.png')"></div>
+         Each page element with background image -->  
+        <!-- <div id="front-cover" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191221.png')"></div>
     
-        <div id="table-of-contents" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191283.png')"></div>
+        <div id="table-of-contents" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191283.png')"></div> --> 
        
         <!-- journal entry template, to be generated on each page? does not display correctly on pages -->
               <!-- <div id="journat-entry">
@@ -144,31 +159,35 @@
                 </div>
               </div> -->
             
-        <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191250.png')"></div>
+        <!-- <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191250.png')"></div>
         <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191400.png')"></div>
         <div class="page inner-page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191336.png')"></div>
         <div id="back-cover" class="page" style="background-image: url('https://papermine.com/pub/autoship-wellness-june20202/media/32191370.png')"></div>
       </div>
     </div>
-  </div>
+  </div>  -->
 
-  <div id="editor-section" class="editor">
+  <!-- <div id="editor-section" class="editor"> -->
     <!-- Text editor and add text button -->
-    <textarea class="editor-text" placeholder="Write about your trip here..."></textarea>
+    <!-- <textarea class="editor-text" placeholder="Write about your trip here..."></textarea>
     <button class="add-text-btn">Add Text</button>
-  </div>
+  </div> -->
 
   <!-- Delete button template -->
-  <div class="delete-text-btn">
+  <!-- <div class="delete-text-btn">
     <button class="delete-btn">Delete</button>
-  </div>
+  </div> -->
 
   </main>
 
+  <!-- ***CHRIS*** delete this if you get Cloudinary working  -->
+  <section class="travel">
+    <img src="./src/images/background/cloudinaryplaceholder.png" alt="">
+  </section>
+
   <!-- Footer -->
   <footer>
-    <!--  memory board of user images ? dunno if this should go in the footer or bottom of main -->
-    <!-- ***/upload needs to link to backend on the server side **chris** ill try todo it myself please check my work -->
+      <!-- where the images will display after being uploaded -->
     <div id="imageContainer"></div>
 
     <h1>Memory Uploads</h1>
@@ -176,10 +195,6 @@
     <button id="uploadBtn">Upload Image</button>
     <img id="uploadedImage" alt="Uploaded Image" style="display: none;" />
   </footer>
-
-  <!-- where the images will display after being uploaded -->
-
-
 
 
   <!-- Add more scripts here if needed -->
