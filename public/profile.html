@@ -196,7 +196,10 @@
     <script type="text/javascript">  
     var myWidget = cloudinary.createUploadWidget({
       cloudName: 'dstjbcoj0', 
-      uploadPreset: 'nkle7m7w'
+      uploadPreset: 'nkle7m7w',
+      cropping: true,
+      maxImageWidth: 100,
+      maxImageHeight: 100
     }, (error, result) => { 
       if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info);
