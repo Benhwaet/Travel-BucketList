@@ -5,7 +5,7 @@
         "name": "Tokyo",
         "country": "Japan",
         "continent": "Asia",
-        "image": "../src/images/note-thanun--Rn42aCTZGw-unsplash.jpg",
+        "image": "../images/note-thanun--Rn42aCTZGw-unsplash.jpg",
         "description": "Tokyo is the capital of Japan. It is the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.",
         "notes": "Japan, the land of manga and anime. I want to visit the arcades!",
         "visited": false
@@ -15,7 +15,7 @@
         "name": "Petra",
         "country": "Jordan",
         "continent": "Asia",
-        "image": "../src/images/nick-name-VDSxhQ81d3M-unsplash.jpg",
+        "image": "../images/nick-name-VDSxhQ81d3M-unsplash.jpg",
         "description": "Petra is a historical and archaeological city in southern Jordan.",
         "notes": " ",
         "visited": false
@@ -25,7 +25,7 @@
         "name": "Mont Saint-Michel",
         "country": "France",
         "continent": "Europe",
-        "image": "../../src/images/dan-asaki-ZFZ5AyPg3rE-unsplash.jpg",
+        "image": "../images/dan-asaki-ZFZ5AyPg3rE-unsplash.jpg",
         "description": "Mont Saint-Michel is an island and mainland commune in Normandy, France.",
         "notes": " ",
         "visited": false
@@ -35,7 +35,7 @@
         "name": "Berlin",
         "country": "Germany",
         "continent": "Europe",
-        "image": "../src/images/nick-name-VDSxhQ81d3M-unsplash.jpg",
+        "image": "../../images/nick-name-VDSxhQ81d3M-unsplash.jpg",
         "description": "Berlin is the capital and largest city of Germany by both area and population.",
         "notes": "Went to Berlin for three days in 2009. Loved the city and would love to go back. Spend more time at Museumsinsel",
         "visited": true
@@ -45,7 +45,7 @@
         "name": "London",
         "country": "England",
         "continent": "Europe",
-        "image": "./src/images/heidi-fin-QvPRGI8LfOc-unsplash.jpg",
+        "image": "./../images/heidi-fin-QvPRGI8LfOc-unsplash.jpg",
         "description": "London is the capital and largest city of England and the United Kingdom. Despite covering a relatively small area compared to other cities, London is a very diverse city, while also being the center of a host of war crimes and colonialist atrocities.",
         "notes": " ",
         "visited": false
@@ -55,7 +55,7 @@
         "name": "New York City",
         "country": "United States",
         "continent": "North America",
-        "image": "./src/images/times-square-nyc-city-new.jpg",
+        "image": "./images/times-square-nyc-city-new.jpg",
         "description": "New York City comprises 5 boroughs sitting where the Hudson River meets the Atlantic Ocean.",
 
         "notes": "Went a few times, Broadway is always a hit (Wicked is a favorite). Look up Immersive Theatre, it's a great experience.",
@@ -66,7 +66,7 @@
         "name": "Chichen Itza",
         "country": "Mexico",
         "continent": "North America",
-        "image": "/src/images/marv-watson-UfK0P6WygEE-unsplash.jpg",
+        "image": "/images/marv-watson-UfK0P6WygEE-unsplash.jpg",
         "description": "Chichen Itza is a complex of Mayan ruins on Mexico's Yucatan Peninsula.",
 
         "notes": "Went to Mayan Riviera in 2006 as graduation trip. Went to Chichen Itza in killer heat. Would love to go back and see more of the ruins.",
@@ -77,7 +77,7 @@
         "name": "Angkor Wat",
         "country": "Cambodia",
         "continent": "Asia",
-        "image": "/src/images/angkor-wat-temple-amazing-seven-wonders-wonder.jpg",
+        "image": "/images/angkor-wat-temple-amazing-seven-wonders-wonder.jpg",
         "description": "Angkor Wat is a temple complex in Cambodia and the largest religious monument in the world.",
 
         "notes": " ",
