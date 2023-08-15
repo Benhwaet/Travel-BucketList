@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('loginBtn');
   const registerBtn = document.getElementById('registerBtn');
   const modal = document.getElementById('registerModal');
-  const Lmodal = document.getElementById('loginModal');
+  const Lmodal = document.getElementById('loginModal')
   const closeBtn = document.getElementById('closeBtn');
   const registrationForm = document.getElementById('registrationForm');
   const loginForm = document.getElementById('loginFormElement');
@@ -60,4 +60,35 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Registration error:', error);
     }
   });
+
+  const loginFormHandler = async (event) => {
+    event.preventDefault();
+
+    const email = document.querySelector('#loginEmail').value.trim();
+    const password = document.querySelector('#loginPassword').value.trim();
+
+    const requestData = {
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/user/login', {
+        method: 'POST',
+        body: JSON.stringify(requestData),
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (response.ok || response.status === 401) {
+        window.location.replace('https://traveling-bucket-a1886f9c05bf.herokuapp.com/profile.html');
+      } else {
+        const errorData = await response.json();
+        alert('Failed to log in: ' + errorData.message);
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+    }
+  };
+
+  loginForm.addEventListener('submit', loginFormHandler);
 });
