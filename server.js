@@ -51,7 +51,7 @@ const travelDestinationRoutes = require('./backend/routes/travelDestinationRoute
 app.use('/api/travelDestinations', travelDestinationRoutes);
 
 const imageUpload = require('./backend/routes/imageUploads');
-app.use('/api/image-uploads', imageUpload);
+app.use('/api/images', imageUpload);
 
 const journalRoutes = require('./backend/routes/journalRoutes');
 app.use('/api/journal', journalRoutes)

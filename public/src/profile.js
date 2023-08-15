@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.getElementById('logoutBtn')
 
   logoutButton.addEventListener('click', () => {
-    window.location.href = '/';
+    window.location.href = 'https://traveling-bucket-a1886f9c05bf.herokuapp.com/';
   });
   //API SEARCH FUNCTION
   
@@ -62,47 +62,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  document.addEventListener('DOMContentLoaded', async () => {
 
-    const signResponse = await fetch('/api/signuploadform');
-    const signData = await signResponse.json();
+    const uploadForm = document.querySelector('form');
 
-    const url = "https://api.cloudinary.com/v1_1/dstjbcoj0" + signData.cloudname + "/auto/upload";
-    const form = document.querySelector("form");
+    uploadForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-    
-        const files = document.querySelector("[type=file]").files;
-        const formData = new FormData();
-    
-        // Append parameters to the form data. The parameters that are signed using 
-        // the signing function (signuploadform) need to match these.
-        for (let i = 0; i < files.length; i++) {
-            let file = files[i];
-            formData.append("file", file);
-            formData.append("api_key", signData.apikey);
-            formData.append("timestamp", signData.timestamp);
-            formData.append("signature", signData.signature);
-            formData.append("eager", "c_pad,h_300,w_400|c_crop,h_200,w_260");
-            formData.append("folder", "travel_bucket");
-    
-            fetch(url, {
-                method: "POST",
-                body: formData
-            })
-            .then((response) => {
-                return response.text();
-            })
-            .then((data) => {
-                console.log(JSON.parse(data))
-                var str = JSON.stringify(JSON.parse(data), null, 4);
-                document.getElementById("formdata").innerHTML += str;
+        const formData = new FormData(uploadForm);
+
+        try {
+            const response = await fetch('/api/images/product/create', {
+                method: 'POST',
+                body: formData,
             });
+
+            const responseData = await response.json();
+            console.log(responseData);
+        } catch (error) {
+            console.error('Error uploading files:', error);
         }
     });
-
-})
 
 
   // //memories input

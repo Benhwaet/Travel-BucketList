@@ -6,26 +6,28 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const dotenv = require('dotenv');
 dotenv.config();
+const productController = require('../controllers/productController')
 
 
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+router.post('/product/create', productController.createProduct);
+router.get('/products/all', productController.displayProduct);
+router.delete('/product/delete/:id', productController.deleteProduct);
+router.put('/product/update/:id', productController.updateProduct);
+router.get('/product/categories', productController.productCategory);
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+      cb(null, file.originalname);
+  },
 });
 
-const cloudName = cloudinary.config().cloud_name;
-const apiKey = cloudinary.config().api_key;
+const upload = multer({ storage: storage });
+router.post('/product/create', upload.single('image'), productController.createProduct);
 
-router.get('/', function (req, res, next) {
-  const sig = signature.signuploadform()
-  res.json({
-    signature: sig.signature,
-    timestamp: sig.timestamp,
-    cloudname: cloudName,
-    apikey: apiKey
-  })
-})
 
-module.exports = router
+module.exports = router;
+
 
