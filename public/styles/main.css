@@ -227,7 +227,10 @@ body.profile-page {
 }
 
 .scrollable-area {
-  width: 100%;
+  width: 99%;
+  background-image: url('../src/images/background/desk.png');
+  background-size: contain;
+  padding: 5px;
 }
 
 /* Style for individual paragraphs */
@@ -236,8 +239,13 @@ body.profile-page {
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+  background-image: url('../src/images/background/paper-texture-1359509235aJV.jpg');
   border-radius: 5px;
   text-align: center;
+  /* added, can be taken out */
+  border: #004e5a solid 5px;
+  max-width: 70%;
+  margin-left: 15%;
 }
 
 .saveButton{
