@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const logoutButton = document.getElementById('logoutBtn')
+
+  logoutButton.addEventListener('click', () => {
+    window.location.href = 'https://traveling-bucket-a1886f9c05bf.herokuapp.com/';
+  });
   //API SEARCH FUNCTION
   
   const searchForm = document.getElementById('search-form');
@@ -56,35 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-
-  document.getElementById('uploadBtn').addEventListener('click', async () => {
-    const imageInput = document.getElementById('imageInput');
-    const uploadedImage = document.getElementById('uploadedImage');
+  // var myWidget = cloudinary.createUploadWidget({
+  //   cloudName: 'dstjbcoj0', 
+  //   uploadPreset: 'nkle7m7w'}, (error, result) => { 
+  //     if (!error && result && result.event === "success") { 
+  //       console.log('Done! Here is the image info: ', result.info); 
+  //     }
+  //   }
+  // )
   
-    try {
-      const response = await fetch('/get_upload_url');
-      const data = await response.json();
-  
-      const formData = new FormData();
-      formData.append('file', imageInput.files[0]);
-      formData.append('upload_preset', 'ml_default');
-      formData.append('timestamp', data.timestamp);
-      formData.append('signature', data.signature);
-  
-      const uploadResponse = await fetch(data.uploadUrl, {
-        method: 'POST',
-        body: formData,
-      });
-  
-      const result = await uploadResponse.json();
-      uploadedImage.src = result.secure_url;
-      uploadedImage.style.display = 'block';
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-
+  // document.getElementById("upload_widget").addEventListener("click", function(){
+  //     myWidget.open();
+  //   }, false);
   // //memories input
   // import React from 'react';
   // import ReactDOM from 'react-dom';
