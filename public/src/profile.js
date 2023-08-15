@@ -61,18 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
-  var widget = cloudinary.applyUploadWidget({ 
-    cloudName: 'dstjbcoj0', 
-    uploadPreset: 'nkle7m7w' }, 
-    (error, result) => { 
-      if (!error && result && result.event === "success") { 
-        console.log('Done uploading..: ', result.info); 
-      }
-    });    
-  
-  document.getElementById("upload_widget").addEventListener("click", function() {
-    widget.open();
-  }, false);
 
 
   // //memories input
