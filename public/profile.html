@@ -188,15 +188,17 @@
   <footer>
       <!-- where the images will display after being uploaded -->
     <div id="imageContainer">
-<img src="https://craftypixels.com/placeholder-image/300" id="img-preview" />
-<label class = "file-upload-container" for="file-upload">
-<input id="file-upload" type="file" style="display:none;">
-Select an Image
-</label>
-</div>
+      <img src="" id="img-preview" />
+      
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="files[]" multiple >
+      <input type="submit" value="Upload Files" name="submit" class="submit">
+    </form>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
   <script src="./src/profile.js"></script>
   <script src="./src/sections/Carousel.js"></script>

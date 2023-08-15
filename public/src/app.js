@@ -63,26 +63,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dstjbcoj0/upload';
   const CLOUDINARY_UPLOAD_PRESET = 'nkle7m7w';
-
+  
   const imgPreview = document.getElementById('img-preview');
-  const fileUpload = document.getElementById('file-upload');
-
+  const fileUpload = document.querySelector('input[type="file"]');
+  
   fileUpload.addEventListener('change', async (event) => {
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
+  
     try {
       const response = await fetch(CLOUDINARY_URL, {
         method: 'POST',
         body: formData,
       });
-
+  
       if (response.ok) {
         const responseData = await response.json();
         console.log('Upload successful:', responseData);
+  
         imgPreview.src = responseData.secure_url;
+  
       } else {
         const errorData = await response.json();
         console.error('Upload error:', errorData);
@@ -91,4 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Upload error:', error);
     }
   });
-});
+  
+  
