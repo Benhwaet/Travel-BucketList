@@ -33,6 +33,10 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
+app.get('/profile.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'profile.html'));
+});
+
 app.use('/node_modules', express.static('node_modules'));
 
 app.use(cors());
