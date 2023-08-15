@@ -188,18 +188,12 @@
   <footer>
       <!-- where the images will display after being uploaded -->
     <div id="imageContainer">
-      <img src="" id="img-preview" />
-      
-    </div>
-
-    <!-- <h1>Memory Uploads</h1>
-    <input type="file" id="imageInput" accept=".jpg, .jpeg, .png" />
-    <button id="uploadBtn">Upload Image</button>
-    <img id="uploadedImage" alt="Uploaded Image" style="display: none;" /> -->
-    <form method="post" enctype="multipart/form-data">
-      <input type="file-upload" name="files[]" multiple >
-      <input type="submit" value="Upload Files" name="submit" class="submit">
-    </form>
+<img src="https://craftypixels.com/placeholder-image/300" id="img-preview" />
+<label class = "file-upload-container" for="file-upload">
+<input id="file-upload" type="file" style="display:none;">
+Select an Image
+</label>
+</div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
