@@ -57,32 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  document.getElementById('uploadBtn').addEventListener('click', async () => {
-    const imageInput = document.getElementById('imageInput');
-    const uploadedImage = document.getElementById('uploadedImage');
-  
-    try {
-      const response = await fetch('/get_upload_url');
-      const data = await response.json();
-  
-      const formData = new FormData();
-      formData.append('file', imageInput.files[0]);
-      formData.append('upload_preset', 'ml_default');
-      formData.append('timestamp', data.timestamp);
-      formData.append('signature', data.signature);
-  
-      const uploadResponse = await fetch(data.uploadUrl, {
-        method: 'POST',
-        body: formData,
-      });
-  
-      const result = await uploadResponse.json();
-      uploadedImage.src = result.secure_url;
-      uploadedImage.style.display = 'block';
-    } catch (error) {
-      console.error(error);
-    }
-  });
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    const signResponse = await fetch('/api/signuploadform');
+    const signData = await signResponse.json();
+
+    const url = "https://api.cloudinary.com/v1_1/dstjbcoj0" + signData.cloudname + "/auto/upload";
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    
+        const files = document.querySelector("[type=file]").files;
+        const formData = new FormData();
+    
+        // Append parameters to the form data. The parameters that are signed using 
+        // the signing function (signuploadform) need to match these.
+        for (let i = 0; i < files.length; i++) {
+            let file = files[i];
+            formData.append("file", file);
+            formData.append("api_key", signData.apikey);
+            formData.append("timestamp", signData.timestamp);
+            formData.append("signature", signData.signature);
+            formData.append("eager", "c_pad,h_300,w_400|c_crop,h_200,w_260");
+            formData.append("folder", "travel_bucket");
+    
+            fetch(url, {
+                method: "POST",
+                body: formData
+            })
+            .then((response) => {
+                return response.text();
+            })
+            .then((data) => {
+                console.log(JSON.parse(data))
+                var str = JSON.stringify(JSON.parse(data), null, 4);
+                document.getElementById("formdata").innerHTML += str;
+            });
+        }
+    });
+
+})
 
 
   // //memories input

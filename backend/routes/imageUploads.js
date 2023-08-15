@@ -1,12 +1,12 @@
 const express = require('express');
 const multer = require('multer');
+const router = express.Router();
+const signature = require('../models')
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
-const router = express.Router();
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -14,30 +14,18 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+const cloudName = cloudinary.config().cloud_name;
+const apiKey = cloudinary.config().api_key;
 
-router.get('/get_upload_url', (req, res) => {
-  try {
-    const timestamp = Math.floor(Date.now() / 1000);
+router.get('/', function (req, res, next) {
+  const sig = signature.signuploadform()
+  res.json({
+    signature: sig.signature,
+    timestamp: sig.timestamp,
+    cloudname: cloudName,
+    apikey: apiKey
+  })
+})
 
-    const signature = cloudinary.utils.api_sign_request(
-      {
-        timestamp,
-        upload_preset: 'ml_default',
-      },
-      process.env.CLOUDINARY_API_SECRET
-    );
+module.exports = router
 
-    const uploadUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
-
-    res.json({
-      uploadUrl,
-      timestamp,
-      signature,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to generate signed upload URL' });
-  }
-});
-
-module.exports = router;

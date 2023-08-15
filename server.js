@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,6 +36,9 @@ app.use(express.static('public'));
 app.use('/node_modules', express.static('node_modules'));
 
 app.use(cors());
+
+const signuploadform = require('./backend/routes/imageUploads');
+app.use('/api/signuploadform', signuploadform)
 
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);

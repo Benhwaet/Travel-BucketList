@@ -171,10 +171,14 @@
     <!-- ***/upload needs to link to backend on the server side **chris** ill try todo it myself please check my work -->
     <div id="imageContainer"></div>
 
-    <h1>Memory Uploads</h1>
+    <!-- <h1>Memory Uploads</h1>
     <input type="file" id="imageInput" accept=".jpg, .jpeg, .png" />
     <button id="uploadBtn">Upload Image</button>
-    <img id="uploadedImage" alt="Uploaded Image" style="display: none;" />
+    <img id="uploadedImage" alt="Uploaded Image" style="display: none;" /> -->
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="files[]" multiple >
+      <input type="submit" value="Upload Files" name="submit" class="submit">
+    </form>
   </footer>
 
   <!-- where the images will display after being uploaded -->
