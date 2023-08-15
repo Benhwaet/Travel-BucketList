@@ -91,5 +91,3 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Render the profile
   ReactDOM.render(Profile, document.getElementById('root'));
-  
-export default Profile;
