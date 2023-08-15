@@ -79,8 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' }
         });
   
-        if (response.ok) {
-          document.location.replace('/');
+        if (response.ok || response.status === 401) {
+          window.location.replace('https://traveling-bucket-a1886f9c05bf.herokuapp.com/profile.html');
         } else {
           const errorData = await response.json();
           alert('Failed to log in: ' + errorData.message);
@@ -93,3 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', loginFormHandler);
   });
   
+  // const logout = async () => {
+  //   const response = await fetch('/api/users/logout', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //   });
+  
+  //   if (response.ok) {
+  //     document.location.replace('https://traveling-bucket-a1886f9c05bf.herokuapp.com/');
+  //   } else {
+  //     alert(response.statusText);
+  //   }
+  // };
+  
+  // document.querySelector('#logout').addEventListener('click', logout);

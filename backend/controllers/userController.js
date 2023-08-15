@@ -31,13 +31,13 @@ const userController = {
       console.log('Username:', username);
       console.log('Hashing password...');
       
-      const hashedPassword = await bcrypt.hash(password, 10);
+      // const hashedPassword = await bcrypt.hash(password, 10);
 
       console.log('Creating user in the database...');
       const newUser = await User.create({
         email: email,
         username: username,
-        password: hashedPassword,
+        password: password,
         profile_picture: req.file ? req.file.filename : 'default-profile.png'
       });
 
@@ -64,29 +64,23 @@ const userController = {
       console.log('Received password:', req.body.password);
       
       const validPassword = await userData.checkPassword(req.body.password);
-
-      
-      
+  
       console.log('Hashed stored password:', userData.password);
       console.log('Password comparison result:', validPassword);
       
       if (!validPassword) {
         res
-          .status(400)
+          .status(401)
           .json({ message: 'Incorrect password, please try again' });
         return;
       }
   
-      req.session.save(() => {
-        req.session.user_id = userData.user_id;
-        req.session.logged_in = true;
-        
-        res.json({ user: userData, message: 'You are now logged in!' });
-      });
+      res.json({ user: userData, message: 'You are now logged in!' });
     } catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
     }
   },
+  
 
   logout: (req, res) => {
     if (req.session.logged_in) {
