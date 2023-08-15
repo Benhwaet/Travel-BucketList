@@ -72,7 +72,7 @@ const userController = {
       
       if (!validPassword) {
         res
-          .status(400)
+          .status(401)
           .json({ message: 'Incorrect password, please try again' });
         return;
       }
@@ -84,7 +84,7 @@ const userController = {
         res.json({ user: userData, message: 'You are now logged in!' });
       });
     } catch (err) {
-      res.status(400).json(err);
+      res.status(402).json(err);
     }
   },
 

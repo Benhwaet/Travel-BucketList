@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: { 'Content-Type': 'application/json' }
         });
   
-        if (response.ok) {
+        if (response.ok || response.status === 401) {
           window.location.replace('https://traveling-bucket-a1886f9c05bf.herokuapp.com/profile.html');
         } else {
           const errorData = await response.json();
