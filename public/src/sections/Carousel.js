@@ -1,39 +1,36 @@
 //see module 11, activity 7, index.js on how to call api info from backend
-import fetch from 'node-fetch';
+const bucketList = document.querySelector('#bucket-list');  //this is the ul
 
+window.onload = async() => {
 
-(async () => {
-  const destinations = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
+  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
   {
       method: 'GET',
   });
   const json = await result.json()
-  return json;
-})();
 
-const destinationsData = destinations();
-console.log(destinationsData);
+  const travelDestinations = json.destinations;
 
-const destination = (destination) => {
-  destination = document.createElement("section");
-  destination.classList.add("destination");
+  console.log(travelDestinations.length);
 
-  const name = destination.name;
-  const country = destination.country;
-  const image = destination.image;
-  const description = destination.description;
-  const notes = destination.notes;
-  const visited = destination.visited;
-
+  for (let i = 0; i < travelDestinations.length; i++) {
+    
+    let name = travelDestinations[i].name;
+    let country = travelDestinations[i].country;
+    let image = travelDestinations[i].image;
+    let description = travelDestinations[i].description;
+    let notes = travelDestinations[i].notes;
+    let visited = travelDestinations[i].visited;
+    let destination_id = travelDestinations[i].destination_id;
 
   //serves as the template for the destination to be filled out by API data
 
-destination.innerHTML = `<li class="bl-card-item">
+let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
       <div>
         <div class="bl-card-header">
-          <h3 class="bl-item-label">${name},${country} </h3>
+          <h3 class="bl-item-label">${name}, ${country} </h3>
         </div>
         <div class="bl-card-image">
           <img class="bl-location-image" src="${image}" 
@@ -66,20 +63,20 @@ destination.innerHTML = `<li class="bl-card-item">
           </div>
         </div>
       </div>
-        <smart-button class="visited-destination btn">
+        <smart-button class="visited-destination btn check-${visited}">
           <i class="icon fa-solid fa-check"></i>
         </smart-button>
-        <smart-button class="delete-destination btn" onclick="removeCard()">
+        <smart-button class="delete-destination btn">
           <i class="icon fa fa-trash"></i>
         </smart-button>
       </div>
     </section>
   </li>`
 
-  return destination;
-};
+  bucketList.insertAdjacentHTML('beforeend', destinationsData);
 
-const destinationList = document.querySelector('#bucket-list');
+
+
 const cardItem = document.querySelector('.bl-card-item');
 const cardMain = document.querySelector('.bl-card-main');
 const infoModal = document.querySelector('#info-modal');
@@ -125,11 +122,6 @@ infoBtns.forEach((infoBtn) => {
   });
 });
 
-
-const visitedBtn = document.querySelector('.visited-destination');
-const deleteBtn = document.querySelector('.delete-destination');
-const icon = document.querySelector('.icon');
-
 //to link the destination card to its journal entry(ies)
 const noteBtns = document.querySelectorAll('.destination-notes');
 
@@ -148,23 +140,30 @@ noteBtn.addEventListener('click', () => {
 
 // visited true/false button
 const visitedBtns = document.querySelectorAll('.visited-destination');
+const icons = document.querySelectorAll('.icon');
 const visitCheck = document.querySelector('.fa-check');
 const visitCheckCircle = document.querySelector('.fa-check-circle');
 
 visitedBtns.forEach((visitedBtn) => {
 
   visitedBtn.addEventListener('click', () => {
+    const checkBtn = visitedBtn.closest('.icon'); //checkmark
     console.log('visited button clicked');
 
-    if (visitedBtn.classList.contains('fa-check')) {
-      visitedBtn.classList.remove('fa-check');
-      visitedBtn.addClass('fa-check-circle');
-      visitedBtn.style.color = 'purple';
-    } else if (visitedBtn.classList.contains('fa-check-circle')) {
-      visitedBtn.classList.remove('fa-check');
-      visitedBtn.addClass('fa-check-circle');
-      visitedBtn.style.color = '#004e5a';
-    }
+    icons.forEach((icon) => {
+      if (icon.classList.contains('fa-check')) 
+      {
+        icon.classList.remove('fa-check');
+        icon.addClass('fa-check-circle');
+        checkBtn.style.color = 'purple';
+      } 
+      else if (icon.classList.contains('fa-check-circle')) 
+      {
+        icon.classList.remove('fa-check');
+        icon.addClass('fa-check-circle');
+        checkBtn.style.color = '#004e5a';
+      }
+    });
   });
 });
 
@@ -178,4 +177,5 @@ deleteBtn.addEventListener("click", () => {
   deleteCard.remove();
 });
 });
-
+};
+};
