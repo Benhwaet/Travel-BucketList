@@ -9,7 +9,6 @@ const router = express.Router();
 const Sequelize = require("sequelize");
 const sequelize = require('./connection');
 const bodyParser = require('body-parser');
-const fse = require('fs-extra');
 
 app.use(express.json());
 
@@ -35,7 +34,6 @@ app.use('/api/travelDestinations', travelDestinationRoutes);
 const journalRoutes = require('./backend/routes/journalRoutes');
 app.use('/api/journal', journalRoutes)
 
-//// cloudinary
 
 
 app.listen(port, () => {
