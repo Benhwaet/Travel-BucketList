@@ -33,8 +33,8 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.render('profile.html');
+app.get('/profile.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'profile.html'));
 });
 
 app.use('/node_modules', express.static('node_modules'));
