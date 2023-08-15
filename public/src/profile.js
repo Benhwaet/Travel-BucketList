@@ -63,25 +63,40 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
 
-    const uploadForm = document.querySelector('form');
-
-    uploadForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(uploadForm);
-
-        try {
-            const response = await fetch('/api/images/product/create', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const responseData = await response.json();
-            console.log(responseData);
-        } catch (error) {
-            console.error('Error uploading files:', error);
-        }
-    });
+  const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dstjbcoj0/upload';
+  const CLOUDINARY_UPLOAD_PRESET = 'nkle7m7w';
+  
+  document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+  
+    const formData = new FormData(event.target);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  
+    try {
+      const response = await fetch(CLOUDINARY_URL, {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Upload successful:', responseData);
+  
+        const uploadedImagesContainer = document.getElementById('uploadedImagesContainer');
+        responseData.forEach(imageData => {
+          const img = document.createElement('img');
+          img.src = imageData.secure_url;
+          uploadedImagesContainer.appendChild(img);
+        });
+  
+      } else {
+        const errorData = await response.json();
+        console.error('Upload error:', errorData);
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+    }
+  });
 
 
   // //memories input
