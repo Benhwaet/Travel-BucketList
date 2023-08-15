@@ -187,23 +187,31 @@
   <!-- Footer -->
   <footer>
       <!-- where the images will display after being uploaded -->
-    <h1>Upload Widget</h1>
+    <div id="uploadedImageContainer"></div>
     <button id="upload_widget" class="cloudinary-button">Upload files</button>
   </footer>
 
   <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
 
-  <script type="text/javascript">  
-  var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'dstjbcoj0', 
-    uploadPreset: 'nkle7m7w'}, (error, result) => { 
+    <script type="text/javascript">  
+    var myWidget = cloudinary.createUploadWidget({
+      cloudName: 'dstjbcoj0', 
+      uploadPreset: 'nkle7m7w'
+    }, (error, result) => { 
       if (!error && result && result.event === "success") { 
-        console.log('Done! Here is the image info: ', result.info); 
-      }
-    }
-  )
+        console.log('Done! Here is the image info: ', result.info);
 
-  document.getElementById("upload_widget").addEventListener("click", function(){
+        
+        var uploadedImageContainer = document.getElementById('uploadedImageContainer');
+        var uploadedImageUrl = result.info.secure_url;
+
+        var imgElement = document.createElement('img');
+        imgElement.src = uploadedImageUrl;
+        uploadedImageContainer.appendChild(imgElement);
+      }
+    });
+
+    document.getElementById("upload_widget").addEventListener("click", function(){
       myWidget.open();
     }, false);
   </script>
