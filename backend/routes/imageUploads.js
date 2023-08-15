@@ -1,43 +1,33 @@
-const express = require('express');
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-const fs = require('fs');
-const dotenv = require('dotenv');
-
-dotenv.config();
-
-const router = express.Router();
-
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// const express = require('express');
+// const multer = require('multer');
+// const router = express.Router();
+// const signature = require('../models')
+// const cloudinary = require('cloudinary').v2;
+// const fs = require('fs');
+// const dotenv = require('dotenv');
+// dotenv.config();
+// const productController = require('../controllers/productController')
 
 
-router.get('/get_upload_url', (req, res) => {
-  try {
-    const timestamp = Math.floor(Date.now() / 1000);
+// router.post('/product/create', productController.createProduct);
+// router.get('/products/all', productController.displayProduct);
+// router.delete('/product/delete/:id', productController.deleteProduct);
+// router.put('/product/update/:id', productController.updateProduct);
+// router.get('/product/categories', productController.productCategory);
 
-    const signature = cloudinary.utils.api_sign_request(
-      {
-        timestamp,
-        upload_preset: 'ml_default',
-      },
-      process.env.CLOUDINARY_API_SECRET
-    );
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//       cb(null, 'uploads/');
+//   },
+//   filename: function (req, file, cb) {
+//       cb(null, file.originalname);
+//   },
+// });
 
-    const uploadUrl = `https://api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/image/upload`;
+// const upload = multer({ storage: storage });
+// router.post('/product/create', upload.single('image'), productController.createProduct);
 
-    res.json({
-      uploadUrl,
-      timestamp,
-      signature,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to generate signed upload URL' });
-  }
-});
 
-module.exports = router;
+// module.exports = router;
+
+
