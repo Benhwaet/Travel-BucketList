@@ -10,10 +10,10 @@ window.onload = async () => {
       method: 'GET',
     });
   const json = await result.json()
-console.log(json)
+
   const travelDestinations = json.destinations;
 
-  console.log(travelDestinations.length);
+  
 
   for (let i = 0; i < travelDestinations.length; i++) {
 
@@ -95,7 +95,7 @@ console.log(json)
         infoBtn.addEventListener('click', (event) => {
           event.preventDefault();
 
-          console.log('click click boom')
+        
           // const infoModal = infoBtn.closest('#info-modal');
           thisModal = infoBtn.closest('.bl-card-item').querySelector('#info-modal');
             thisModal.style.display = 'block';
