@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const logoutButton = document.getElementById('logoutBtn')
+
+  logoutButton.addEventListener('click', () => {
+    window.location.href = '/';
+  });
   //API SEARCH FUNCTION
   
   const searchForm = document.getElementById('search-form');
