@@ -5,12 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Profile</title>
-  <!-- smart-webcomponemt css to be used with carousel element, to be overwritten by main.css and carousel.css -->
-  <link rel="stylesheet" href="../node_modules/smart-webcomponents/source/styles/smart.default.css" />
-
   <link rel="stylesheet" href="./styles/main.css" />
   <link rel="stylesheet" href="./styles/carousel.css" />
-  
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -40,16 +36,20 @@
   <!-- search results area -->
   <div class="search-results" id="searchResults">
     <!-- Content from search results will be displayed here -->
+    <!-- to be added to the bucket list by clicking on + add to list -->
   </div>
 
-
-  <!-- plain html placeholder for card item, will be js generated once connected to API-->
+  <!-- scrolling marquee (Html tag to be replaced by CSS later) -->
   <nav class="carousel-container">
-    <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" id="image-carousel">
+    <!-- <div class="control-buttons">
+      <button class="btn rwd">Rewind!</button>
+      <button class="btn ffw">FFW</button>
+    </div> -->
+    <marquee behavior="scroll" scrollamount="5" direction="left" onmouseover="this.stop();" onmouseout="this.start();" id="image-carousel">
       <ul id="bucket-list" class="list">
 
         <!-- placeholder cards -->
-        <li id="destination-id-1" class="bl-card-item">
+        <!-- <li id="destination-id-1" class="bl-card-item">
           <section class="bl-card-body">
             <div class="bl-card-main">
                 <div class="bl-card-header">
@@ -72,24 +72,24 @@
               </div>
             <div class="bl-buttons-footer">
               
-              <button class="destination-info btn">
+              <button class="destination-info bl-btn">
                 <i class="icon fa-solid fa-circle-info"></i>
               </button>
 
-              <button class="destination-notes btn">
+              <button class="destination-notes bl-btn">
                 <i class="icon fa-solid fa-list"></i>
               </button>
 
-              <button class="visited-destination btn">
+              <button class="visited-destination bl-btn">
                 <i class="icon fa-solid fa-check"></i>
               </button>
-              <!-- clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now) -->
-              <button class="delete-destination btn">
+              clicking the delete button will remove the card item from the carousel and bucket-list table, but not the database(for now)
+              <button class="delete-destination bl-btn">
                 <i class="icon fa fa-trash"></i>
               </button>
             </div>
           </section>
-        </li>
+        </li> -->
 
       </ul>
     </marquee>
@@ -116,9 +116,8 @@
    <!-- Journal Section (( below other sections  )) -->
     
 
- 
     <!-- Other content on the profile page -->
-    <div class="infinite-pad">
+    <div id="editor-section" class="infinite-pad">
       <div id="scrollableArea" class="scrollable-area">
         <!-- Initial content and dynamically added paragraphs will be placed here -->
       </div>
@@ -201,12 +200,7 @@
   </footer>
 
 
-  <!-- Add more scripts here if needed -->
-  <!-- webcomponent npm package files to implement carousel display of bucket list destinations -->
   <script src="https://kit.fontawesome.com/b1195a5c7a.js" crossorigin="anonymous"></script>
-
-  <script src="../node_modules/smart-webcomponents/source/modules/smart.element.js"></script>
-  <script src="../node_modules/smart-webcomponents/source/modules/smart.carousel.js"></script>
   <script src="./src/profile.js"></script>
   <script src="./src/sections/Carousel.js"></script>
   <script src="./src/sections/Map.js"></script>

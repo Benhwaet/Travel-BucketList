@@ -65,19 +65,22 @@ or linking my Instagram account.
 
 APIs Used
 
--
--
--
--
--
+- Cloudinary
+- Leaflet
+- Homemade RESTful APIs
+
+Future APIs
+
+- Amadeus (Travel)
+- Unsplash (Images)
 
 What We learned during the project
 
--
--
--
--
--
+- cmd+k cmd+0 makes everyones life easier in VS Code
+- Buttons are the bane of my existence.
+- Coral is a style afficionado
+- Chris is the back-end master
+- Ben is a button bumpkin
 
 We followed the criteria below provided by the class instructors.
 
@@ -115,12 +118,13 @@ We followed the criteria below provided by the class instructors.
 
 The following image shows the web application.
 
-### here is the landing page 
+### here is the landing page
+
 ![LandingPage](/public/src/images/background/landingpage.jpg)
 
 ### here is the profile page
-![ProfilePage](/public/src/images/background/profilepage.jpeg)
 
+![ProfilePage](/public/src/images/background/profilepage.jpeg)
 
 > **Note**: insert any notes here
 
@@ -133,8 +137,8 @@ Thank You , For all your hard work and dedication to our second project.
 
 - README
 - Database
-- JS 
-- Seed Data
+- JS
+- Sowing Seed Data
 - Profile
 - Cloudinary
 - User login
@@ -159,7 +163,7 @@ Thank You , For all your hard work and dedication to our second project.
 - Seed Data
 - Models
 - Journal
--
+- A little style...
 
 > **Note**: Project Requirements was provided to us in class UNB-VIRT-FSF-PT-04-2023-U-LOLC for Project 2.
 
@@ -168,7 +172,6 @@ Thank You , For all your hard work and dedication to our second project.
 - Chris - [Github](https://github.com/ChrisSutt)
 - Coral - [Github](https://github.com/xNoirNightx)
 - Ben   - [Github](https://github.com/benhwaet)
-
 
 ## Links
 
