@@ -1,12 +1,12 @@
 //see module 11, activity 7, index.js on how to call api info from backend
 const bucketList = document.querySelector('#bucket-list');  //this is the ul
 
-window.onload = async() => {
+window.onload = async () => {
 
-  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations', 
-  {
+  const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/travelDestinations/destinations',
+    {
       method: 'GET',
-  });
+    });
   const json = await result.json()
 
   const travelDestinations = json.destinations;
@@ -14,7 +14,7 @@ window.onload = async() => {
   console.log(travelDestinations.length);
 
   for (let i = 0; i < travelDestinations.length; i++) {
-    
+
     let name = travelDestinations[i].name;
     let country = travelDestinations[i].country;
     let image = travelDestinations[i].image;
@@ -23,9 +23,9 @@ window.onload = async() => {
     let visited = travelDestinations[i].visited;
     let destination_id = travelDestinations[i].destination_id;
 
-  //serves as the template for the destination to be filled out by API data
+    //serves as the template for the destination to be filled out by API data
 
-let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-item">
+    let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-item">
     <section class="bl-card-body">
       <div class = "bl-card-main">
       <div>
@@ -39,10 +39,10 @@ let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-
       </div>
       </div>
       <div class="bl-buttons-footer">
-        <smart-button class="destination-info btn">
-          <i class="icon fa-solid fa-circle-info"><a href="#tabs"></a></i>
-        </smart-button>
-        <div id="infoModal" class="modal">
+        <button class="destination-info bl-btn">
+          <i class="icon fa-solid fa-circle-info"></i>
+        </button>
+        <div id="info-modal" class="modal">
           <div class="modal-content">
             <span class="close" id="closeBtn">&times;</span>
             <h2>About ${name}</h2>
@@ -51,9 +51,9 @@ let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-
             </div>
           </div>
         </div>
-        <smart-button class="destination-notes btn">
+        <button class="destination-notes bl-btn">
           <i class="icon fa-solid fa-list"><a href="#journal"></a></i>
-        </smart-button>
+        </button>
         <div id="notesModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeBtn">&times;</span>
@@ -63,119 +63,106 @@ let destinationsData = `<li id="destinationId_${destination_id}" class="bl-card-
           </div>
         </div>
       </div>
-        <smart-button class="visited-destination btn check-${visited}">
+        <button class="visited-destination bl-btn check-${visited}">
           <i class="icon fa-solid fa-check"></i>
-        </smart-button>
-        <smart-button class="delete-destination btn">
+        </button>
+        <button class="delete-destination bl-btn">
           <i class="icon fa fa-trash"></i>
-        </smart-button>
+        </button>
       </div>
     </section>
   </li>`
 
-  bucketList.insertAdjacentHTML('beforeend', destinationsData);
+    bucketList.insertAdjacentHTML('beforeend', destinationsData);
 
+  }
 
+  
+  // button variables and eventListener functiobs
+  //to display the modal containing destination descriptions
+  const blBtns = document.querySelectorAll('.bl-buttons-footer');
 
-const cardItem = document.querySelector('.bl-card-item');
-const cardMain = document.querySelector('.bl-card-main');
-const infoModal = document.querySelector('#info-modal');
-const infoModalContent = document.querySelector('#info-modal-content');
-const closeBtn = document.querySelector('#closeBtn');
+  blBtns.forEach((blBtn) => {
+    blBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      // button variables and eventListener functions
+      const infoBtns = document.querySelectorAll('.destination-info');
+      const infoModals = document.querySelectorAll('#info-modal');
 
-// forEach(variable => {  })
-const cardItems = document.querySelectorAll('.bl-card-item');
-const cardMains = document.querySelectorAll('.bl-card-main');
-const infoModals = document.querySelectorAll('#info-modal');
-const infoModalContents = document.querySelectorAll('#info-modal-content');
+      infoBtns.forEach((infoBtn) => {
+        infoBtn.addEventListener('click', (event) => {
+          event.preventDefault();
 
+          console.log('click click boom')
+          // const infoModal = infoBtn.closest('#info-modal');
+          thisModal = infoBtn.closest('.bl-card-item').querySelector('#info-modal');
+            thisModal.style.display = 'block';
 
-// button variables and eventListener functiobs
-//to display the modal containing destination descriptions
-// --> still need to figure out individual button targeting for info btns
-const infoBtns = document.querySelectorAll('.destination-info');
-
-infoBtns.forEach((infoBtn) => {
-
-  infoBtn.addEventListener('click', () => {
-    console.log('click click boom');
-
-    ///not in the right position, but worked before adding
-    //closest to the closeBtns
-      // window.addEventListener('click', (event) => {
-      //   if (event.target === infoModal) {
-      //     infoModal.style.display = 'none';
-      //   }
-      // });
-    
-    infoModals.forEach((infoModal) => {
-      infoModal.style.display = 'block';
-
-      const closeBtns = document.querySelectorAll('#closeBtn');
-      closeBtns.forEach((closeBtn) => {
-        closeBtn.addEventListener('click', function () {
-          const closeInfoModal = closeBtn.closest('.modal');
-          closeInfoModal.style.display = 'none';
-        })
+            const closeBtns = document.querySelectorAll('#close-button');
+            closeBtns.forEach((closeBtn) => {
+              closeBtn.addEventListener('click', function () {
+                const closeInfoModal = closeBtn.closest('.modal');
+                closeInfoModal.style.display = 'none';
+              })
+            });
+          });
+        });
       });
-    });
-  });
-});
 
-//to link the destination card to its journal entry(ies)
-const noteBtns = document.querySelectorAll('.destination-notes');
+      //to link the destination card to its journal entry(ies)
+      const noteBtns = document.querySelectorAll('.destination-notes');
 
-noteBtns.forEach((noteBtn) => {
-noteBtn.addEventListener('click', () => {
-  location.href = '#editor-section';
-// for now, go to the journal editor section
-  //PSEUDOcode - open the journal entry with a matching destination or a brand new note entry
-  // if (notes.destination_id === carouselCard.destination_id) {
-  //   location.href = '#travel-journal.destination_id';
-  // } else if (notes.destination_id !== carouselCard.destination_id) {
-  //   location.href = '#travel-journal.new_note';
-  // }
-});
-});
+      noteBtns.forEach((noteBtn) => {
+        noteBtn.addEventListener('click', () => {
+          location.href = '#editor-section';
+          // for now, go to the journal editor section
+          //PSEUDOcode - open the journal entry with a matching destination or a brand new note entry
+          // if (notes.destination_id === carouselCard.destination_id) {
+          //   location.href = '#travel-journal.destination_id';
+          // } else if (notes.destination_id !== carouselCard.destination_id) {
+          //   location.href = '#travel-journal.new_note';
+          // }
+        });
+      });
 
-// visited true/false button
-const visitedBtns = document.querySelectorAll('.visited-destination');
-const icons = document.querySelectorAll('.icon');
-const visitCheck = document.querySelector('.fa-check');
-const visitCheckCircle = document.querySelector('.fa-check-circle');
+      // visited true/false button
+      const visitedBtns = document.querySelectorAll('.visited-destination');
+      const icons = document.querySelectorAll('.icon');
+      const visitCheck = document.querySelector('.fa-check');
+      const visitCheckCircle = document.querySelector('.fa-check-circle');
 
-visitedBtns.forEach((visitedBtn) => {
+      visitedBtns.forEach((visitedBtn) => {
 
-  visitedBtn.addEventListener('click', () => {
-    const checkBtn = visitedBtn.closest('.icon'); //checkmark
-    console.log('visited button clicked');
+        visitedBtn.addEventListener('click', () => {
+          const checkBtn = visitedBtn.closest('.icon'); //checkmark
+          console.log('visited button clicked');
 
-    icons.forEach((icon) => {
-      if (icon.classList.contains('fa-check')) 
-      {
-        icon.classList.remove('fa-check');
-        icon.addClass('fa-check-circle');
-        checkBtn.style.color = 'purple';
-      } 
-      else if (icon.classList.contains('fa-check-circle')) 
-      {
-        icon.classList.remove('fa-check');
-        icon.addClass('fa-check-circle');
-        checkBtn.style.color = '#004e5a';
-      }
-    });
-  });
-});
+          icons.forEach((icon) => {
+            if (icon.classList.contains('fa-check')) {
+              icon.classList.remove('fa-check');
+              icon.addClass('fa-check-circle');
+              checkBtn.style.color = 'purple';
+            }
+            else if (icon.classList.contains('fa-check-circle')) {
+              icon.classList.remove('fa-check');
+              icon.addClass('fa-check-circle');
+              checkBtn.style.color = '#004e5a';
+            }
+          });
+        });
+      });
 
-//to remove entire card from carousel and out of bucket-list table
-//do we need a separate table for bucket-list or do we just delete elements from the carousel?
-const deleteBtns = document.querySelectorAll('.delete-destination');
+      //to remove entire card from carousel and out of bucket-list table
+      //do we need a separate table for bucket-list or do we just delete elements from the carousel?
+      const deleteBtns = document.querySelectorAll('.delete-destination');
 
-deleteBtns.forEach((deleteBtn) => {
-deleteBtn.addEventListener("click", () => {
-  const deleteCard = deleteBtn.closest('.bl-card-item');
-  deleteCard.remove();
-});
-});
-};
-};
+      deleteBtns.forEach((deleteBtn) => {
+        deleteBtn.addEventListener("click", () => {
+          const deleteCard = deleteBtn.closest('.bl-card-item');
+          deleteCard.remove();
+        }
+        )
+      });
+    }
+ )};
+
