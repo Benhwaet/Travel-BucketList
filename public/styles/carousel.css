@@ -13,8 +13,10 @@
 nav {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   margin-top: 15px;
   object-fit: fill;
+  height: 400px;
 }
 
 marquee {
@@ -110,21 +112,28 @@ marquee {
 /* displays destination.name and destination.description */
 #info-modal {
   display: relative;
-  justify-content: center;
-  align-items: center;
   background-color: var(--modal-overlay-color);
   position: relative;
   border-radius: 15px;
+  max-width: 250px;
+  margin-bottom: 40px;
 }
 
 #info-modal-content {
-  display: absolute;
-  text-align: j;
-  text-align-last: center;
   height: 250px;
   background-color: rgb(255, 240, 232);
+  background-blend-mode: color-burn;
   color: var(--primary-color);
   border: 5px solid var(--primary-color);
-  width: fit-content;
+  border-radius: 15px;
+  height: 200px;
+  margin-bottom: 40px;
+}
+
+.destination-info-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  word-wrap: break-word;
   overflow-y: scroll;
 }

@@ -45,7 +45,7 @@ console.log(json)
           <i class="icon fa-solid fa-circle-info"></i>
         </button>
         <div id="info-modal" class="modal">
-          <div class="modal-content">
+          <div id="info-modal-content" class="modal-content">
             <span class="close" id="close-button">&times;</span>
             <h2>About ${name}</h2>
             <div class="destination-info-content">
@@ -171,3 +171,15 @@ console.log(json)
     }
  )};
 
+// const ffwBtn = document.querySelector('.ffw');
+// const rwdBtn = document.querySelector('.rwd');
+// const marquee = document.querySelector('marquee');
+
+// ffwBtn.addEventListener('click', () => {
+//   console.log('zoom')
+//   marquee.setAttribute('scrollamount', '+5');
+// });
+
+// rwdBtn.addEventListener('click', () => {
+//   marquee.setAttribute('scrollamount', '-5');
+// } );
