@@ -115,7 +115,12 @@ We followed the criteria below provided by the class instructors.
 
 The following image shows the web application.
 
-![Travel Bucketlist](./insertimagelink)
+### here is the landing page 
+![LandingPage](/public/src/images/background/landingpage.jpg)
+
+### here is the profile page
+![ProfilePage](/public/src/images/background/profilepage.jpeg)
+
 
 > **Note**: insert any notes here
 
@@ -128,10 +133,11 @@ Thank You , For all your hard work and dedication to our second project.
 
 - README
 - Database
-- JS /
+- JS 
 - Seed Data
 - Profile
-- Flight/Hotel ( api ? pending )
+- Cloudinary
+- User login
 
 ### Coral - xNoirNightx
 
@@ -141,6 +147,9 @@ Thank You , For all your hard work and dedication to our second project.
 - JS / CSS / HTML
 - Memory Board
 - Interactive Map
+- Style
+- Cloudinary
+- Journal
 
 ### Ben - Benhwaet
 
@@ -152,15 +161,6 @@ Thank You , For all your hard work and dedication to our second project.
 - Journal
 -
 
-### Eren - badoglu
-
--
--
--
--
--
--
-
 > **Note**: Project Requirements was provided to us in class UNB-VIRT-FSF-PT-04-2023-U-LOLC for Project 2.
 
 ## Our Githubs
@@ -168,12 +168,14 @@ Thank You , For all your hard work and dedication to our second project.
 - Chris - [Github](https://github.com/ChrisSutt)
 - Coral - [Github](https://github.com/xNoirNightx)
 - Ben   - [Github](https://github.com/benhwaet)
-- Eren  - [Github](https://github.com/badoglu)
+
 
 ## Links
 
-- [Heroku](./insertlink)
-- [Slideshow](./insertlink)
+- [Heroku-LandingPage](https://traveling-bucket-a1886f9c05bf.herokuapp.com/)
+- [Heroku-ProfilePage](https://traveling-bucket-a1886f9c05bf.herokuapp.com/profile.html)
+
+- [Slideshow](https://www.canva.com/design/DAFrhDZsheM/u8cpzmWTsSIROyDcWRyOMg/view?utm_content=DAFrhDZsheM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## License
 
