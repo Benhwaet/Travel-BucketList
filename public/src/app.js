@@ -93,5 +93,4 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Upload error:', error);
     }
   });
-  
-  
+});
