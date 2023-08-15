@@ -1,3 +1,5 @@
+
+
 //see module 11, activity 7, index.js on how to call api info from backend
 const bucketList = document.querySelector('#bucket-list');  //this is the ul
 
@@ -8,7 +10,7 @@ window.onload = async () => {
       method: 'GET',
     });
   const json = await result.json()
-
+console.log(json)
   const travelDestinations = json.destinations;
 
   console.log(travelDestinations.length);

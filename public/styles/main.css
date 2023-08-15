@@ -228,7 +228,7 @@ body.profile-page {
 
 .scrollable-area {
   width: 99%;
-  background-image: url('../src/images/background/desk.png');
+  /* background-image: url('../src/images/background/desk.png'); */
   background-size: contain;
   padding: 5px;
 }
