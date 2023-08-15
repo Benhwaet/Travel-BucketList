@@ -44,7 +44,7 @@ window.onload = async () => {
         </button>
         <div id="info-modal" class="modal">
           <div class="modal-content">
-            <span class="close" id="closeBtn">&times;</span>
+            <span class="close" id="close-button">&times;</span>
             <h2>About ${name}</h2>
             <div class="destination-info-content">
                 <p>${description}</p>
@@ -98,13 +98,16 @@ window.onload = async () => {
           thisModal = infoBtn.closest('.bl-card-item').querySelector('#info-modal');
             thisModal.style.display = 'block';
 
-            const closeBtns = document.querySelectorAll('#close-button');
+          const closeBtns = document.querySelectorAll('#close-button');
             closeBtns.forEach((closeBtn) => {
+              
               closeBtn.addEventListener('click', function () {
                 const closeInfoModal = closeBtn.closest('.modal');
                 closeInfoModal.style.display = 'none';
               })
             });
+
+            
           });
         });
       });
