@@ -37,8 +37,8 @@ app.use('/node_modules', express.static('node_modules'));
 
 app.use(cors());
 
-const signuploadform = require('./backend/routes/imageUploads');
-app.use('/api/signuploadform', signuploadform)
+// const signuploadform = require('./backend/routes/imageUploads');
+// app.use('/api/signuploadform', signuploadform)
 
 const homeRoutes = require('./backend/controllers/home-routes');
 app.use('/', homeRoutes);
