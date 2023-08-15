@@ -64,9 +64,7 @@ const userController = {
       console.log('Received password:', req.body.password);
       
       const validPassword = await userData.checkPassword(req.body.password);
-
-      
-      
+  
       console.log('Hashed stored password:', userData.password);
       console.log('Password comparison result:', validPassword);
       
@@ -77,16 +75,12 @@ const userController = {
         return;
       }
   
-        req.session.save(() => {
-        req.session.user_id = userData.user_id;
-        req.session.logged_in = true;
-        
-        res.json({ user: userData, message: 'You are now logged in!' });
-      });
+      res.json({ user: userData, message: 'You are now logged in!' });
     } catch (err) {
-      res.status(402).json(err);
+      res.status(500).json(err);
     }
   },
+  
 
   logout: (req, res) => {
     if (req.session.logged_in) {
