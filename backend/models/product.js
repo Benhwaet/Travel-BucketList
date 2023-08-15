@@ -1,64 +1,50 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../../connection');
 
-
 class productData extends Model { }
 
 productData.init(
     {
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: 'Please add a product Name',
-          },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Please add a product Name',
+                },
+            },
+            maxLength: 32,
         },
-        maxLength: 32,
-      },
-      description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: 'Please add a product Description',
-          },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Please add a product Description',
+                },
+            },
+            maxLength: 2000,
         },
-        maxLength: 2000,
-      },
-      price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          notEmpty: {
-            msg: 'Product must have a price',
-          },
+        price: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    msg: 'Product must have a price',
+                },
+            },
+            maxLength: 32,
         },
-        maxLength: 32,
-      },
-      imagePublicId: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      imageUrl: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      categoryId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Category',
-          key: 'id',
+        imagePublicId: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-        validate: {
-          notEmpty: {
-            msg: 'Product must belong to a category',
-          },
+        imageUrl: {
+            type: DataTypes.STRING,
+            allowNull: false,
         },
-      },
     },
     { sequelize, modelName: 'productData', timestamps: true }
-  );
-  
-  module.exports = productData
+);
+
+module.exports = productData;

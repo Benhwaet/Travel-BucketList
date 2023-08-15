@@ -5,7 +5,7 @@ const cloudinary = require('../utils/cloudinary');
 
 const productController = {
     createProduct: async (req, res, next) => {
-        const { name, description, price, category } = req.body;
+        const { name, description, price, } = req.body;
         const image = req.file;
     
         try {
@@ -21,7 +21,7 @@ const productController = {
                     public_id: result.public_id,
                     url: result.secure_url,
                 },
-                category,
+               
             });
     
             res.status(201).json({
@@ -131,23 +131,8 @@ const productController = {
     
         }
     
-    },
-    
-
-    productCategory: async (req, res, next) => {
-        
-    try {
-        const cat = await Product.find().populate('category', 'name').distinct('category');
-        res.status(201).json({
-            success: true,
-            cat
-        });
-
-    } catch (error) {
-        console.log(error);
-        next(error);
     }
-}
+    
 };
     
 
