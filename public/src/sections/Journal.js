@@ -1,3 +1,56 @@
+
+  // window.onload = async () => {
+
+    //Lines 5-49 are for the journal API data, can be commented out since some database links 
+    //have not been implemented yet, ex: name and country for the journal entry linking journal and scroll locations
+    
+    //---->Fetching the data and displaying it works, but breaks the destination API fetching<----  
+    
+    // const result = await fetch('https://traveling-bucket-a1886f9c05bf.herokuapp.com/api/journal/entries',
+      //   {
+      //     method: 'GET',
+      //   });
+        
+      // const json = await result.json()
+
+
+//     const journalEntries = json.entries
+
+   
+//     for (let i = 0; i < journalEntries.length; i++) {
+
+
+//       let username = journalEntries[i].username;
+//       let entryDate = journalEntries[i].entryDate;
+//       let title = journalEntries[i].title;
+//       let entryContent = journalEntries[i].entryContent;
+//       let entry_id = journalEntries[i].entry_id;
+
+//       //serves as the template for the journal entry to be filled out by API data
+//      const journalEntry = `<div class="paragraph journal-container">
+//     <div class="journal-header">
+//       <h2 contentEditable="true" class="destination-name">Moncton, Canada</h2>
+//       <h3 contentEditable="true" class="authored">#${entry_id} by ${username}, on ${entryDate}</h3>
+//     </div>
+//     <div class="journal-body">
+//       <div class="journal-entry">
+//         <div class="journal-entry-header">
+//           <h3 contentEditable="true" class="journal-title">${title}</h3>
+//         </div>
+//         <div class="journal-entry-body">
+//           <p contentEditable="true">${entryContent}</p>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </section>`
+
+// const scrollableArea = document.getElementById('scrollableArea');
+// scrollableArea.insertAdjacentHTML('beforeend', journalEntry);
+
+// };
+  
+
 const scrollableArea = document.getElementById('scrollableArea');
 let paragraphCounter = 0;
 
@@ -55,7 +108,7 @@ saveButton.addEventListener('click', async () => {
   }
 });
 
-
+// };
 
 // // old journal code (( dont delete ))
 // document.addEventListener('DOMContentLoaded', function () {
